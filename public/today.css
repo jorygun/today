@@ -1,0 +1,76 @@
+body { max-width: 800px; }
+
+h4
+{
+	margin-bottom: 3px;
+	font-size: 1.3em;
+}
+
+h3 { font-size: 1.5em;
+	font-weight:bold;}
+
+.pithy
+{
+	font-style: italic;
+	text-align: center;
+}
+
+.right, td .right { text-align: right; }
+.left, td .left { text-align: left; }
+
+table { border-collapse: collapse; }
+
+table tr td
+{
+	border: 1px solid black;
+	font-family: arial,san-serif;
+	text-align: center;
+	padding-right: 6px;
+	padding-left: 6px;
+}
+
+.table-no  td
+{
+	border: 0;
+	text-align: left;
+	border-collapse: seperate;
+}
+
+.no-border  td
+{
+	border: 0;
+	text-align: left;
+}
+
+.warn
+{
+	border: 2px solid red;
+	text-align: center;
+	padding: 4px;
+	margin-bottom: 1em;
+	width: 60%;
+}
+
+.in2 { margin-left: 2em; }
+
+.today
+{
+	font-weight: bold;
+	text-align: center;
+	font-size: 1.5em;
+}
+
+.uvstyle { background-color: <?=$uv['uvcolor']?>; }
+.firestyle { background-color: <?=$fire['firecolor']?>; }
+.aqstyle { background-color: <?=$air['aqi_color']?>; }
+
+.warnblock
+{
+	display: inline-block;
+	font-weight: bold;
+	margin-bottom: 6px;
+	padding-left: 3em;
+	padding-right: 3em;
+}
+
+.lt-grn { background-color: #D4FB79; }

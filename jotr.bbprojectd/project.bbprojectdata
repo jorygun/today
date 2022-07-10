@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>HierarchyData</key>
+	<array>
+		<string>20F4A5BB-12BD-49E8-96AD-B6C490AFE201</string>
+	</array>
+	<key>ProjectItems</key>
+	<dict>
+		<key>20F4A5BB-12BD-49E8-96AD-B6C490AFE201</key>
+		<dict>
+			<key>ItemData</key>
+			<dict>
+				<key>BookmarkData</key>
+				<data>
+				Ym9va6wCAAAAAAQQMAAAAPineA3f3HU8t460WNcrgNbD
+				OMUAXYGRKG+1LMR0h7H9qAEAAAQAAAADAwAAAAgAKAUA
+				AAABAQAAVXNlcnMAAAAEAAAAAQEAAGpvaG4FAAAAAQEA
+				AFNpdGVzAAAABAAAAAEBAABqb3RyEAAAAAEGAAAQAAAA
+				IAAAACwAAAA8AAAACAAAAAQDAACEXAAAAAAAAAgAAAAE
+				AwAAwD8JAAAAAAAIAAAABAMAAGfUDQAAAAAACAAAAAQD
+				AACaCKkAAAAAABAAAAABBgAAYAAAAHAAAACAAAAAkAAA
+				AAgAAAAABAAAQcQ0rQ+vo4oYAAAAAQIAAAIAAAAAAAAA
+				DwAAAAAAAAAAAAAAAAAAAAgAAAAEAwAAAgAAAAAAAAAE
+				AAAAAwMAAPUBAAAIAAAAAQkAAGZpbGU6Ly8vDAAAAAEB
+				AABNYWNpbnRvc2ggSEQIAAAABAMAAABQoRtzAAAACAAA
+				AAAEAABBxBTfxAAAACQAAAABAQAAMkVGQjQ4M0QtQjU5
+				OS00Qzk3LUE5NzItNzhENjg3OEE2NzhGGAAAAAECAACB
+				AAAAAQAAAO8TAAABAAAAAAAAAAAAAAABAAAAAQEAAC8A
+				AAAAAAAAAQUAAMwAAAD+////AQAAAAAAAAAQAAAABBAA
+				AEgAAAAAAAAABRAAAKAAAAAAAAAAEBAAAMgAAAAAAAAA
+				QBAAALgAAAAAAAAAAiAAAJQBAAAAAAAABSAAAAQBAAAA
+				AAAAECAAABQBAAAAAAAAESAAAEgBAAAAAAAAEiAAACgB
+				AAAAAAAAEyAAADgBAAAAAAAAICAAAHQBAAAAAAAAMCAA
+				AKABAAAAAAAAAcAAAOgAAAAAAAAAEcAAACAAAAAAAAAA
+				EsAAAPgAAAAAAAAAENAAAAQAAAAAAAAA
+				</data>
+				<key>FileURL</key>
+				<string>file:///Users/john/Sites/jotr/</string>
+				<key>HasSecurityScope</key>
+				<true/>
+				<key>RelativePath</key>
+				<string>./</string>
+				<key>TypeID</key>
+				<string>_CFileLocator</string>
+				<key>Version</key>
+				<integer>1</integer>
+			</dict>
+			<key>ItemName</key>
+			<string>jotr</string>
+			<key>ItemType</key>
+			<string>FolderReference</string>
+		</dict>
+	</dict>
+	<key>com.barebones.DocumentFormatVersion</key>
+	<integer>5</integer>
+	<key>com.barebones.DocumentType</key>
+	<string>Project</string>
+</dict>
+</plist>

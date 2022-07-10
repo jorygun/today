@@ -1,0 +1,42 @@
+{
+    "name": "digitalmx/jotr",
+    "description": "JOTR Demo",
+    "version": "0.1",
+    "type": "project",
+    "license": "proprietary",
+    "authors": [
+    	{
+    		"name": "John Springer",
+    		"email": "john@digitalmx.com",
+    		"role": "developer"
+    	}
+    ],
+
+    "config": {
+            "vendor-dir": "vendor"
+    },
+    "require": {
+
+        "pimple/pimple": "^3.2",
+
+        "league/plates": "^3.3"
+
+
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9"
+    },
+
+    "autoload": {
+         "psr-4": {
+            "DigitalMx\\": "libmx/" ,
+            "DigitalMx\\jotr\\" : ["src/","config/","libmx/"]
+
+            },
+         "files": [
+
+         ]
+
+
+      }
+}

@@ -1,0 +1,78 @@
+I.  Show today form
+	a.  foreach $section, get_section ()
+			if (no cache) load_section (init)
+					load external data (curl, etc)
+					load internal data (defs)
+					load init data
+						including defs
+					save to cache and return y
+			else $y = l0oad cache
+
+			set dynamic data (options)
+			return array
+	b. display array with tpl
+
+2. Show admin form
+	a. foreach required $section, get sections()
+		get setion same as above,
+
+	b. display form with tpl
+
+3  Save admin form
+	split saved parameters and update caches
+
+
+Caches have all data needed to display that section of data on today.
+Means all def lookups alreaddy done.
+Also dynamic stuff for forms (like options) need to be done
+
+So get_section includes adding defs and options.
+
+
+sections
+--------
+weather
+light
+air
+uv
+fire
+camps
+calendar
+info
+
+#############
+main
+-----
+preapre admin
+prepare today
+post admin
+
+
+sub
+-----
+get_section
+update_section
+load_section
+
+externals
+-------------
+
+external_weather
+external_air
+external_light
+external_uv
+
+
+init
+-----
+fire
+calendar
+camps
+today??
+
+internal
+------
+fire
+camps
+
+
