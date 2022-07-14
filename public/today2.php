@@ -16,7 +16,7 @@
 <hr>
 <p class='pithy'>Something Pithy, more or less  , more &amp; less, even &quot;More&quot; and &#039;Less&#039; Add an emoji? 😜   nl next:<br />
 <br />
-two lines down   </p>
+two lines down    </p>
 
 	<h4>Announcements</h4>
 	<div class='warn'>
@@ -105,31 +105,37 @@ Retrieved at  Jul 13 07:40 pm</p>
 			<tr>
 				<td>Day</td>
 									<td>
-										</td>
-									<td>
-												Sunny, highs around 94 &deg; F, wind 5 to 15 mph S<br>
-						<!-- 	<image src="https://api.weather.gov/icons/land/day/few?size=medium" /> -->
+												n/a
 											</td>
 									<td>
-												Sunny, highs around 96 &deg; F, wind 0 to 10 mph S<br>
-						<!-- 	<image src="https://api.weather.gov/icons/land/day/few?size=medium" /> -->
+												Sunny <br />
+								Highs around 94 &deg; F<br />
+								wind 5 to 15 mph S						<!-- 	<image src="https://api.weather.gov/icons/land/day/few?size=medium" /> -->
+											</td>
+									<td>
+												Sunny <br />
+								Highs around 96 &deg; F<br />
+								wind 0 to 10 mph S						<!-- 	<image src="https://api.weather.gov/icons/land/day/few?size=medium" /> -->
 											</td>
 							</tr>
 
-			<tr>
+			<tr class='night'>
 			<td >Night</td>
 							<td class='night'>
-										Mostly Clear, lows around 71 &deg; F, wind 5 to 10 mph S<br>
-						<!-- <image src="https://api.weather.gov/icons/land/night/few?size=medium" /> -->
-									</td>
+											Mostly Clear <br />
+								Lows around 71 &deg; F<br />
+								wind 5 to 10 mph S						<!-- 	<image src="https://api.weather.gov/icons/land/night/few?size=medium" /> -->
+										</td>
 							<td class='night'>
-										Mostly Clear, lows around 72 &deg; F, wind 5 to 10 mph SSW<br>
-						<!-- <image src="https://api.weather.gov/icons/land/night/few?size=medium" /> -->
-									</td>
+											Mostly Clear <br />
+								Lows around 72 &deg; F<br />
+								wind 5 to 10 mph SSW						<!-- 	<image src="https://api.weather.gov/icons/land/night/few?size=medium" /> -->
+										</td>
 							<td class='night'>
-										Mostly Clear, lows around 73 &deg; F, wind 5 to 10 mph WSW<br>
-						<!-- <image src="https://api.weather.gov/icons/land/night/few?size=medium" /> -->
-									</td>
+											Mostly Clear <br />
+								Lows around 73 &deg; F<br />
+								wind 5 to 10 mph WSW						<!-- 	<image src="https://api.weather.gov/icons/land/night/few?size=medium" /> -->
+										</td>
 						</tr>
 	</table>
 
@@ -141,31 +147,37 @@ Retrieved at  Jul 13 07:40 pm</p>
 			<tr>
 				<td>Day</td>
 									<td>
-										</td>
-									<td>
-												Sunny, highs around 106 &deg; F, wind 2 to 16 mph SSE<br>
-						<!-- 	<image src="https://api.weather.gov/icons/land/day/hot?size=medium" /> -->
+												n/a
 											</td>
 									<td>
-												Sunny, highs around 108 &deg; F, wind 5 to 13 mph S<br>
-						<!-- 	<image src="https://api.weather.gov/icons/land/day/hot?size=medium" /> -->
+												Sunny <br />
+								Highs around 106 &deg; F<br />
+								wind 2 to 16 mph SSE						<!-- 	<image src="https://api.weather.gov/icons/land/day/hot?size=medium" /> -->
+											</td>
+									<td>
+												Sunny <br />
+								Highs around 108 &deg; F<br />
+								wind 5 to 13 mph S						<!-- 	<image src="https://api.weather.gov/icons/land/day/hot?size=medium" /> -->
 											</td>
 							</tr>
 
-			<tr>
+			<tr class='night'>
 			<td >Night</td>
 							<td class='night'>
-										Mostly Clear, lows around 82 &deg; F, wind 3 to 13 mph SW<br>
-						<!-- <image src="https://api.weather.gov/icons/land/night/few?size=medium" /> -->
-									</td>
+											Mostly Clear <br />
+								Lows around 82 &deg; F<br />
+								wind 3 to 13 mph SW						<!-- 	<image src="https://api.weather.gov/icons/land/night/few?size=medium" /> -->
+										</td>
 							<td class='night'>
-										Mostly Clear, lows around 83 &deg; F, wind 5 to 13 mph SW<br>
-						<!-- <image src="https://api.weather.gov/icons/land/night/few?size=medium" /> -->
-									</td>
+											Mostly Clear <br />
+								Lows around 83 &deg; F<br />
+								wind 5 to 13 mph SW						<!-- 	<image src="https://api.weather.gov/icons/land/night/few?size=medium" /> -->
+										</td>
 							<td class='night'>
-										Mostly Clear, lows around 85 &deg; F, wind 5 to 13 mph WSW<br>
-						<!-- <image src="https://api.weather.gov/icons/land/night/few?size=medium" /> -->
-									</td>
+											Mostly Clear <br />
+								Lows around 85 &deg; F<br />
+								wind 5 to 13 mph WSW						<!-- 	<image src="https://api.weather.gov/icons/land/night/few?size=medium" /> -->
+										</td>
 						</tr>
 	</table>
 
@@ -177,31 +189,37 @@ Retrieved at  Jul 13 07:40 pm</p>
 			<tr>
 				<td>Day</td>
 									<td>
-										</td>
-									<td>
-												Sunny, highs around 98 &deg; F, wind 0 to 15 mph S<br>
-						<!-- 	<image src="https://api.weather.gov/icons/land/day/few?size=medium" /> -->
+												n/a
 											</td>
 									<td>
-												Sunny, highs around 99 &deg; F, wind 5 to 15 mph SSE<br>
-						<!-- 	<image src="https://api.weather.gov/icons/land/day/few?size=medium" /> -->
+												Sunny <br />
+								Highs around 98 &deg; F<br />
+								wind 0 to 15 mph S						<!-- 	<image src="https://api.weather.gov/icons/land/day/few?size=medium" /> -->
+											</td>
+									<td>
+												Sunny <br />
+								Highs around 99 &deg; F<br />
+								wind 5 to 15 mph SSE						<!-- 	<image src="https://api.weather.gov/icons/land/day/few?size=medium" /> -->
 											</td>
 							</tr>
 
-			<tr>
+			<tr class='night'>
 			<td >Night</td>
 							<td class='night'>
-										Mostly Clear, lows around 76 &deg; F, wind 0 to 10 mph S<br>
-						<!-- <image src="https://api.weather.gov/icons/land/night/few?size=medium" /> -->
-									</td>
+											Mostly Clear <br />
+								Lows around 76 &deg; F<br />
+								wind 0 to 10 mph S						<!-- 	<image src="https://api.weather.gov/icons/land/night/few?size=medium" /> -->
+										</td>
 							<td class='night'>
-										Mostly Clear, lows around 78 &deg; F, wind 5 to 10 mph WSW<br>
-						<!-- <image src="https://api.weather.gov/icons/land/night/few?size=medium" /> -->
-									</td>
+											Mostly Clear <br />
+								Lows around 78 &deg; F<br />
+								wind 5 to 10 mph WSW						<!-- 	<image src="https://api.weather.gov/icons/land/night/few?size=medium" /> -->
+										</td>
 							<td class='night'>
-										Mostly Clear, lows around 79 &deg; F, wind 5 to 10 mph W<br>
-						<!-- <image src="https://api.weather.gov/icons/land/night/few?size=medium" /> -->
-									</td>
+											Mostly Clear <br />
+								Lows around 79 &deg; F<br />
+								wind 5 to 10 mph W						<!-- 	<image src="https://api.weather.gov/icons/land/night/few?size=medium" /> -->
+										</td>
 						</tr>
 	</table>
 
@@ -213,31 +231,37 @@ Retrieved at  Jul 13 07:40 pm</p>
 			<tr>
 				<td>Day</td>
 									<td>
-										</td>
-									<td>
-												Sunny, highs around 95 &deg; F, wind 5 to 15 mph S<br>
-						<!-- 	<image src="https://api.weather.gov/icons/land/day/few?size=medium" /> -->
+												n/a
 											</td>
 									<td>
-												Sunny, highs around 96 &deg; F, wind 5 to 15 mph SSE<br>
-						<!-- 	<image src="https://api.weather.gov/icons/land/day/few?size=medium" /> -->
+												Sunny <br />
+								Highs around 95 &deg; F<br />
+								wind 5 to 15 mph S						<!-- 	<image src="https://api.weather.gov/icons/land/day/few?size=medium" /> -->
+											</td>
+									<td>
+												Sunny <br />
+								Highs around 96 &deg; F<br />
+								wind 5 to 15 mph SSE						<!-- 	<image src="https://api.weather.gov/icons/land/day/few?size=medium" /> -->
 											</td>
 							</tr>
 
-			<tr>
+			<tr class='night'>
 			<td >Night</td>
 							<td class='night'>
-										Mostly Clear, lows around 77 &deg; F, wind 5 to 15 mph SSW<br>
-						<!-- <image src="https://api.weather.gov/icons/land/night/few?size=medium" /> -->
-									</td>
+											Mostly Clear <br />
+								Lows around 77 &deg; F<br />
+								wind 5 to 15 mph SSW						<!-- 	<image src="https://api.weather.gov/icons/land/night/few?size=medium" /> -->
+										</td>
 							<td class='night'>
-										Mostly Clear, lows around 78 &deg; F, wind 5 to 15 mph SSW<br>
-						<!-- <image src="https://api.weather.gov/icons/land/night/few?size=medium" /> -->
-									</td>
+											Mostly Clear <br />
+								Lows around 78 &deg; F<br />
+								wind 5 to 15 mph SSW						<!-- 	<image src="https://api.weather.gov/icons/land/night/few?size=medium" /> -->
+										</td>
 							<td class='night'>
-										Mostly Clear, lows around 80 &deg; F, wind 5 to 15 mph WSW<br>
-						<!-- <image src="https://api.weather.gov/icons/land/night/few?size=medium" /> -->
-									</td>
+											Mostly Clear <br />
+								Lows around 80 &deg; F<br />
+								wind 5 to 15 mph WSW						<!-- 	<image src="https://api.weather.gov/icons/land/night/few?size=medium" /> -->
+										</td>
 						</tr>
 	</table>
 
@@ -372,13 +396,13 @@ Retrieved at  Jul 13 07:40 pm</p>
 	<td style='vertical-align:top;'>Wednesday Jul 27 9:00 pm <br />&nbsp;&nbsp;(90 minutes) </td>
 <!--
 	<td><br />
-<b>Warning</b>:  Undefined array key "event_location" in <b>/Users/john/Sites/jotr/plates/today2.tpl</b> on line <b>207</b><br />
+<b>Warning</b>:  Undefined array key "event_location" in <b>/Users/john/Sites/jotr/plates/today2.tpl</b> on line <b>214</b><br />
  </td>
 	<td><br />
-<b>Warning</b>:  Undefined array key "event_type" in <b>/Users/john/Sites/jotr/plates/today2.tpl</b> on line <b>208</b><br />
+<b>Warning</b>:  Undefined array key "event_type" in <b>/Users/john/Sites/jotr/plates/today2.tpl</b> on line <b>215</b><br />
  </td>
 	<td><br />
-<b>Warning</b>:  Undefined array key "event_title" in <b>/Users/john/Sites/jotr/plates/today2.tpl</b> on line <b>209</b><br />
+<b>Warning</b>:  Undefined array key "event_title" in <b>/Users/john/Sites/jotr/plates/today2.tpl</b> on line <b>216</b><br />
  </td>
 
  -->
@@ -394,13 +418,13 @@ Retrieved at  Jul 13 07:40 pm</p>
 	<td style='vertical-align:top;'>Monday Aug 1 12:00 am <br />&nbsp;&nbsp;(5 minutes) </td>
 <!--
 	<td><br />
-<b>Warning</b>:  Undefined array key "event_location" in <b>/Users/john/Sites/jotr/plates/today2.tpl</b> on line <b>207</b><br />
+<b>Warning</b>:  Undefined array key "event_location" in <b>/Users/john/Sites/jotr/plates/today2.tpl</b> on line <b>214</b><br />
  </td>
 	<td><br />
-<b>Warning</b>:  Undefined array key "event_type" in <b>/Users/john/Sites/jotr/plates/today2.tpl</b> on line <b>208</b><br />
+<b>Warning</b>:  Undefined array key "event_type" in <b>/Users/john/Sites/jotr/plates/today2.tpl</b> on line <b>215</b><br />
  </td>
 	<td><br />
-<b>Warning</b>:  Undefined array key "event_title" in <b>/Users/john/Sites/jotr/plates/today2.tpl</b> on line <b>209</b><br />
+<b>Warning</b>:  Undefined array key "event_title" in <b>/Users/john/Sites/jotr/plates/today2.tpl</b> on line <b>216</b><br />
  </td>
 
  -->
@@ -420,4 +444,4 @@ Retrieved at  Jul 13 07:40 pm</p>
 
 
 <hr>
-<p id='bottom' class='right'>Updated 13 Jul 19:42 </p>
+<p id='bottom' class='right'>Updated 13 Jul 19:55 </p>

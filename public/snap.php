@@ -16,7 +16,7 @@
 <hr>
 <p class='pithy'>Something Pithy, more or less  , more &amp; less, even &quot;More&quot; and &#039;Less&#039; Add an emoji? 😜   nl next:<br />
 <br />
-two lines down   </p>
+two lines down    </p>
 
 	<h4>Announcements</h4>
 	<div class='warn'>
@@ -296,7 +296,7 @@ Retrieved at  Jul 13 07:40 pm</p>
 
 
 <hr>
-<p id='bottom' class='right'>Updated 13 Jul 19:42 </p>
+<p id='bottom' class='right'>Updated 13 Jul 19:55 </p>
 <script>
 
 function pageScroll() {

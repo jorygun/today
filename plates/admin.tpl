@@ -16,7 +16,7 @@ use DigitalMx as u;
 
 
 <h4>Enter closures/announcements</h4>
-<textarea name='announcements' ><?=$announcements?></textarea>
+<textarea name='announcements' ><?=$announcements ?></textarea>
 </p>
 
 <h4>Enter fire status</h4>

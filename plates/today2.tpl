@@ -14,7 +14,6 @@ use DigitalMx as u;
 <?php if(!empty($today['announcements'])) : ?>
 	<h4>Announcements</h4>
 	<div class='warn'>
-;
 	<?=$today['announcements']?>
 	</div>
 <?php endif; ?>
@@ -116,24 +115,31 @@ echo "Retrieved at  " . date ('M j h:i a',$air['jr']['dt']);
 				<td>Day</td>
 				<?php foreach ($days as $day) : ?>
 					<td>
-					<?php $data = $weathergov[$loc][$day]['day'] ?? [];
-						if (!empty($data)) : ?>
-							<?=$data['forecast']?>, highs around <?=$data['temp']?> &deg; F, wind <?=$data['wind']?><br>
+					<?php $data = $weathergov[$loc][$day]['day'] ?? '';
+						if ($data) : ?>
+							<?=$data['forecast']?> <br />
+								Highs around <?=$data['temp']?> &deg; F<br />
+								wind <?=$data['wind']?>
 						<!-- 	<image src="<?=$data['image']?>" /> -->
+						<?php else: ?>
+							n/a
 						<?php endif; ?>
 					</td>
 				<?php endforeach; // days?>
 			</tr>
 
-			<tr>
+			<tr class='night'>
 			<td >Night</td>
 			<?php foreach ($days as $day) : ?>
 				<td class='night'>
-				<?php $data = $weathergov[$loc][$day]['night'] ?? [];
-					if (!empty($data)) :?>
-						<?=$data['forecast']?>, lows around <?=$data['temp']?> &deg; F, wind <?=$data['wind']?><br>
-						<!-- <image src="<?=$data['image']?>" /> -->
-					<?php endif; ?>
+				<?php $data = $weathergov[$loc][$day]['night'] ?? '';
+					if ($data) : ?>
+							<?=$data['forecast']?> <br />
+								Lows around <?=$data['temp']?> &deg; F<br />
+								wind <?=$data['wind']?>
+						<!-- 	<image src="<?=$data['image']?>" /> -->
+						<?php else: ?>
+						<?php endif; ?>
 				</td>
 			<?php endforeach; ?>
 			</tr>

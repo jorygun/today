@@ -13,7 +13,6 @@ use DigitalMx as u;
 <?php if(!empty($today['announcements'])) : ?>
 	<h4>Announcements</h4>
 	<div class='warn'>
-;
 	<?=$today['announcements']?>
 	</div>
 <?php endif; ?>
