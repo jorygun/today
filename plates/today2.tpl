@@ -65,6 +65,13 @@ use DigitalMx as u;
 <?php if (!empty($today['weather_warn'])) : ?>
 	<div class='warn'><?=$today['weather_warn']?></div>
 <?php endif; ?>
+<?php if (!empty($alerts)) :
+	foreach ($alerts as $alert) : ?>
+	<div class='warn'><?= $alert['cat']?>: <?=$alert['event']?> <br />
+	<?=$alert['desc'] ?>
+	</div>
+<?php endforeach; endif; ?>
+
 
 
 

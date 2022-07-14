@@ -180,10 +180,13 @@ public function prepare_today($force=false) {
  //set force true or false to force cache updates
  // get sections needed
 
-	foreach (['weathergov','weather','air','uv','calendar','fire','light'] as $section) {
+	foreach (['weathergov','weather','air','alerts','uv','calendar','fire','light'] as $section) {
 		$y[$section] = $this -> load_cache ($section, $force);
 	}
 	$y['today'] = $this -> load_today();
+	$v = shell_exec(REPO_PATH . "/src/version.sh 2>&1");
+	echo 'Version: ' . $v . BRNL; exit;
+	$y['version'] = "V: $v";
 
 // u\echor($y, 'y array for today');
 	//clean text for display (spec chars, nl2br)
@@ -336,6 +339,9 @@ public function refresh_cache (string $section ) {
 						$this->write_cache ('light',$lt);
 					$uv = $this -> internal_uv ($w) ;
 						$this->write_cache ('uv',$uv);
+					$alerts = $this-> internal_alerts($w);
+						$this->write_cache('alerts',$alerts);
+
 
 					break;
 				case 'air': $w = $this -> external_airqual_2($this->airlocs) ?? [];
@@ -666,9 +672,19 @@ public function external_weathergov ($locs) {
 
 	// convert ot php arrays
 		$aresp = json_decode($resp, true);
-// u\echor($aresp , 'weather response');
+// u\echor($aresp , 'weathergov response');
 
-		$data = $aresp['properties'];
+		while (! $data = $aresp['properties'] ){
+			static $tries =0;
+			echo "No properties in aresp.  Tries $tries" . BRNL;
+			// u\echor($aresp,'aresp');
+			// retry
+			if ($tries > 2){die ("Can't get weather.gov");}
+			$resp = curl_exec($ch);
+			$aresp = json_decode($resp, true);
+			++$tries;
+		}
+			;
 		$y=[];
 		foreach ($data['periods'] as $p){ // period array]	d
 			// two periods per day, for day and night
@@ -708,6 +724,56 @@ public function external_weathergov ($locs) {
 	return $z;
 }
 
+public function external_alerts () {
+	//uses weather.gov api directly
+
+// get forecast data for each location
+	$ch = curl_init();
+	curl_setopt_array($ch,$this -> curl_options() );
+
+
+	// get forecast url from properties file
+		$url = 'https://api.weather.gov/alerts/active/zone/CAZ285';
+		if (! $url){
+			trigger_error("no url for location $loc", E_USER_WARNING);
+			die('died in alerts');
+		}
+		curl_setopt($ch, CURLOPT_URL,$url);
+		$resp = curl_exec($ch);
+		$err = curl_error($ch);
+		if ($err) {echo "cURL Error #:" . $err;exit;}
+
+	// convert ot php arrays
+		$aresp = json_decode($resp, true);
+// u\echor($aresp , 'alert response');
+
+		if (! $data = $aresp['features'] ){
+			echo "No alerts";
+			return [];
+		}
+			;
+		$y=[];
+		foreach ($data['properties'] as $alert){ // alerrt array]	d
+			if (empty($alert)){continue;}
+			$exp = strtotime($alert['expires']);
+			if ($exp < time()){continue;}
+
+			$y = array
+			(
+				'cat' => $alert['category'],
+				'event'  => $alert['event'],
+				'desc'  =>$alert['desc'],
+				'instruction' => $alert['instruction'],
+			);
+
+// 		u\echor ($y,'uv',STOP);
+			$z[] = $y;
+		}
+	curl_close ($ch);
+	echo "External aleerts updated" . BRNL;
+	return $z;
+}
+
 public function set_properties ($locs) {
 	// gets meta data for each location by lat,lon
 	// saves it in data file properties.json
@@ -732,7 +798,7 @@ echo "Starting on $loc" . BRNL;
 		curl_close ($ch);
 	// convert ot php arrays
 		$aresp = json_decode($resp, true);
-  u\echor($aresp , "Properties for $loc",NOSTOP);
+//	u\echor ($aresp , "Properties for $loc",NOSTOP);
 
 		if (! $props = $aresp['properties'] ){// array
 			trigger_error("no properties in response for $loc", E_USER_WARNING);
@@ -748,16 +814,33 @@ echo "Starting on $loc" . BRNL;
 
 }
 
+private function internal_alerts($w=[]) {
+	// retrieve alerts from the weather report
+if (empty($w)){
+		$w = $this->load_cache('weather');
+	}
+
+
+	$alerts = $w['alerts'] ?? [];
+		foreach ($alerts as $alert) {
+			$exp = strtotime($alert['expires']);
+			if ($exp < time()){continue;}
+
+			$y = array
+			(
+				'cat' => $alert['category'],
+				'event'  => $alert['event'],
+					'desc'  =>$alert['desc'],
+					'instruction' => $alert['instruction'],
+			);
+
+// 		u\echor ($y,'uv',STOP);
+		$z[] = $y;
+	return $z;
+}
+
+}
 private function internal_uv($w=[]) {
-	// $curl = start_curl ("https://api.openuv.io/api/v1/uv?lat=34.12&lng=-116.14&dt=2018-01-24T10:50:52.283Z' -H 'x-access-token: f9792ff531cddbab6b41fb6302e7c256'"
-// 	$response = curl_exec($curl);
-// 	$err = curl_error($curl);
-// 	curl_close($curl);
-//
-// 	if ($err) {
-// 		echo "cURL Error #:" . $err;
-// 		return;
-// 	}
 
 // retrieve uv from the weather report
 if (empty($w)){

@@ -107,6 +107,8 @@ echo "Retrieved at  " . date ('M j h:i a',$air['jr']['dt']);
  	echo "</tr>"; #</table>"; exit;
 
 	foreach ($weather as $loc => $x ) : //x period array
+//	if ($loc == 'alerts'){ u\echor($x); continue;}
+
 		if (!$locname = Defs::$sitenames[$loc] ){continue;}
 //	u\echor ($x,"Loc $loc", STOP);
 ?>
@@ -245,7 +247,7 @@ echo "Retrieved at  " . date ('M j h:i a',$air['jr']['dt']);
 
 
 <hr>
-<p id='bottom' class='right'>Updated <?= $today['updated'] ?> </p>
+<p id='bottom' class='right'> <?=$version ?> </p>
 <script>
 
 function pageScroll() {

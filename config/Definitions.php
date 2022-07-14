@@ -207,6 +207,7 @@ public static $coordinates = [
 				'today' => REPO_PATH . "/data/today.json",
 				'properties' => REPO_PATH . "/data/properties.json",
 				'weathergov' => REPO_PATH . "/data/weathergov.json",
+				'alerts' => REPO_PATH . "/data/alerts.json",
 			);
 
 // time before refresh in minutes.  0 means
@@ -224,6 +225,7 @@ public static $coordinates = [
 				'today' => 0,
 				'properties' => 60*24*7,
 				'weathergov' => 240,
+				'alerts' => 0,
 			);
 
 	private static $moons = array (
