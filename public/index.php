@@ -30,7 +30,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
 echo <<< EOT
-<p>Static Page: <a href='/today.php' target='static'>/today.php</a></p>
+<p>Static Page using weatherapi.com : <a href='/today.php' target='static'>/today.php</a></p>
+
+<p>Static Page using weather.gov : <a href='/today.php' target='new'>/today.php</a></p>
+
+
 <p>Scrolling Page: <a href='/scroll.php' target='scroll'>/scroll.php</a></p>
 
 <p>Admin Page: <a href='/admin.php' target='admin'> /admin.php</a></p>

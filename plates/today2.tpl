@@ -119,7 +119,7 @@ echo "Retrieved at  " . date ('M j h:i a',$air['jr']['dt']);
 					<?php $data = $weathergov[$loc][$day]['day'] ?? [];
 						if (!empty($data)) : ?>
 							<?=$data['forecast']?>, highs around <?=$data['temp']?> &deg; F, wind <?=$data['wind']?><br>
-							<image src="<?=$data['image']?>" />
+						<!-- 	<image src="<?=$data['image']?>" /> -->
 						<?php endif; ?>
 					</td>
 				<?php endforeach; // days?>
@@ -132,7 +132,7 @@ echo "Retrieved at  " . date ('M j h:i a',$air['jr']['dt']);
 				<?php $data = $weathergov[$loc][$day]['night'] ?? [];
 					if (!empty($data)) :?>
 						<?=$data['forecast']?>, lows around <?=$data['temp']?> &deg; F, wind <?=$data['wind']?><br>
-						<image src="<?=$data['image']?>" />
+						<!-- <image src="<?=$data['image']?>" /> -->
 					<?php endif; ?>
 				</td>
 			<?php endforeach; ?>
