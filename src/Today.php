@@ -180,7 +180,7 @@ public function prepare_today($force=false) {
  //set force true or false to force cache updates
  // get sections needed
 
-	foreach (['air','weather','weathergov','uv','calendar','fire','light'] as $section) {
+	foreach (['weathergov','weather','air','uv','calendar','fire','light'] as $section) {
 		$y[$section] = $this -> load_cache ($section, $force);
 	}
 	$y['today'] = $this -> load_today();
@@ -666,7 +666,7 @@ public function external_weathergov ($locs) {
 
 	// convert ot php arrays
 		$aresp = json_decode($resp, true);
-//   u\echor($aresp , 'weather response',STOP);
+   u\echor($aresp , 'weather response',STOP);
 
 		$data = $aresp['properties'];
 		$y=[];
