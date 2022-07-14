@@ -64,7 +64,7 @@ When the fire danger is "moderate" it means that fires can start from most accid
 
 
 <p><b>Air Quality</b>
-Retrieved at  Jul 13 04:31 pm</p>
+Retrieved at  Jul 13 07:40 pm</p>
 <table class='in2'>
 <tr><th>Location</th><th>Air Quality</th><th>Particulates (PM10)</th><th>Ozone</td></tr>
 <tr>
@@ -72,8 +72,8 @@ Retrieved at  Jul 13 04:31 pm</p>
 	<td>2		<span style="background-color: #CCFFCC">
 		Good</span>
 		</td>
-	<td>8.83</td>
-	<td>80.11</td>
+	<td>13.56</td>
+	<td>95.84</td>
 
 </tr>
 <tr>
@@ -81,7 +81,7 @@ Retrieved at  Jul 13 04:31 pm</p>
 	<td>2		<span style="background-color: #CCFFCC">
 		Good</span>
 		</td>
-	<td>10.98</td>
+	<td>11.91</td>
 	<td>95.84</td>
 
 </tr>
@@ -90,8 +90,8 @@ Retrieved at  Jul 13 04:31 pm</p>
 	<td>2		<span style="background-color: #CCFFCC">
 		Good</span>
 		</td>
-	<td>12.97</td>
-	<td>86.55</td>
+	<td>16.06</td>
+	<td>94.41</td>
 
 </tr>
 </table>
@@ -105,16 +105,14 @@ Retrieved at  Jul 13 04:31 pm</p>
 			<tr>
 				<td>Day</td>
 									<td>
-												Sunny, highs around 93 &deg; F, wind 10 to 15 mph S<br>
-							<image src="https://api.weather.gov/icons/land/day/few?size=medium" />
-											</td>
+										</td>
 									<td>
 												Sunny, highs around 94 &deg; F, wind 5 to 15 mph S<br>
-							<image src="https://api.weather.gov/icons/land/day/few?size=medium" />
+						<!-- 	<image src="https://api.weather.gov/icons/land/day/few?size=medium" /> -->
 											</td>
 									<td>
 												Sunny, highs around 96 &deg; F, wind 0 to 10 mph S<br>
-							<image src="https://api.weather.gov/icons/land/day/few?size=medium" />
+						<!-- 	<image src="https://api.weather.gov/icons/land/day/few?size=medium" /> -->
 											</td>
 							</tr>
 
@@ -122,15 +120,15 @@ Retrieved at  Jul 13 04:31 pm</p>
 			<td >Night</td>
 							<td class='night'>
 										Mostly Clear, lows around 71 &deg; F, wind 5 to 10 mph S<br>
-						<image src="https://api.weather.gov/icons/land/night/few?size=medium" />
+						<!-- <image src="https://api.weather.gov/icons/land/night/few?size=medium" /> -->
 									</td>
 							<td class='night'>
 										Mostly Clear, lows around 72 &deg; F, wind 5 to 10 mph SSW<br>
-						<image src="https://api.weather.gov/icons/land/night/few?size=medium" />
+						<!-- <image src="https://api.weather.gov/icons/land/night/few?size=medium" /> -->
 									</td>
 							<td class='night'>
 										Mostly Clear, lows around 73 &deg; F, wind 5 to 10 mph WSW<br>
-						<image src="https://api.weather.gov/icons/land/night/few?size=medium" />
+						<!-- <image src="https://api.weather.gov/icons/land/night/few?size=medium" /> -->
 									</td>
 						</tr>
 	</table>
@@ -143,16 +141,14 @@ Retrieved at  Jul 13 04:31 pm</p>
 			<tr>
 				<td>Day</td>
 									<td>
-												Sunny, highs around 105 &deg; F, wind 14 mph S<br>
-							<image src="https://api.weather.gov/icons/land/day/hot?size=medium" />
-											</td>
+										</td>
 									<td>
 												Sunny, highs around 106 &deg; F, wind 2 to 16 mph SSE<br>
-							<image src="https://api.weather.gov/icons/land/day/hot?size=medium" />
+						<!-- 	<image src="https://api.weather.gov/icons/land/day/hot?size=medium" /> -->
 											</td>
 									<td>
 												Sunny, highs around 108 &deg; F, wind 5 to 13 mph S<br>
-							<image src="https://api.weather.gov/icons/land/day/hot?size=medium" />
+						<!-- 	<image src="https://api.weather.gov/icons/land/day/hot?size=medium" /> -->
 											</td>
 							</tr>
 
@@ -160,15 +156,15 @@ Retrieved at  Jul 13 04:31 pm</p>
 			<td >Night</td>
 							<td class='night'>
 										Mostly Clear, lows around 82 &deg; F, wind 3 to 13 mph SW<br>
-						<image src="https://api.weather.gov/icons/land/night/few?size=medium" />
+						<!-- <image src="https://api.weather.gov/icons/land/night/few?size=medium" /> -->
 									</td>
 							<td class='night'>
 										Mostly Clear, lows around 83 &deg; F, wind 5 to 13 mph SW<br>
-						<image src="https://api.weather.gov/icons/land/night/few?size=medium" />
+						<!-- <image src="https://api.weather.gov/icons/land/night/few?size=medium" /> -->
 									</td>
 							<td class='night'>
 										Mostly Clear, lows around 85 &deg; F, wind 5 to 13 mph WSW<br>
-						<image src="https://api.weather.gov/icons/land/night/few?size=medium" />
+						<!-- <image src="https://api.weather.gov/icons/land/night/few?size=medium" /> -->
 									</td>
 						</tr>
 	</table>
@@ -181,32 +177,30 @@ Retrieved at  Jul 13 04:31 pm</p>
 			<tr>
 				<td>Day</td>
 									<td>
-												Sunny, highs around 96 &deg; F, wind 15 mph S<br>
-							<image src="https://api.weather.gov/icons/land/day/few?size=medium" />
-											</td>
+										</td>
 									<td>
 												Sunny, highs around 98 &deg; F, wind 0 to 15 mph S<br>
-							<image src="https://api.weather.gov/icons/land/day/few?size=medium" />
+						<!-- 	<image src="https://api.weather.gov/icons/land/day/few?size=medium" /> -->
 											</td>
 									<td>
 												Sunny, highs around 99 &deg; F, wind 5 to 15 mph SSE<br>
-							<image src="https://api.weather.gov/icons/land/day/few?size=medium" />
+						<!-- 	<image src="https://api.weather.gov/icons/land/day/few?size=medium" /> -->
 											</td>
 							</tr>
 
 			<tr>
 			<td >Night</td>
 							<td class='night'>
-										Mostly Clear, lows around 76 &deg; F, wind 0 to 15 mph S<br>
-						<image src="https://api.weather.gov/icons/land/night/few?size=medium" />
+										Mostly Clear, lows around 76 &deg; F, wind 0 to 10 mph S<br>
+						<!-- <image src="https://api.weather.gov/icons/land/night/few?size=medium" /> -->
 									</td>
 							<td class='night'>
 										Mostly Clear, lows around 78 &deg; F, wind 5 to 10 mph WSW<br>
-						<image src="https://api.weather.gov/icons/land/night/few?size=medium" />
+						<!-- <image src="https://api.weather.gov/icons/land/night/few?size=medium" /> -->
 									</td>
 							<td class='night'>
 										Mostly Clear, lows around 79 &deg; F, wind 5 to 10 mph W<br>
-						<image src="https://api.weather.gov/icons/land/night/few?size=medium" />
+						<!-- <image src="https://api.weather.gov/icons/land/night/few?size=medium" /> -->
 									</td>
 						</tr>
 	</table>
@@ -219,16 +213,14 @@ Retrieved at  Jul 13 04:31 pm</p>
 			<tr>
 				<td>Day</td>
 									<td>
-												Sunny, highs around 94 &deg; F, wind 15 mph SSW<br>
-							<image src="https://api.weather.gov/icons/land/day/few?size=medium" />
-											</td>
+										</td>
 									<td>
 												Sunny, highs around 95 &deg; F, wind 5 to 15 mph S<br>
-							<image src="https://api.weather.gov/icons/land/day/few?size=medium" />
+						<!-- 	<image src="https://api.weather.gov/icons/land/day/few?size=medium" /> -->
 											</td>
 									<td>
 												Sunny, highs around 96 &deg; F, wind 5 to 15 mph SSE<br>
-							<image src="https://api.weather.gov/icons/land/day/few?size=medium" />
+						<!-- 	<image src="https://api.weather.gov/icons/land/day/few?size=medium" /> -->
 											</td>
 							</tr>
 
@@ -236,15 +228,15 @@ Retrieved at  Jul 13 04:31 pm</p>
 			<td >Night</td>
 							<td class='night'>
 										Mostly Clear, lows around 77 &deg; F, wind 5 to 15 mph SSW<br>
-						<image src="https://api.weather.gov/icons/land/night/few?size=medium" />
+						<!-- <image src="https://api.weather.gov/icons/land/night/few?size=medium" /> -->
 									</td>
 							<td class='night'>
 										Mostly Clear, lows around 78 &deg; F, wind 5 to 15 mph SSW<br>
-						<image src="https://api.weather.gov/icons/land/night/few?size=medium" />
+						<!-- <image src="https://api.weather.gov/icons/land/night/few?size=medium" /> -->
 									</td>
 							<td class='night'>
 										Mostly Clear, lows around 80 &deg; F, wind 5 to 15 mph WSW<br>
-						<image src="https://api.weather.gov/icons/land/night/few?size=medium" />
+						<!-- <image src="https://api.weather.gov/icons/land/night/few?size=medium" /> -->
 									</td>
 						</tr>
 	</table>
@@ -428,4 +420,4 @@ Retrieved at  Jul 13 04:31 pm</p>
 
 
 <hr>
-<p id='bottom' class='right'>Updated 13 Jul 18:48 </p>
+<p id='bottom' class='right'>Updated 13 Jul 19:42 </p>

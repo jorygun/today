@@ -64,7 +64,7 @@ When the fire danger is "moderate" it means that fires can start from most accid
 
 
 <p><b>Air Quality</b>
-Retrieved at  Jul 13 04:31 pm</p>
+Retrieved at  Jul 13 07:40 pm</p>
 <table class='in2'>
 <tr><th>Location</th><th>Air Quality</th><th>Particulates (PM10)</th><th>Ozone</td></tr>
 <tr>
@@ -72,8 +72,8 @@ Retrieved at  Jul 13 04:31 pm</p>
 	<td>2		<span style="background-color: #CCFFCC">
 		Good</span>
 		</td>
-	<td>8.83</td>
-	<td>80.11</td>
+	<td>13.56</td>
+	<td>95.84</td>
 
 </tr>
 <tr>
@@ -81,7 +81,7 @@ Retrieved at  Jul 13 04:31 pm</p>
 	<td>2		<span style="background-color: #CCFFCC">
 		Good</span>
 		</td>
-	<td>10.98</td>
+	<td>11.91</td>
 	<td>95.84</td>
 
 </tr>
@@ -90,8 +90,8 @@ Retrieved at  Jul 13 04:31 pm</p>
 	<td>2		<span style="background-color: #CCFFCC">
 		Good</span>
 		</td>
-	<td>12.97</td>
-	<td>86.55</td>
+	<td>16.06</td>
+	<td>94.41</td>
 
 </tr>
 </table>
@@ -104,7 +104,9 @@ Retrieved at  Jul 13 04:31 pm</p>
 <tr><th>Wednesday, Jul 13</th><th>Thursday, Jul 14</th><th>Friday, Jul 15</th></tr>		<tr class='borders lt-grn left'><td colspan=5 ><b>Jumbo Rocks</b></td></tr>
 		<tr class='col-border'>
 
-<td>Sunny</td><td>Sunny</td><td>Sunny</td></tr><tr><td>Low: 75 High: 102  &deg;F</td><td>Low: 77 High: 103  &deg;F</td><td>Low: 77 High: 105  &deg;F</td></tr><tr><td>Wind to 16 mph </td><td>Wind to 15 mph </td><td>Wind to 14 mph </td></tr><tr><td>Humidity: 22 %</td><td>Humidity: 23 %</td><td>Humidity: 29 %</td></tr><tr><td>Rain 0 %</td><td>Rain 0 %</td><td>Rain 0 %</td></tr>		<tr class='borders lt-grn left'><td colspan=5 ><b>Twentynine Palms</b></td></tr>
+<td>Sunny</td><td>Sunny</td><td>Sunny</td></tr><tr><td>Low: 75 High: 102  &deg;F</td><td>Low: 77 High: 103  &deg;F</td><td>Low: 77 High: 105  &deg;F</td></tr><tr><td>Wind to 16 mph </td><td>Wind to 15 mph </td><td>Wind to 14 mph </td></tr><tr><td>Humidity: 22 %</td><td>Humidity: 23 %</td><td>Humidity: 29 %</td></tr><tr><td>Rain 0 %</td><td>Rain 0 %</td><td>Rain 0 %</td></tr><br />
+<b>Warning</b>:  Undefined array key "alerts" in <b>/Users/john/Sites/jotr/plates/today.tpl</b> on line <b>111</b><br />
+		<tr class='borders lt-grn left'><td colspan=5 ><b>Twentynine Palms</b></td></tr>
 		<tr class='col-border'>
 
 <td>Sunny</td><td>Sunny</td><td>Sunny</td></tr><tr><td>Low: 78 High: 106  &deg;F</td><td>Low: 80 High: 106  &deg;F</td><td>Low: 80 High: 108  &deg;F</td></tr><tr><td>Wind to 19 mph </td><td>Wind to 17 mph </td><td>Wind to 16 mph </td></tr><tr><td>Humidity: 20 %</td><td>Humidity: 21 %</td><td>Humidity: 26 %</td></tr><tr><td>Rain 0 %</td><td>Rain 0 %</td><td>Rain 0 %</td></tr>		<tr class='borders lt-grn left'><td colspan=5 ><b>Cottonwood</b></td></tr>
@@ -294,7 +296,7 @@ Retrieved at  Jul 13 04:31 pm</p>
 
 
 <hr>
-<p id='bottom' class='right'>Updated 13 Jul 18:48 </p>
+<p id='bottom' class='right'>Updated 13 Jul 19:42 </p>
 <script>
 
 function pageScroll() {

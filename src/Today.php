@@ -666,7 +666,7 @@ public function external_weathergov ($locs) {
 
 	// convert ot php arrays
 		$aresp = json_decode($resp, true);
-   u\echor($aresp , 'weather response',STOP);
+// u\echor($aresp , 'weather response');
 
 		$data = $aresp['properties'];
 		$y=[];
