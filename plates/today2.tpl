@@ -1,9 +1,10 @@
 <?php
 use DigitalMx\jotr\Definitions as Defs;
 use DigitalMx as u;
+// same as orginal today, but gets weather from weather gov cache
 ?>
 
-<p class='today'>Today in Joshua Tree National Park</p>
+<p class='today'>Today in Joshua Tree National Park (new)</p>
 <p class='today'><?=$today['target'] ?> </p>
 <hr>
 <?php if(!empty($today['pithy'])): ?>
@@ -93,71 +94,53 @@ echo "Retrieved at  " . date ('M j h:i a',$air['jr']['dt']);
 <?php endif; ?>
 
 <p><b>Forecasts</b></p>
-<?php if(empty($weather)): echo "<p>No Data</p>"; else: ?>
-
-<table class = 'in2 col-border'>
-
-<!-- get period names -->
 <?php
-	$periods = array_keys($weather['hq']);
-// u\echor ($periods);
-	echo "<tr>";
-	foreach ($periods as $p) :
-		echo "<th>{$weather['hq'][$p]['date']}</th>";
- 	endforeach;
- 	echo "</tr>"; #</table>"; exit;
+	if(empty($weather)): echo "<p>No Data</p>"; else:
 
-	foreach ($weather as $loc => $x ) : //x period array
+	$locs = array_keys($weathergov);
+	foreach ($locs as $loc) :
 		if (!$locname = Defs::$sitenames[$loc] ){continue;}
-//	u\echor ($x,"Loc $loc", STOP);
-?>
-		<tr class='borders lt-grn left'><td colspan=5 ><b><?=$locname?></b></td></tr>
-		<tr class='col-border'>
+		$days = array_slice(array_keys($weathergov[$loc]),0,3); // timestamps
+		?>
+		<p class='sectionhead'><?=$locname?></p>
 
-<?php
-			foreach ($periods as $p) :
-				$v = $x[$p]['skies'] ;
-			 	echo "<td>$v</td>";
-			endforeach;
-			echo 	"</tr>" ;
+		<table class = 'in2 col-border'>
+			<tr><th></th>
+				<?php foreach ($days as $day) :
+					$period = date('l M j',$day);
+					echo "<th>$period</th>";
+					endforeach;
+				 ?>
+			</tr>
+			<tr>
+				<td>Day</td>
+				<?php foreach ($days as $day) : ?>
+					<td>
+					<?php $data = $weathergov[$loc][$day]['day'] ?? [];
+						if (!empty($data)) : ?>
+							<?=$data['forecast']?>, highs around <?=$data['temp']?> &deg; F, wind <?=$data['wind']?><br>
+							<image src="<?=$data['image']?>" />
+						<?php endif; ?>
+					</td>
+				<?php endforeach; // days?>
+			</tr>
 
-			echo "<tr>";
-			foreach ($periods as $p) :
-				$v = $x[$p]['Low'] ;
-				$w = $x[$p]['High'] ;
-			 	echo "<td>Low: $v High: $w  &deg;F</td>";
-			endforeach;
-			echo 	"</tr>" ;
+			<tr>
+			<td >Night</td>
+			<?php foreach ($days as $day) : ?>
+				<td class='night'>
+				<?php $data = $weathergov[$loc][$day]['night'] ?? [];
+					if (!empty($data)) :?>
+						<?=$data['forecast']?>, lows around <?=$data['temp']?> &deg; F, wind <?=$data['wind']?><br>
+						<image src="<?=$data['image']?>" />
+					<?php endif; ?>
+				</td>
+			<?php endforeach; ?>
+			</tr>
+	</table>
 
-			echo "<tr>";
-			foreach ($periods as $p) :
-				$v = $x[$p]['maxwind'] ;
-
-			 	echo "<td>Wind to $v mph </td>";
-			endforeach;
-			echo 	"</tr>" ;
-
-			echo "<tr>";
-			foreach ($periods as $p) :
-				$v = $x[$p]['avghumidity'] ;
-			 	echo "<td>Humidity: $v %</td>";
-			endforeach;
-			echo 	"</tr>" ;
-
-			echo "<tr>";
-			foreach ($periods as $p) :
-				$v = $x[$p]['rain'] ;
-			 	echo "<td>Rain $v %</td>";
-			endforeach;
-			echo 	"</tr>" ;
-
-
-
-	endforeach;
-?>
-</table>
-
-<?php endif; ?>
+<?php endforeach; // loc?
+	endif; ?>
 
 
 
@@ -247,31 +230,3 @@ echo "Retrieved at  " . date ('M j h:i a',$air['jr']['dt']);
 
 <hr>
 <p id='bottom' class='right'>Updated <?= $today['updated'] ?> </p>
-<script>
-
-function pageScroll() {
-    	window.scrollBy(0,3); // horizontal and vertical scroll increments
-    	scrolldelay = setTimeout('pageScroll()',50); // scrolls every 100 milliseconds
-            if ((window.innerHeight + window.pageYOffset) >= document.body.offsetHeight) {
-        		scrolldelay = setTimeout('PageUp()',2000);
-    		}
-
-}
-
-function PageUp() {
-	window.scrollTo(0, 0);
-}
-
-</script>
-
-
-<script>
-	let timeout = setTimeout(() => {
-  document.querySelector('#target').scrollIntoView();
-}, 5000);
-
-(function() {
-  document.querySelector('#bottom').scrollIntoView();
-})();
-</script>
-

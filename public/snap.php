@@ -4,11 +4,11 @@
    <meta charset="utf-8" />
    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
    <link rel='stylesheet' href = '/today.css' >
-	<title>Today in the Park (scrolling)</title>
-	<style>html {scroll-behavior: smooth;}</style>
+	<title>Today in the Park (snap)</title>
+	
 
 </head>
-<body onLoad="pageScroll()">
+<body >
 
 
 <p class='today'>Today in Joshua Tree National Park</p>

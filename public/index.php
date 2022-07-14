@@ -17,21 +17,29 @@ namespace DigitalMx\jotr;
 //END START
 
 
-//throw new DataException('test except', 1);
-echo $Today->start_page('Today in the Park (refresh)');
+echo $Today->start_page('Index Today in JOTR');
 
-$x = $Today->prepare_today();
-$page_body = $Plates -> render('today',$x);
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+	$force =  ($_POST['refresh'] == 'force') ?? '';
+	$Today->rebuild($force);
+}
 
-$static_page =
-	$Today->start_page('Today in the Park (static)') . $page_body;
-file_put_contents (SITE_PATH . '/today.php',$static_page);
 
-$scroll_page =
-	$Today->start_page('Today in the Park (scrolling)','s') . $page_body;
-file_put_contents( SITE_PATH . '/scroll.php', $scroll_page);
+// $x = $Today->prepare_today();
+// $page_body = $Plates -> render('today',$x);
 
-echo "<p>Static Page: <a href='/today.php' target='static'>" . SITE . "/today.php</a></p>";
-echo "<p>Scrolling Page: <a href='/scroll.php' target='scroll'>" . SITE . "/scroll.php</a></p>";
-echo BRNL;
-echo "<p>Admin Page: <a href='/today_admin.php' target='admin'>" . SITE . "/today_admin.php</a></p>";
+
+echo <<< EOT
+<p>Static Page: <a href='/today.php' target='static'>/today.php</a></p>
+<p>Scrolling Page: <a href='/scroll.php' target='scroll'>/scroll.php</a></p>
+
+<p>Admin Page: <a href='/admin.php' target='admin'> /admin.php</a></p>
+
+
+<form method='POST'>
+<button type='submit' name='refresh' value='rebuild'>Rebuild pages</button>
+<button type='submit' name='refresh' value='force'>Rebuild caches and pages</button>
+
+</form>
+
+EOT;

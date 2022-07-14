@@ -1,0 +1,264 @@
+{
+    "@context": [
+        "https://geojson.org/geojson-ld/geojson-context.jsonld",
+        {
+            "@version": "1.1",
+            "wx": "https://api.weather.gov/ontology#",
+            "geo": "http://www.opengis.net/ont/geosparql#",
+            "unit": "http://codes.wmo.int/common/unit/",
+            "@vocab": "https://api.weather.gov/ontology#"
+        }
+    ],
+    "type": "Feature",
+    "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+            [
+                [
+                    -116.1550117,
+                    34.008429
+                ],
+                [
+                    -116.1507836,
+                    33.986144699999997
+                ],
+                [
+                    -116.1238678,
+                    33.989652699999994
+                ],
+                [
+                    -116.1280907,
+                    34.011937399999994
+                ],
+                [
+                    -116.1550117,
+                    34.008429
+                ]
+            ]
+        ]
+    },
+    "properties": {
+        "updated": "2022-07-13T08:13:37+00:00",
+        "units": "us",
+        "forecastGenerator": "BaselineForecastGenerator",
+        "generatedAt": "2022-07-13T16:09:22+00:00",
+        "updateTime": "2022-07-13T08:13:37+00:00",
+        "validTimes": "2022-07-13T02:00:00+00:00/P7DT23H",
+        "elevation": {
+            "unitCode": "wmoUnit:m",
+            "value": 1374.0383999999999
+        },
+        "periods": [
+            {
+                "number": 1,
+                "name": "Today",
+                "startTime": "2022-07-13T09:00:00-07:00",
+                "endTime": "2022-07-13T18:00:00-07:00",
+                "isDaytime": true,
+                "temperature": 93,
+                "temperatureUnit": "F",
+                "temperatureTrend": "falling",
+                "windSpeed": "10 to 15 mph",
+                "windDirection": "S",
+                "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
+                "shortForecast": "Sunny",
+                "detailedForecast": "Sunny. High near 93, with temperatures falling to around 91 in the afternoon. South wind 10 to 15 mph, with gusts as high as 25 mph."
+            },
+            {
+                "number": 2,
+                "name": "Tonight",
+                "startTime": "2022-07-13T18:00:00-07:00",
+                "endTime": "2022-07-14T06:00:00-07:00",
+                "isDaytime": false,
+                "temperature": 70,
+                "temperatureUnit": "F",
+                "temperatureTrend": "rising",
+                "windSpeed": "5 to 15 mph",
+                "windDirection": "S",
+                "icon": "https://api.weather.gov/icons/land/night/few?size=medium",
+                "shortForecast": "Mostly Clear",
+                "detailedForecast": "Mostly clear. Low around 70, with temperatures rising to around 72 overnight. South wind 5 to 15 mph, with gusts as high as 20 mph."
+            },
+            {
+                "number": 3,
+                "name": "Thursday",
+                "startTime": "2022-07-14T06:00:00-07:00",
+                "endTime": "2022-07-14T18:00:00-07:00",
+                "isDaytime": true,
+                "temperature": 93,
+                "temperatureUnit": "F",
+                "temperatureTrend": null,
+                "windSpeed": "5 to 15 mph",
+                "windDirection": "SSE",
+                "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
+                "shortForecast": "Sunny",
+                "detailedForecast": "Sunny, with a high near 93. South southeast wind 5 to 15 mph, with gusts as high as 25 mph."
+            },
+            {
+                "number": 4,
+                "name": "Thursday Night",
+                "startTime": "2022-07-14T18:00:00-07:00",
+                "endTime": "2022-07-15T06:00:00-07:00",
+                "isDaytime": false,
+                "temperature": 72,
+                "temperatureUnit": "F",
+                "temperatureTrend": null,
+                "windSpeed": "5 to 10 mph",
+                "windDirection": "SW",
+                "icon": "https://api.weather.gov/icons/land/night/few?size=medium",
+                "shortForecast": "Mostly Clear",
+                "detailedForecast": "Mostly clear, with a low around 72. Southwest wind 5 to 10 mph."
+            },
+            {
+                "number": 5,
+                "name": "Friday",
+                "startTime": "2022-07-15T06:00:00-07:00",
+                "endTime": "2022-07-15T18:00:00-07:00",
+                "isDaytime": true,
+                "temperature": 95,
+                "temperatureUnit": "F",
+                "temperatureTrend": null,
+                "windSpeed": "5 to 15 mph",
+                "windDirection": "S",
+                "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
+                "shortForecast": "Sunny",
+                "detailedForecast": "Sunny, with a high near 95. South wind 5 to 15 mph, with gusts as high as 25 mph."
+            },
+            {
+                "number": 6,
+                "name": "Friday Night",
+                "startTime": "2022-07-15T18:00:00-07:00",
+                "endTime": "2022-07-16T06:00:00-07:00",
+                "isDaytime": false,
+                "temperature": 73,
+                "temperatureUnit": "F",
+                "temperatureTrend": null,
+                "windSpeed": "5 to 10 mph",
+                "windDirection": "WSW",
+                "icon": "https://api.weather.gov/icons/land/night/few?size=medium",
+                "shortForecast": "Mostly Clear",
+                "detailedForecast": "Mostly clear, with a low around 73. West southwest wind 5 to 10 mph."
+            },
+            {
+                "number": 7,
+                "name": "Saturday",
+                "startTime": "2022-07-16T06:00:00-07:00",
+                "endTime": "2022-07-16T18:00:00-07:00",
+                "isDaytime": true,
+                "temperature": 96,
+                "temperatureUnit": "F",
+                "temperatureTrend": null,
+                "windSpeed": "5 to 15 mph",
+                "windDirection": "SE",
+                "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
+                "shortForecast": "Sunny",
+                "detailedForecast": "Sunny, with a high near 96. Southeast wind 5 to 15 mph, with gusts as high as 20 mph."
+            },
+            {
+                "number": 8,
+                "name": "Saturday Night",
+                "startTime": "2022-07-16T18:00:00-07:00",
+                "endTime": "2022-07-17T06:00:00-07:00",
+                "isDaytime": false,
+                "temperature": 73,
+                "temperatureUnit": "F",
+                "temperatureTrend": null,
+                "windSpeed": "5 to 10 mph",
+                "windDirection": "WSW",
+                "icon": "https://api.weather.gov/icons/land/night/sct?size=medium",
+                "shortForecast": "Partly Cloudy",
+                "detailedForecast": "Partly cloudy, with a low around 73. West southwest wind 5 to 10 mph."
+            },
+            {
+                "number": 9,
+                "name": "Sunday",
+                "startTime": "2022-07-17T06:00:00-07:00",
+                "endTime": "2022-07-17T18:00:00-07:00",
+                "isDaytime": true,
+                "temperature": 96,
+                "temperatureUnit": "F",
+                "temperatureTrend": null,
+                "windSpeed": "5 to 15 mph",
+                "windDirection": "SSW",
+                "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
+                "shortForecast": "Sunny",
+                "detailedForecast": "Sunny, with a high near 96. South southwest wind 5 to 15 mph, with gusts as high as 25 mph."
+            },
+            {
+                "number": 10,
+                "name": "Sunday Night",
+                "startTime": "2022-07-17T18:00:00-07:00",
+                "endTime": "2022-07-18T06:00:00-07:00",
+                "isDaytime": false,
+                "temperature": 72,
+                "temperatureUnit": "F",
+                "temperatureTrend": null,
+                "windSpeed": "5 to 15 mph",
+                "windDirection": "WSW",
+                "icon": "https://api.weather.gov/icons/land/night/sct?size=medium",
+                "shortForecast": "Partly Cloudy",
+                "detailedForecast": "Partly cloudy, with a low around 72. West southwest wind 5 to 15 mph, with gusts as high as 20 mph."
+            },
+            {
+                "number": 11,
+                "name": "Monday",
+                "startTime": "2022-07-18T06:00:00-07:00",
+                "endTime": "2022-07-18T18:00:00-07:00",
+                "isDaytime": true,
+                "temperature": 94,
+                "temperatureUnit": "F",
+                "temperatureTrend": null,
+                "windSpeed": "5 to 15 mph",
+                "windDirection": "SSW",
+                "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
+                "shortForecast": "Sunny",
+                "detailedForecast": "Sunny, with a high near 94. South southwest wind 5 to 15 mph."
+            },
+            {
+                "number": 12,
+                "name": "Monday Night",
+                "startTime": "2022-07-18T18:00:00-07:00",
+                "endTime": "2022-07-19T06:00:00-07:00",
+                "isDaytime": false,
+                "temperature": 70,
+                "temperatureUnit": "F",
+                "temperatureTrend": null,
+                "windSpeed": "5 to 15 mph",
+                "windDirection": "WSW",
+                "icon": "https://api.weather.gov/icons/land/night/few?size=medium",
+                "shortForecast": "Mostly Clear",
+                "detailedForecast": "Mostly clear, with a low around 70. West southwest wind 5 to 15 mph."
+            },
+            {
+                "number": 13,
+                "name": "Tuesday",
+                "startTime": "2022-07-19T06:00:00-07:00",
+                "endTime": "2022-07-19T18:00:00-07:00",
+                "isDaytime": true,
+                "temperature": 92,
+                "temperatureUnit": "F",
+                "temperatureTrend": null,
+                "windSpeed": "5 to 15 mph",
+                "windDirection": "SSW",
+                "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
+                "shortForecast": "Sunny",
+                "detailedForecast": "Sunny, with a high near 92. South southwest wind 5 to 15 mph, with gusts as high as 20 mph."
+            },
+            {
+                "number": 14,
+                "name": "Tuesday Night",
+                "startTime": "2022-07-19T18:00:00-07:00",
+                "endTime": "2022-07-20T06:00:00-07:00",
+                "isDaytime": false,
+                "temperature": 68,
+                "temperatureUnit": "F",
+                "temperatureTrend": null,
+                "windSpeed": "5 to 15 mph",
+                "windDirection": "WSW",
+                "icon": "https://api.weather.gov/icons/land/night/few?size=medium",
+                "shortForecast": "Mostly Clear",
+                "detailedForecast": "Mostly clear, with a low around 68. West southwest wind 5 to 15 mph, with gusts as high as 20 mph."
+            }
+        ]
+    }
+}

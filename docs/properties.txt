@@ -1,0 +1,41 @@
+ "properties": {
+        "@id": "https://api.weather.gov/points/33.9917,-116.1402",
+        "@type": "wx:Point",
+        "cwa": "PSR",
+        "forecastOffice": "https://api.weather.gov/offices/PSR",
+        "gridId": "PSR",
+        "gridX": 13,
+        "gridY": 102,
+        "forecast": "https://api.weather.gov/gridpoints/PSR/13,102/forecast",
+        "forecastHourly": "https://api.weather.gov/gridpoints/PSR/13,102/forecast/hourly",
+        "forecastGridData": "https://api.weather.gov/gridpoints/PSR/13,102",
+        "observationStations": "https://api.weather.gov/gridpoints/PSR/13,102/stations",
+        "relativeLocation": {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -116.06552600000001,
+                    34.148313000000002
+                ]
+            },
+            "properties": {
+                "city": "Twentynine Palms",
+                "state": "CA",
+                "distance": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 18723.697235961001
+                },
+                "bearing": {
+                    "unitCode": "wmoUnit:degree_(angle)",
+                    "value": 201
+                }
+            }
+        },
+        "forecastZone": "https://api.weather.gov/zones/forecast/CAZ560",
+        "county": "https://api.weather.gov/zones/county/CAC065",
+        "fireWeatherZone": "https://api.weather.gov/zones/fire/CAZ230",
+        "timeZone": "America/Los_Angeles",
+        "radarStation": "KSOX"
+    }
+}

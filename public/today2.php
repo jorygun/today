@@ -4,14 +4,14 @@
    <meta charset="utf-8" />
    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
    <link rel='stylesheet' href = '/today.css' >
-	<title>Today in the Park (scrolling)</title>
-	<style>html {scroll-behavior: smooth;}</style>
+	<title>Today in the Park 2 (static)</title>
+	
 
 </head>
-<body onLoad="pageScroll()">
+<body >
 
 
-<p class='today'>Today in Joshua Tree National Park</p>
+<p class='today'>Today in Joshua Tree National Park (new)</p>
 <p class='today'>Wednesday, 13 Jul 2022 </p>
 <hr>
 <p class='pithy'>Something Pithy, more or less  , more &amp; less, even &quot;More&quot; and &#039;Less&#039; Add an emoji? 😜   nl next:<br />
@@ -97,23 +97,157 @@ Retrieved at  Jul 13 04:31 pm</p>
 </table>
 
 <p><b>Forecasts</b></p>
+		<p class='sectionhead'>Jumbo Rocks</p>
 
-<table class = 'in2 col-border'>
+		<table class = 'in2 col-border'>
+			<tr><th></th>
+				<th>Wednesday Jul 13</th><th>Thursday Jul 14</th><th>Friday Jul 15</th>			</tr>
+			<tr>
+				<td>Day</td>
+									<td>
+												Sunny, highs around 93 &deg; F, wind 10 to 15 mph S<br>
+							<image src="https://api.weather.gov/icons/land/day/few?size=medium" />
+											</td>
+									<td>
+												Sunny, highs around 94 &deg; F, wind 5 to 15 mph S<br>
+							<image src="https://api.weather.gov/icons/land/day/few?size=medium" />
+											</td>
+									<td>
+												Sunny, highs around 96 &deg; F, wind 0 to 10 mph S<br>
+							<image src="https://api.weather.gov/icons/land/day/few?size=medium" />
+											</td>
+							</tr>
 
-<!-- get period names -->
-<tr><th>Wednesday, Jul 13</th><th>Thursday, Jul 14</th><th>Friday, Jul 15</th></tr>		<tr class='borders lt-grn left'><td colspan=5 ><b>Jumbo Rocks</b></td></tr>
-		<tr class='col-border'>
+			<tr>
+			<td >Night</td>
+							<td class='night'>
+										Mostly Clear, lows around 71 &deg; F, wind 5 to 10 mph S<br>
+						<image src="https://api.weather.gov/icons/land/night/few?size=medium" />
+									</td>
+							<td class='night'>
+										Mostly Clear, lows around 72 &deg; F, wind 5 to 10 mph SSW<br>
+						<image src="https://api.weather.gov/icons/land/night/few?size=medium" />
+									</td>
+							<td class='night'>
+										Mostly Clear, lows around 73 &deg; F, wind 5 to 10 mph WSW<br>
+						<image src="https://api.weather.gov/icons/land/night/few?size=medium" />
+									</td>
+						</tr>
+	</table>
 
-<td>Sunny</td><td>Sunny</td><td>Sunny</td></tr><tr><td>Low: 75 High: 102  &deg;F</td><td>Low: 77 High: 103  &deg;F</td><td>Low: 77 High: 105  &deg;F</td></tr><tr><td>Wind to 16 mph </td><td>Wind to 15 mph </td><td>Wind to 14 mph </td></tr><tr><td>Humidity: 22 %</td><td>Humidity: 23 %</td><td>Humidity: 29 %</td></tr><tr><td>Rain 0 %</td><td>Rain 0 %</td><td>Rain 0 %</td></tr>		<tr class='borders lt-grn left'><td colspan=5 ><b>Twentynine Palms</b></td></tr>
-		<tr class='col-border'>
+		<p class='sectionhead'>Twentynine Palms</p>
 
-<td>Sunny</td><td>Sunny</td><td>Sunny</td></tr><tr><td>Low: 78 High: 106  &deg;F</td><td>Low: 80 High: 106  &deg;F</td><td>Low: 80 High: 108  &deg;F</td></tr><tr><td>Wind to 19 mph </td><td>Wind to 17 mph </td><td>Wind to 16 mph </td></tr><tr><td>Humidity: 20 %</td><td>Humidity: 21 %</td><td>Humidity: 26 %</td></tr><tr><td>Rain 0 %</td><td>Rain 0 %</td><td>Rain 0 %</td></tr>		<tr class='borders lt-grn left'><td colspan=5 ><b>Cottonwood</b></td></tr>
-		<tr class='col-border'>
+		<table class = 'in2 col-border'>
+			<tr><th></th>
+				<th>Wednesday Jul 13</th><th>Thursday Jul 14</th><th>Friday Jul 15</th>			</tr>
+			<tr>
+				<td>Day</td>
+									<td>
+												Sunny, highs around 105 &deg; F, wind 14 mph S<br>
+							<image src="https://api.weather.gov/icons/land/day/hot?size=medium" />
+											</td>
+									<td>
+												Sunny, highs around 106 &deg; F, wind 2 to 16 mph SSE<br>
+							<image src="https://api.weather.gov/icons/land/day/hot?size=medium" />
+											</td>
+									<td>
+												Sunny, highs around 108 &deg; F, wind 5 to 13 mph S<br>
+							<image src="https://api.weather.gov/icons/land/day/hot?size=medium" />
+											</td>
+							</tr>
 
-<td>Patchy rain possible</td><td>Sunny</td><td>Sunny</td></tr><tr><td>Low: 77 High: 110  &deg;F</td><td>Low: 78 High: 109  &deg;F</td><td>Low: 80 High: 111  &deg;F</td></tr><tr><td>Wind to 10 mph </td><td>Wind to 9 mph </td><td>Wind to 10 mph </td></tr><tr><td>Humidity: 22 %</td><td>Humidity: 24 %</td><td>Humidity: 30 %</td></tr><tr><td>Rain 69 %</td><td>Rain 0 %</td><td>Rain 0 %</td></tr>		<tr class='borders lt-grn left'><td colspan=5 ><b>Black Rock</b></td></tr>
-		<tr class='col-border'>
+			<tr>
+			<td >Night</td>
+							<td class='night'>
+										Mostly Clear, lows around 82 &deg; F, wind 3 to 13 mph SW<br>
+						<image src="https://api.weather.gov/icons/land/night/few?size=medium" />
+									</td>
+							<td class='night'>
+										Mostly Clear, lows around 83 &deg; F, wind 5 to 13 mph SW<br>
+						<image src="https://api.weather.gov/icons/land/night/few?size=medium" />
+									</td>
+							<td class='night'>
+										Mostly Clear, lows around 85 &deg; F, wind 5 to 13 mph WSW<br>
+						<image src="https://api.weather.gov/icons/land/night/few?size=medium" />
+									</td>
+						</tr>
+	</table>
 
-<td>Sunny</td><td>Sunny</td><td>Sunny</td></tr><tr><td>Low: 73 High: 102  &deg;F</td><td>Low: 76 High: 102  &deg;F</td><td>Low: 76 High: 104  &deg;F</td></tr><tr><td>Wind to 15 mph </td><td>Wind to 14 mph </td><td>Wind to 14 mph </td></tr><tr><td>Humidity: 22 %</td><td>Humidity: 24 %</td><td>Humidity: 29 %</td></tr><tr><td>Rain 0 %</td><td>Rain 0 %</td><td>Rain 0 %</td></tr></table>
+		<p class='sectionhead'>Cottonwood</p>
+
+		<table class = 'in2 col-border'>
+			<tr><th></th>
+				<th>Wednesday Jul 13</th><th>Thursday Jul 14</th><th>Friday Jul 15</th>			</tr>
+			<tr>
+				<td>Day</td>
+									<td>
+												Sunny, highs around 96 &deg; F, wind 15 mph S<br>
+							<image src="https://api.weather.gov/icons/land/day/few?size=medium" />
+											</td>
+									<td>
+												Sunny, highs around 98 &deg; F, wind 0 to 15 mph S<br>
+							<image src="https://api.weather.gov/icons/land/day/few?size=medium" />
+											</td>
+									<td>
+												Sunny, highs around 99 &deg; F, wind 5 to 15 mph SSE<br>
+							<image src="https://api.weather.gov/icons/land/day/few?size=medium" />
+											</td>
+							</tr>
+
+			<tr>
+			<td >Night</td>
+							<td class='night'>
+										Mostly Clear, lows around 76 &deg; F, wind 0 to 15 mph S<br>
+						<image src="https://api.weather.gov/icons/land/night/few?size=medium" />
+									</td>
+							<td class='night'>
+										Mostly Clear, lows around 78 &deg; F, wind 5 to 10 mph WSW<br>
+						<image src="https://api.weather.gov/icons/land/night/few?size=medium" />
+									</td>
+							<td class='night'>
+										Mostly Clear, lows around 79 &deg; F, wind 5 to 10 mph W<br>
+						<image src="https://api.weather.gov/icons/land/night/few?size=medium" />
+									</td>
+						</tr>
+	</table>
+
+		<p class='sectionhead'>Black Rock</p>
+
+		<table class = 'in2 col-border'>
+			<tr><th></th>
+				<th>Wednesday Jul 13</th><th>Thursday Jul 14</th><th>Friday Jul 15</th>			</tr>
+			<tr>
+				<td>Day</td>
+									<td>
+												Sunny, highs around 94 &deg; F, wind 15 mph SSW<br>
+							<image src="https://api.weather.gov/icons/land/day/few?size=medium" />
+											</td>
+									<td>
+												Sunny, highs around 95 &deg; F, wind 5 to 15 mph S<br>
+							<image src="https://api.weather.gov/icons/land/day/few?size=medium" />
+											</td>
+									<td>
+												Sunny, highs around 96 &deg; F, wind 5 to 15 mph SSE<br>
+							<image src="https://api.weather.gov/icons/land/day/few?size=medium" />
+											</td>
+							</tr>
+
+			<tr>
+			<td >Night</td>
+							<td class='night'>
+										Mostly Clear, lows around 77 &deg; F, wind 5 to 15 mph SSW<br>
+						<image src="https://api.weather.gov/icons/land/night/few?size=medium" />
+									</td>
+							<td class='night'>
+										Mostly Clear, lows around 78 &deg; F, wind 5 to 15 mph SSW<br>
+						<image src="https://api.weather.gov/icons/land/night/few?size=medium" />
+									</td>
+							<td class='night'>
+										Mostly Clear, lows around 80 &deg; F, wind 5 to 15 mph WSW<br>
+						<image src="https://api.weather.gov/icons/land/night/few?size=medium" />
+									</td>
+						</tr>
+	</table>
 
 
 
@@ -246,13 +380,13 @@ Retrieved at  Jul 13 04:31 pm</p>
 	<td style='vertical-align:top;'>Wednesday Jul 27 9:00 pm <br />&nbsp;&nbsp;(90 minutes) </td>
 <!--
 	<td><br />
-<b>Warning</b>:  Undefined array key "event_location" in <b>/Users/john/Sites/jotr/plates/today.tpl</b> on line <b>224</b><br />
+<b>Warning</b>:  Undefined array key "event_location" in <b>/Users/john/Sites/jotr/plates/today2.tpl</b> on line <b>207</b><br />
  </td>
 	<td><br />
-<b>Warning</b>:  Undefined array key "event_type" in <b>/Users/john/Sites/jotr/plates/today.tpl</b> on line <b>225</b><br />
+<b>Warning</b>:  Undefined array key "event_type" in <b>/Users/john/Sites/jotr/plates/today2.tpl</b> on line <b>208</b><br />
  </td>
 	<td><br />
-<b>Warning</b>:  Undefined array key "event_title" in <b>/Users/john/Sites/jotr/plates/today.tpl</b> on line <b>226</b><br />
+<b>Warning</b>:  Undefined array key "event_title" in <b>/Users/john/Sites/jotr/plates/today2.tpl</b> on line <b>209</b><br />
  </td>
 
  -->
@@ -268,13 +402,13 @@ Retrieved at  Jul 13 04:31 pm</p>
 	<td style='vertical-align:top;'>Monday Aug 1 12:00 am <br />&nbsp;&nbsp;(5 minutes) </td>
 <!--
 	<td><br />
-<b>Warning</b>:  Undefined array key "event_location" in <b>/Users/john/Sites/jotr/plates/today.tpl</b> on line <b>224</b><br />
+<b>Warning</b>:  Undefined array key "event_location" in <b>/Users/john/Sites/jotr/plates/today2.tpl</b> on line <b>207</b><br />
  </td>
 	<td><br />
-<b>Warning</b>:  Undefined array key "event_type" in <b>/Users/john/Sites/jotr/plates/today.tpl</b> on line <b>225</b><br />
+<b>Warning</b>:  Undefined array key "event_type" in <b>/Users/john/Sites/jotr/plates/today2.tpl</b> on line <b>208</b><br />
  </td>
 	<td><br />
-<b>Warning</b>:  Undefined array key "event_title" in <b>/Users/john/Sites/jotr/plates/today.tpl</b> on line <b>226</b><br />
+<b>Warning</b>:  Undefined array key "event_title" in <b>/Users/john/Sites/jotr/plates/today2.tpl</b> on line <b>209</b><br />
  </td>
 
  -->
@@ -295,31 +429,3 @@ Retrieved at  Jul 13 04:31 pm</p>
 
 <hr>
 <p id='bottom' class='right'>Updated 13 Jul 18:48 </p>
-<script>
-
-function pageScroll() {
-    	window.scrollBy(0,3); // horizontal and vertical scroll increments
-    	scrolldelay = setTimeout('pageScroll()',50); // scrolls every 100 milliseconds
-            if ((window.innerHeight + window.pageYOffset) >= document.body.offsetHeight) {
-        		scrolldelay = setTimeout('PageUp()',2000);
-    		}
-
-}
-
-function PageUp() {
-	window.scrollTo(0, 0);
-}
-
-</script>
-
-
-<script>
-	let timeout = setTimeout(() => {
-  document.querySelector('#target').scrollIntoView();
-}, 5000);
-
-(function() {
-  document.querySelector('#bottom').scrollIntoView();
-})();
-</script>
-

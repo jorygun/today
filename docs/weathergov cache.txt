@@ -1,0 +1,93 @@
+weathergov cache:
+[loc][day][period]
+
+
+Array
+(
+    [jr] => Array
+        (
+            [13] => Array
+                (
+                    [day] => Array
+                        (
+                            [High] => 93
+                            [wind] => 15 mph S
+                            [image] => https://api.weather.gov/icons/land/day/few?size=medium
+                            [forecast] => Sunny
+                        )
+
+                    [night] => Array
+                        (
+                            [High] => 70
+                            [wind] => 5 to 15 mph S
+                            [image] => https://api.weather.gov/icons/land/night/few?size=medium
+                            [forecast] => Mostly Clear
+                        )
+
+                )
+
+            [14] => Array
+                (
+                    [day] => Array
+                        (
+                            [High] => 93
+                            [wind] => 5 to 15 mph SSE
+                            [image] => https://api.weather.gov/icons/land/day/few?size=medium
+                            [forecast] => Sunny
+                        )
+
+                    [night] => Array
+                        (
+                            [High] => 72
+                            [wind] => 5 to 10 mph SW
+                            [image] => https://api.weather.gov/icons/land/night/few?size=medium
+                            [forecast] => Mostly Clear
+                        )
+
+                )
+
+          ...
+
+    [cw] => Array
+        (
+            [13] => Array
+                (
+                    [day] => Array
+                        (
+                            [High] => 96
+                            [wind] => 15 mph S
+                            [image] => https://api.weather.gov/icons/land/day/few?size=medium
+                            [forecast] => Sunny
+                        )
+
+                    [night] => Array
+                        (
+                            [High] => 76
+                            [wind] => 5 to 15 mph SSW
+                            [image] => https://api.weather.gov/icons/land/night/few?size=medium
+                            [forecast] => Mostly Clear
+                        )
+
+                )
+
+            [14] => Array
+                (
+                    [day] => Array
+                        (
+                            [High] => 98
+                            [wind] => 5 to 15 mph S
+                            [image] => https://api.weather.gov/icons/land/day/few?size=medium
+                            [forecast] => Sunny
+                        )
+
+                    [night] => Array
+                        (
+                            [High] => 78
+                            [wind] => 5 to 10 mph WSW
+                            [image] => https://api.weather.gov/icons/land/night/few?size=medium
+                            [forecast] => Mostly Clear
+                        )
+
+                )
+
+    ...

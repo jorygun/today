@@ -18,20 +18,11 @@ class Definitions {
 		'passwords' => 'passwords.ini'
 	];
 
-	public static $uvwarn = [
-
-		'Low' => 'Enjoy',
-		'Moderate' => 'Use some sunscreen',
-		'High' => "Caution",
-		'Very High' => 'Oh no.  Burny burny!',
-		'Extreme' => 'Yer dead',
-
-	];
 
 public static $scale_color = [
 
 		'Low' => 'green',
-		'Good' => 'green',
+		'Good' => '#CCFFCC',
 		'Moderate' => 'yellow',
 		'Unhealthy for Sensitive Groups' => 'orange',
 		'High' => "orange",
@@ -50,6 +41,14 @@ public static $firewarn = [
 		'High' => "a bit high",
 		'Very High' => 'no fires',
 		'Extreme' => 'carry an extinguisher',
+
+'Low' =>  'When the fire danger is "low" it means that fuels do not ignite easily from small embers, but a more intense heat source, such as lightning, may start fires in duff or dry rotten wood.  Fires in open, dry grasslands may burn easily a few hours after a rain, but most wood fires will spread slowly, creeping or smoldering.  Control of fires is generally easy.',
+'Moderate' =>  'When the fire danger is "moderate" it means that fires can start from most accidental causes, but the number of fire starts is usually pretty low.  If a fire does start in an open, dry grassland, it will burn and spread quickly on windy days.  Most wood fires will spread slowly to moderately.  Average fire intensity will be moderate except in heavy concentrations of fuel, which may burn hot.  Fires are still not likely to become serious and are often easy to control. ',
+'High'  =>  'When the fire danger is "high", fires can start easily from most causes and small fuels (such as grasses and needles) will ignite readily.  Unattended campfires and brush fires are likely to escape.  Fires will spread easily, with some areas of high-intensity burning on slopes or concentrated fuels.  Fires can become serious and difficult to control unless they are put out while they are still small.',
+'Very High'  =>  'When the fire danger is "very high", fires will start easily from most causes.  The fires will spread rapidly and have a quick increase in intensity, right after ignition.  Small fires can quickly become large fires and exhibit extreme fire intensity, such as long-distance spotting and fire whirls.  These fires can be difficult to control and will often become much larger and longer-lasting fires.',
+'Extreme' => 'When the fire danger is "extreme", fires of all types start quickly and burn intensely.  All fires are potentially serious and can spread very quickly with intense burning.  Small fires become big fires much faster than at the "very high" level.  Spot fires are probable, with long-distance spotting likely.  These fires are very difficult to fight and may become very dangerous and often last for several days.',
+
+
 
 	];
 
@@ -113,6 +112,26 @@ public static $coordinates = [
 
 
 	}
+
+	public static $airwarn = array (
+		'Good' => '',
+		'Moderate' => 'Unusually sensitive people should consider reducing prolonged or heavy exertion outdoors.',
+		'Unhealthy for Sensitive Groups' => 'Active children and adults, and people with lung disease, such as asthma, should reduce prolonged or heavy exertion outdoors.',
+		'Unhealthy' => 'Active children and adults, and people with lung disease, such as asthma, should avoid prolonged or heavy exertion outdoors. Everyone else, especially children, should reduce prolonged or heavy exertion outdoors.',
+		'Very Unhealthy' => 'Active children and adults, and people with lung disease, such as asthma, should avoid all outdoor exertion. Everyone else, especially children, should avoid prolonged or heavy exertion outdoors. ',
+	);
+
+
+	public static $uvwarn = array (
+
+		'Low' => ' No protection needed. You can safely stay outside using minimal sun protection.',
+		'Moderate' => 'Protection needed. Seek shade during late morning through mid-afternoon. When outside, generously apply broad-spectrum SPF-15 or higher sunscreen on exposed skin, and wear protective clothing, a wide-brimmed hat, and sunglasses.',
+		'High' => 'Protection needed. Seek shade during late morning through mid-afternoon. When outside, generously apply broad-spectrum SPF-15 or higher sunscreen on exposed skin, and wear protective clothing, a wide-brimmed hat, and sunglasses.',
+		'Very High' => 'Extra protection needed. Be careful outside, especially during late morning through mid-afternoon. If your shadow is shorter than you, seek shade and wear protective clothing, a wide-brimmed hat, and sunglasses, and generously apply a minimum of  SPF-15, broad-spectrum sunscreen on exposed skin.',
+		'Extreme' => 'Extra protection needed. Be careful outside, especially during late morning through mid-afternoon. If your shadow is shorter than you, seek shade and wear protective clothing, a wide-brimmed hat, and sunglasses, and generously apply a minimum of  SPF-15, broad-spectrum sunscreen on exposed skin.',
+
+
+	);
 
 	public static function aq_scale ($uv) {
 		// sets uv name based on index
@@ -186,32 +205,52 @@ public static $coordinates = [
 				'calendar' => REPO_PATH . "/data/calendar.json",
 				'uv' => REPO_PATH . "/data/uv.json",
 				'today' => REPO_PATH . "/data/today.json",
+				'properties' => REPO_PATH . "/data/properties.json",
+				'weathergov' => REPO_PATH . "/data/weathergov.json",
 			);
 
 // time before refresh in minutes.  0 means
 // cache is static except for update by
 // the admin screen.  No outside retrieval.
-		public static $cache_times  = array (
-				'light' => 2400,
-				'weather' => 2400,
+	public static $cache_times  = array (
+				'light' => 0,
+				'weather' => 240,
 
-				'air' => 2400,
-
+				'air' => 240,
+				'fire' => 0,
 				'camps' => 0,
-				'uv' => 60 ,
+				'uv' => 0 ,
 				'calendar' => 0,
 				'today' => 0,
+				'properties' => 60*24*7,
+				'weathergov' => 240,
 			);
 
+	private static $moons = array (
+			'New Moon' => '0.gif',
+			'Waxing Crescent' => '1.gif',
+			'First Quarter' => '2.gif',
+			'Waxing Gibbous' => '3.gif',
+			'Full Moon' => '4.gif',
+			'Waning Gibbous' => '5.gif',
+			'Third Quarter' => '6.gif',
+			'Waning Crescent' => '7.gif',
+		);
 
 	public static function uv_warn($uvd) {
 		return self::$uvwarn[$uvd] ?? 'not defined';
 	}
 
+	public static function air_warn($uvd) {
+		return self::$airwarn[$uvd] ?? 'not defined';
+	}
+
 	public static function scale_color($uvd){
 		return self:: $scale_color[$uvd] ?? '';
 	}
-
+	public static function get_color($x){
+		return self:: $scale_color[$x] ?? '';
+	}
 	public static function fire_warn($fdesc) {
 		return self::$firewarn[$fdesc];
 	}
@@ -222,5 +261,9 @@ public static $coordinates = [
 
 	public static function getMaxtime($section) {
 		return (60 * self::$cache_times[$section] );
+	}
+
+	public static function getMoonPic($phase) {
+		return self::$moons[$phase] ?? 'error.png';
 	}
 }

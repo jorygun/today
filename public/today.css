@@ -1,4 +1,5 @@
-body { max-width: 800px; }
+
+body { max-width: 700px; }
 
 h4
 {
@@ -9,49 +10,138 @@ h4
 h3 { font-size: 1.5em;
 	font-weight:bold;}
 
+
+
+input {
+	background-color:#FFC;
+	border: 1px solid #CC9;
+	}
+
+textarea {
+	background-color:#FFC;
+	border: 1px solid #CC9;
+	width: 40em;
+	max-width: 85%;
+	height:8em;
+	}
+
+button {
+	background-color:#CFC;
+	font-weight: bold;
+}
 .pithy
 {
 	font-style: italic;
 	text-align: center;
 }
 
-.right, td .right { text-align: right; }
-.left, td .left { text-align: left; }
 
-table { border-collapse: collapse; }
+
+.right { text-align: right; }
+.left { text-align: left; }
+.center {text-align: center; }
+.red {color:red;}
+.white {color:white;}
+
+.bg-black{
+	background-color:black;
+	padding:2em;
+}
+
+.sectionhead {
+	text-align:left;
+	border-bottom: 1px solid black;
+	margin-bottom: 3px;
+	font-weight:bold;
+}
+
+.night {
+	background-color:black;
+	color:white;
+}
+table {
+	border-collapse: collapse;
+	border: 2px solid black;
+	max-width:85%;
+
+}
+
+table tr th {border-bottom: 2px solid black;}
 
 table tr td
 {
 	border: 1px solid black;
 	font-family: arial,san-serif;
 	text-align: center;
-	padding-right: 6px;
-	padding-left: 6px;
+	padding: 6px;
+	vertical-align:top;
+
+}
+tr.left td {text-align:left;}
+tr td.center {text-align:center;}
+tr.center td {text-aligh:center;}
+
+tr.heads {line-height:0.8em;}
+tr.heads td {
+	font-weight:bold;
+	font-size:.8em;
+	text-align:center;
 }
 
-.table-no  td
+tr.border-bottom td
 {
-	border: 0;
-	text-align: left;
-	border-collapse: seperate;
+	border-left: 0;
+	border-right: 0;
+	border-top: 0;
+	border-bottom: 1px solid black;
+
+}
+ tr.borders td {
+ 	border-left; 1px solid black;
+ 	border-right; 1px solid black;
+ 	border-top; 1px solid black;
+ 	border-bottom; 1px solid black;
+ }
+
+ tr.no-bottom  td {
+ 	border-left: 0;
+	border-right: 0;
+	border-top: 0;
+	border-bottom:0;
 }
 
-.no-border  td
-{
-	border: 0;
-	text-align: left;
+ tr.no-border  td {
+ 	border-left: 0;
+	border-right: 0;
+	border-top: 0;
+	border-bottom:0;
+}
+table.col-border td, table.col-border th {
+		border-left: 1px solid gray;
+		border-right: 1px solid gray;
+		border-top: 0;
+		border-bottom: 0;
+	}
+.alt-gray tr:nth-child(even)  {
+	background: #CCC;
 }
 
 .warn
 {
-	border: 2px solid red;
+	border: 4px solid black;
 	text-align: center;
-	padding: 4px;
+	font-weight:bold;
+	padding: 1em;
 	margin-bottom: 1em;
-	width: 60%;
+	margin-left:2em;
+	margin-right:2em;
+	width: 85%;
+	color: red;
+	max-width: 85%;
 }
 
-.in2 { margin-left: 2em; }
+.in2 { margin-left: 2em;
+	margin-right: 2em;}
 
 .today
 {

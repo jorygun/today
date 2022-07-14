@@ -96,6 +96,7 @@ class Initialize
 
 			define ('CACHE',Defs::$caches);
 			define ('STOP' , true);
+			define ('NOSTOP',false); // these are for u\echor utility
     }
 
  private function setPlatform(){

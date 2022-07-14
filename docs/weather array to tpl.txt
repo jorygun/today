@@ -1,0 +1,169 @@
+weather array (Today.php (637))
+Array
+(
+    [jr] => Array
+        (
+            [0] => Array
+                (
+                    [epoch] => 1657670400
+                    [date] => Wednesday, Jul 13
+                    [High] => 101
+                    [Low] => 75
+                    [avghumidity] => 24
+                    [maxwind] => 15
+                    [skies] => Sunny
+                    [rain] => 0
+                    [uv] => 8
+                    [sunrise] => 5:44 AM
+                    [sunset] => 7:58 PM
+                    [moonrise] => 8:33 PM
+                    [moonset] => 5:18 AM
+                    [moonillumination] => 99
+                    [moonphase] => Waxing Gibbous
+                )
+
+            [1] => Array
+                (
+                    [epoch] => 1657756800
+                    [date] => Thursday, Jul 14
+                    [High] => 103
+                    [Low] => 77
+                    [avghumidity] => 24
+                    [maxwind] => 15
+                    [skies] => Sunny
+                    [rain] => 0
+                    [uv] => 8
+                    [sunrise] => 5:45 AM
+                    [sunset] => 7:58 PM
+                    [moonrise] => 9:24 PM
+                    [moonset] => 6:32 AM
+                    [moonillumination] => 100
+                    [moonphase] => Full Moon
+                )
+
+            [2] => Array
+                (
+                    [epoch] => 1657843200
+                    [date] => Friday, Jul 15
+                    [High] => 105
+                    [Low] => 77
+                    [avghumidity] => 28
+                    [maxwind] => 14
+                    [skies] => Patchy rain possible
+                    [rain] => 82
+                    [uv] => 7
+                    [sunrise] => 5:45 AM
+                    [sunset] => 7:57 PM
+                    [moonrise] => 10:05 PM
+                    [moonset] => 7:47 AM
+                    [moonillumination] => 86
+                    [moonphase] => Waxing Gibbous
+                )
+
+        )
+
+    [alerts] => Array
+        (
+            [0] => Array
+                (
+                    [headline] => AIRNow Program, US Environmental Protection Agency
+                    [msgtype] =>
+                    [severity] =>
+                    [urgency] =>
+                    [areas] =>
+                    [category] => Air quality
+                    [certainty] =>
+                    [event] => Ozone is forecast to reach 166 AQI - Unhealthy on Tue 07/12/2022.
+                    [note] =>
+                    [effective] => 2022-07-12T08:00:00+00:00
+                    [expires] => 2022-07-13T08:00:00+00:00
+                    [desc] => Ozone is forecast to reach 166 AQI - Unhealthy on Tue 07/12/2022.
+                    [instruction] =>
+                )
+
+            [1] => Array
+                (
+                    [headline] => AIRNow Program, US Environmental Protection Agency
+                    [msgtype] =>
+                    [severity] =>
+                    [urgency] =>
+                    [areas] =>
+                    [category] => Air quality
+                    [certainty] =>
+                    [event] => Ozone is forecast to reach 169 AQI - Unhealthy on Wed 07/13/2022.
+                    [note] =>
+                    [effective] => 2022-07-13T08:00:00+00:00
+                    [expires] => 2022-07-14T08:00:00+00:00
+                    [desc] => Ozone is forecast to reach 169 AQI - Unhealthy on Wed 07/13/2022.
+                    [instruction] =>
+                )
+
+            [2] => Array
+                (
+                    [headline] => AIRNow Program, US Environmental Protection Agency
+                    [msgtype] =>
+                    [severity] =>
+                    [urgency] =>
+                    [areas] =>
+                    [category] => Air quality
+                    [certainty] =>
+                    [event] => Ozone is forecast to reach 166 AQI - Unhealthy on Tue 07/12/2022.
+                    [note] =>
+                    [effective] => 2022-07-12T08:00:00+00:00
+                    [expires] => 2022-07-13T08:00:00+00:00
+                    [desc] => Ozone is forecast to reach 166 AQI - Unhealthy on Tue 07/12/2022.
+                    [instruction] =>
+                )
+
+            [3] => Array
+                (
+                    [headline] => AIRNow Program, US Environmental Protection Agency
+                    [msgtype] =>
+                    [severity] =>
+                    [urgency] =>
+                    [areas] =>
+                    [category] => Air quality
+                    [certainty] =>
+                    [event] => Ozone is forecast to reach 169 AQI - Unhealthy on Wed 07/13/2022.
+                    [note] =>
+                    [effective] => 2022-07-13T08:00:00+00:00
+                    [expires] => 2022-07-14T08:00:00+00:00
+                    [desc] => Ozone is forecast to reach 169 AQI - Unhealthy on Wed 07/13/2022.
+                    [instruction] =>
+                )
+
+            [4] => Array
+                (
+                    [headline] => AIRNow Program, US Environmental Protection Agency
+                    [msgtype] =>
+                    [severity] =>
+                    [urgency] =>
+                    [areas] =>
+                    [category] => Air quality
+                    [certainty] =>
+                    [event] => Ozone is forecast to reach 166 AQI - Unhealthy on Tue 07/12/2022.
+                    [note] =>
+                    [effective] => 2022-07-12T08:00:00+00:00
+                    [expires] => 2022-07-13T08:00:00+00:00
+                    [desc] => Ozone is forecast to reach 166 AQI - Unhealthy on Tue 07/12/2022.
+                    [instruction] =>
+                )
+
+            [5] => Array
+                (
+                    [headline] => AIRNow Program, US Environmental Protection Agency
+                    [msgtype] =>
+                    [severity] =>
+                    [urgency] =>
+                    [areas] =>
+                    [category] => Air quality
+                    [certainty] =>
+                    [event] => Ozone is forecast to reach 169 AQI - Unhealthy on Wed 07/13/2022.
+                    [note] =>
+                    [effective] => 2022-07-13T08:00:00+00:00
+                    [expires] => 2022-07-14T08:00:00+00:00
+                    [desc] => Ozone is forecast to reach 169 AQI - Unhealthy on Wed 07/13/2022.
+                    [instruction] =>
+                )
+
+        )

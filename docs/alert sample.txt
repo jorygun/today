@@ -1,0 +1,81 @@
+https://api.weather.gov/alerts/active/zone/CAZ285
+
+
+{
+    "@context": [
+        "https://geojson.org/geojson-ld/geojson-context.jsonld",
+        {
+            "@version": "1.1",
+            "wx": "https://api.weather.gov/ontology#",
+            "@vocab": "https://api.weather.gov/ontology#"
+        }
+    ],
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.c119dc5b8c029467c5ac6b84b8cc103633e7d9ca.001.3",
+            "type": "Feature",
+            "geometry": null,
+            "properties": {
+                "@id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.c119dc5b8c029467c5ac6b84b8cc103633e7d9ca.001.3",
+                "@type": "wx:Alert",
+                "id": "urn:oid:2.49.0.1.840.0.c119dc5b8c029467c5ac6b84b8cc103633e7d9ca.001.3",
+                "areaDesc": "Modoc County Except for the Surprise Valley",
+                "geocode": {
+                    "SAME": [
+                        "006049"
+                    ],
+                    "UGC": [
+                        "CAZ285"
+                    ]
+                },
+                "affectedZones": [
+                    "https://api.weather.gov/zones/fire/CAZ285"
+                ],
+                "references": [],
+                "sent": "2022-07-12T20:03:00-07:00",
+                "effective": "2022-07-12T20:03:00-07:00",
+                "onset": "2022-07-13T14:00:00-07:00",
+                "expires": "2022-07-13T08:15:00-07:00",
+                "ends": "2022-07-13T20:00:00-07:00",
+                "status": "Actual",
+                "messageType": "Alert",
+                "category": "Met",
+                "severity": "Severe",
+                "certainty": "Likely",
+                "urgency": "Expected",
+                "event": "Red Flag Warning",
+                "sender": "w-nws.webmaster@noaa.gov",
+                "senderName": "NWS Medford OR",
+                "headline": "Red Flag Warning issued July 12 at 8:03PM PDT until July 13 at 8:00PM PDT by NWS Medford OR",
+                "description": "The National Weather Service in Medford has issued a Red Flag\nWarning...which is in effect from 2 PM to 8 PM PDT Wednesday. The\nFire Weather Watch is no longer in effect.\n\n* Impacts:  Strong, gusty wind with low relative humidity and\ncritically dry vegetation will greatly increase the spread\npotential of any new and existing fires.\n\n* Affected area:\nIn Northern CA...Fire Weather Zone 285.\n\n* Wind: Southwest 10 to 20 mph with gusts up to 30 mph.\n\n* Humidity: As low as 9 percent.\n\n* View the hazard area in detail at:\nhttps://www.wrh.noaa.gov/mfr/HAZARD\n\n* View the hazard area in detail at:\nhttps://www.wrh.noaa.gov/mfr/HAZARD",
+                "instruction": "Avoid tossing burning cigarettes on the ground, parking hot\nvehicles on dry vegetation, and using equipment that can cause\nsparks. Follow all fire restrictions. Find links to restrictions\nat weather.gov/medford/wildfire. One less spark, one less\nwildfire.\n\nGather your fire evacuation kit now. Collect essentials you don't\nwant to lose and prioritize your checklist. Visit ready.gov/kit\nfor more information.\n\nFamiliarize yourself with your evacuation plan. Where will you go?\nHow will you get there? Who will you call to let others know your\nare safe? Visit ready.gov/wildfires for more information.\n\nA Red Flag Warning does not mean there is a fire. It means that\ncritical fire weather conditions are either occurring now or will\nshortly. These conditions promote rapid spread of fire which may\nbecome life threatening. Evacuate if ordered to, or if a fire\nthreatens.",
+                "response": "Prepare",
+                "parameters": {
+                    "AWIPSidentifier": [
+                        "RFWMFR"
+                    ],
+                    "WMOidentifier": [
+                        "WWUS86 KMFR 130303"
+                    ],
+                    "NWSheadline": [
+                        "RED FLAG WARNING IN EFFECT FROM 2 PM TO 8 PM PDT WEDNESDAY FOR STRONG GUSTY WIND WITH LOW RH FOR FIRE WEATHER ZONE 285... ...RED FLAG WARNING HAS EXPIRED FOR STRONG GUSTY WIND WITH LOW RH FOR FIRE WEATHER ZONE 285"
+                    ],
+                    "BLOCKCHANNEL": [
+                        "EAS",
+                        "NWEM",
+                        "CMAS"
+                    ],
+                    "VTEC": [
+                        "/O.NEW.KMFR.FW.W.0002.220713T2100Z-220714T0300Z/"
+                    ],
+                    "eventEndingTime": [
+                        "2022-07-14T03:00:00+00:00"
+                    ]
+                }
+            }
+        }
+    ],
+    "title": "current watches, warnings, and advisories for CAZ285",
+    "updated": "2022-07-13T03:04:28+00:00"
+}

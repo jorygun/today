@@ -26,7 +26,7 @@ namespace DigitalMx\jotr;
 
 
 //END START
-echo $Today->start_page('JOTR today admin');
+echo $Today->start_page('Admin JOTR Today');
 
 // check for login status
 
@@ -96,8 +96,12 @@ function post_data($post,$Today){
 	$Today->post_admin($post);
 
 	echo "<p><b>Success</b></p>
-		<p>Go to <a href='/' target='refresh'> to view refreshed contente.</a>. </p>
+		<p>Go to <a href='/today.php' target='static'> to view refreshed content.</a>. </p>
 		";
+	echo "
+		<p>Go to <a href='/admin.php' >/admin.php</> to reload this page. </p>
+		";
+
 }
 
 function show_login () {
