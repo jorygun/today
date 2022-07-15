@@ -233,7 +233,7 @@ public function rebuild($force = false) {
 
 	$page_body_new = $this->Plates -> render ('today2',$y);
 
-	$new_page = $this->start_page('Today in the Park 2 (static)')
+	$new_page = $this->start_page('Today in the Park (weather.gov)')
 		. $page_body_new;
 	file_put_contents (SITE_PATH . '/today2.php',$new_page);
 
@@ -754,7 +754,7 @@ public function external_weathergov ($locs) {
 
 		while (! $data = $aresp['properties'] ){
 			static $tries =0;
-			echo "No properties in aresp.  Tries $tries" . BRNL;
+			echo "No properties in weather.gov aresp.  Tries $tries. Retrying" . BRNL;
 			// u\echor($aresp,'aresp');
 			// retry
 			if ($tries > 2){
