@@ -96,6 +96,70 @@ public static $dummy_today = array
 
 );
 
+private static $scroll_script = <<<EOT
+<script>
+
+function pageScroll() {
+    	window.scrollBy(0,3); // horizontal and vertical scroll increments
+    	scrolldelay = setTimeout('pageScroll()',50); // scrolls every 100 milliseconds
+            if ((window.innerHeight + window.pageYOffset) >= document.body.offsetHeight) {
+        		scrolldelay = setTimeout('PageUp()',2000);
+    		}
+
+}
+
+function PageUp() {
+	window.scrollTo(0, 0);
+}
+
+</script>
+
+
+<script>
+	let timeout = setTimeout(() => {
+  document.querySelector('#target').scrollIntoView();
+}, 5000);
+
+(function() {
+  document.querySelector('#bottom').scrollIntoView();
+})();
+</script>
+
+
+EOT;
+
+private static $snap_script = <<<EOT
+<script>
+
+function pageScroll() {
+    	window.scrollBy(0,3); // horizontal and vertical scroll increments
+    	scrolldelay = setTimeout('pageScroll()',50); // scrolls every 100 milliseconds
+            if ((window.innerHeight + window.pageYOffset) >= document.body.offsetHeight) {
+        		scrolldelay = setTimeout('PageUp()',2000);
+    		}
+
+}
+
+function PageUp() {
+	window.scrollTo(0, 0);
+}
+
+</script>
+
+
+<script>
+	let timeout = setTimeout(() => {
+  document.querySelector('#target').scrollIntoView();
+}, 5000);
+
+(function() {
+  document.querySelector('#bottom').scrollIntoView();
+})();
+</script>
+
+
+EOT;
+
 
 public static $dummy_calendar = array
 			 (
@@ -160,11 +224,11 @@ public function rebuild($force = false) {
 	file_put_contents (SITE_PATH . '/today.php',$static_page);
 
 	$scroll_page = $this->start_page('Today in the Park (scrolling)','s')
-		. $page_body;
+		. $page_body . self::$scroll_script;
 	file_put_contents( SITE_PATH . '/scroll.php', $scroll_page);
 
 	$snap_page = $this->start_page('Today in the Park (snap)')
-		. $page_body ;
+		. $page_body  . self::$snap_script;
 	file_put_contents( SITE_PATH . '/snap.php', $snap_page);
 
 	$page_body_new = $this->Plates -> render ('today2',$y);
@@ -180,13 +244,14 @@ public function prepare_today($force=false) {
  //set force true or false to force cache updates
  // get sections needed
 
-	foreach (['weathergov','weather','air','alerts','uv','calendar','fire','light'] as $section) {
+// alerts included below onloy to trigger timely updates.  not used in today
+	foreach (['weathergov','weather','air','uv','calendar','light','alerts'] as $section) {
 		$y[$section] = $this -> load_cache ($section, $force);
 	}
 	$y['today'] = $this -> load_today();
-	$v = shell_exec(REPO_PATH . "/src/version.sh 2>&1");
-	echo 'Version: ' . $v . BRNL; exit;
-	$y['version'] = "V: $v";
+	$v = file_get_contents(REPO_PATH . "/data/version") ;
+//	echo 'Version: ' . $v . BRNL; exit;
+	$y['version'] = $v;
 
 // u\echor($y, 'y array for today');
 	//clean text for display (spec chars, nl2br)
@@ -194,8 +259,14 @@ public function prepare_today($force=false) {
 	// clean text in divs (
 		$y['today'][$txt] = $this->clean_text($y['today'][$txt]);
 	}
+	// tweak some styles
+	$y['fire']['firecolor'] = $this->Defs->scale_color($y['today']['fire_level']) ;
+	$y['fire']['firelevel'] = $y['today']['fire_level'] ;
 
-//u\echor($y, 'y array for today');
+
+
+
+//   u\echor($y, 'y array for today', STOP);
 	return $y;
  }
 
@@ -203,9 +274,12 @@ public function prepare_admin() {
 // get sections needed for the admin form
 
 	$y = $this -> load_today();
-// 	u\echor($y, 'load today()');
+	$y['alerts'] = $this->load_cache('alerts');
 
-	$fire_levels = array_keys(Defs::$firewarn);
+// 	u\echor($y, 'y in prepare admin', STOP);
+
+
+$fire_levels = array_keys(Defs::$firewarn);
 	$y['fire_level_options'] = u\buildOptions($fire_levels,$y['fire_level']);
 
 
@@ -291,7 +365,7 @@ same routine can be used to update indiviual cahces
 
 
 
-private function load_cache ($section,bool $force=false) {
+public function load_cache ($section,bool $force=false) {
 		$refresh = $force;
 
 		if (! file_exists (CACHE[$section])) {
@@ -339,8 +413,8 @@ public function refresh_cache (string $section ) {
 						$this->write_cache ('light',$lt);
 					$uv = $this -> internal_uv ($w) ;
 						$this->write_cache ('uv',$uv);
-					$alerts = $this-> internal_alerts($w);
-						$this->write_cache('alerts',$alerts);
+					$alerts = $this-> weather_alerts($w);
+						$this->update_alerts(['weather' => $alerts]);
 
 
 					break;
@@ -362,6 +436,10 @@ public function refresh_cache (string $section ) {
 					$w = $this -> external_weathergov ($this->wlocs) ;
 					$this -> write_cache($section,$w);
 	//u\echor($w,'gov weather',STOP);
+					break;
+				case 'alerts':
+					$alerts = $this-> external_alerts();
+					$this->update_alerts(['weathergov' => $alerts]);
 					break;
 
 				default: return true;
@@ -679,7 +757,11 @@ public function external_weathergov ($locs) {
 			echo "No properties in aresp.  Tries $tries" . BRNL;
 			// u\echor($aresp,'aresp');
 			// retry
-			if ($tries > 2){die ("Can't get weather.gov");}
+			if ($tries > 2){
+				echo "Can't get weather.gov";
+				u\echor($aresp,'recvd response from forecast');
+				exit;
+			}
 			$resp = curl_exec($ch);
 			$aresp = json_decode($resp, true);
 			++$tries;
@@ -745,7 +827,7 @@ public function external_alerts () {
 
 	// convert ot php arrays
 		$aresp = json_decode($resp, true);
-// u\echor($aresp , 'alert response');
+//  u\echor($aresp , '.gov alert response');
 
 		if (! $data = $aresp['features'] ){
 			echo "No alerts";
@@ -753,24 +835,26 @@ public function external_alerts () {
 		}
 			;
 		$y=[];
-		foreach ($data['properties'] as $alert){ // alerrt array]	d
+		foreach ($aresp['features'] as $alert){
 			if (empty($alert)){continue;}
-			$exp = strtotime($alert['expires']);
-			if ($exp < time()){continue;}
+			$aprop = $alert['properties'];
+			$exp = strtotime($aprop['expires']);
+
 
 			$y = array
 			(
-				'cat' => $alert['category'],
-				'event'  => $alert['event'],
-				'desc'  =>$alert['desc'],
-				'instruction' => $alert['instruction'],
+				'cat' => $aprop['category'],
+				'event'  => $aprop['event'],
+				'desc'  => $aprop['description'],
+				'instruction' => $aprop['instruction'],
+				'expires' => $exp,
 			);
 
 // 		u\echor ($y,'uv',STOP);
 			$z[] = $y;
 		}
 	curl_close ($ch);
-	echo "External aleerts updated" . BRNL;
+	echo "External alerts updated" . BRNL;
 	return $z;
 }
 
@@ -814,32 +898,60 @@ echo "Starting on $loc" . BRNL;
 
 }
 
-private function internal_alerts($w=[]) {
+public function weather_alerts($w=[]) {
 	// retrieve alerts from the weather report
 if (empty($w)){
 		$w = $this->load_cache('weather');
 	}
-
-
 	$alerts = $w['alerts'] ?? [];
 		foreach ($alerts as $alert) {
-			$exp = strtotime($alert['expires']);
-			if ($exp < time()){continue;}
+
 
 			$y = array
 			(
 				'cat' => $alert['category'],
 				'event'  => $alert['event'],
-					'desc'  =>$alert['desc'],
-					'instruction' => $alert['instruction'],
+				'desc'  =>$alert['desc'] ?? '',
+				'instruction' => $alert['instruction'] ?? '',
+				'expires' => $alert['expires'] ?? ''
 			);
+		}
 
-// 		u\echor ($y,'uv',STOP);
+
 		$z[] = $y;
+// 		u\echor ($z,'alert from weatherapi.com');
 	return $z;
 }
 
+public function update_alerts(array $y=[]) {
+	/* updates alert cache with y
+		 y is array of alerts
+		 y = source => array(
+		 		array(expires=>date, event=> ...
+
+		 routine replaces source in alert cache
+
+	*/
+	// don't use load_cache, because it will send you into loop
+	$alerts = json_decode(REPO_PATH . 'alerts.json',true) ;
+// 	u\echor($alerts,'loadedd from alert cache');
+// 	u\echor ($y,'incoming array');
+
+	$newset=[];
+	foreach ($y as $source => $alertset){
+		foreach ($alertset as $alert) {
+			$newa = $this->fix_alert_expiry($alert);
+			if ($newa){$newset[] = $newa;}
+		}
+		$alerts[$source] = $newset;
+	}
+// 	u\echor($alerts,'merged');
+	$this->write_cache('alerts',$alerts);
+
+	return true;
+
 }
+
 private function internal_uv($w=[]) {
 
 // retrieve uv from the weather report
@@ -1052,6 +1164,25 @@ public function clean_text(string $text) {
 	return $t;
 }
 
+private function fix_alert_expiry($alert){
+	if (empty($alert['expires'])) {
+				// no expiry date.  set for 3 days
+				$alert['expires'] = strtotime(' + 3 day');
+				echo "alert expiry set to + 3 days on alert" . $alert['event'];
+		}
+		elseif (is_numeric ($alert['expires'])){
+			# do nothing.  it's ok
+		}
+		elseif ($exp=strtotime($alert['expires'])){
+			$alert['expires'] = $exp;
+		} else {
+				die ("Cannot get expire date on alert" . $alert['event']);
+		}
+		// remove if expired
+		if (time() > $alert['expires'])  {return [];}
+		return $alert;
+
+}
 
 
 } #end class

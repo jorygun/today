@@ -12,8 +12,12 @@ use DigitalMx as u;
 
 <?php if(!empty($today['announcements'])) : ?>
 	<h4>Announcements</h4>
-	<div class='warn'>
-	<?=$today['announcements']?>
+	<div class='warn'><ul>
+	<?php $anlist = explode("\n",$today['announcements']);
+		foreach ($anlist as $item) :?>
+			<li><?=$item?></li>
+		<?php endforeach ?>
+		</ul>
 	</div>
 <?php endif; ?>
 
@@ -39,7 +43,8 @@ use DigitalMx as u;
 </tr>
 
 <tr class='border-bottom'><td class='left'><b>UV Exposure:</b> </td>
-	<td><span class = 'uvstyle'><?= $uv['uv'] ?>  <?=$uv['uvscale']?></span></td><td class='left'><?=$uv['uvwarn']?></td></tr>
+	<td class='left'><span style = 'background-color:<?=$uv['uvcolor']?>;'> <?= $uv['uv'] ?>  <?=$uv['uvscale']?></span></td></tr>
+	<tr><td class='left' colspan='2'><?=$uv['uvwarn']?></td></tr>
 
 </table>
 <?php endif; ?>
@@ -51,12 +56,19 @@ use DigitalMx as u;
 	<div class='warn'> <?=$today['fire_warn']?>
 	</div>
 <?php endif; ?>
-<?php $fire = $today['fire_level']; ?>
+<?php
+// u\echor($fire, 'y-fire');
+	$firelevel = $fire['firelevel'];
+	$firecolor = $fire['firecolor'];
+	?>
 <?php if(empty($fire)): echo "<p>No Data</p>"; else:?>
 	<table class='in2 '>
-	 <tr class='no-border'><td style='vertical-align:top;'><span class = 'warnblock firestyle'><?=$fire ?> </span>
-	 </td><td class='left'>
-<?=Defs::$firewarn[$fire]?></td></tr>
+	 <tr class='no-border'><td style='vertical-align:top;'>
+	 	<span class = 'warnblock' style="background-color:<?=$firecolor?>">
+	 	<?=$firelevel?> </span>
+	 </td></tr>
+	 <tr><td class='left' colspan='2'>
+<?=Defs::$firewarn[$firelevel]?></td></tr>
 	</table>
 <?php endif; ?>
 
@@ -107,7 +119,9 @@ echo "Retrieved at  " . date ('M j h:i a',$air['jr']['dt']);
  	echo "</tr>"; #</table>"; exit;
 
 	foreach ($weather as $loc => $x ) : //x period array
-//	if ($loc == 'alerts'){ u\echor($x); continue;}
+		if ($loc == 'alerts'){ continue;}
+		// shows up in weather file like a location.
+		// is captured separately for the alerts cache
 
 		if (!$locname = Defs::$sitenames[$loc] ){continue;}
 //	u\echor ($x,"Loc $loc", STOP);
@@ -248,31 +262,3 @@ echo "Retrieved at  " . date ('M j h:i a',$air['jr']['dt']);
 
 <hr>
 <p id='bottom' class='right'> <?=$version ?> </p>
-<script>
-
-function pageScroll() {
-    	window.scrollBy(0,3); // horizontal and vertical scroll increments
-    	scrolldelay = setTimeout('pageScroll()',50); // scrolls every 100 milliseconds
-            if ((window.innerHeight + window.pageYOffset) >= document.body.offsetHeight) {
-        		scrolldelay = setTimeout('PageUp()',2000);
-    		}
-
-}
-
-function PageUp() {
-	window.scrollTo(0, 0);
-}
-
-</script>
-
-
-<script>
-	let timeout = setTimeout(() => {
-  document.querySelector('#target').scrollIntoView();
-}, 5000);
-
-(function() {
-  document.querySelector('#bottom').scrollIntoView();
-})();
-</script>
-

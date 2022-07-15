@@ -97,7 +97,11 @@ public static $coordinates = [
 ];
 
 
+	public static $alert_sources = array (
+		'weather' => 'Weatherapi.com, commercial source',
+		'weathergov' => 'weather.gov alert system',
 
+	);
 
 	public static function uv_scale ($uv) {
 		// sets uv name based on index
@@ -225,7 +229,7 @@ public static $coordinates = [
 				'today' => 0,
 				'properties' => 60*24*7,
 				'weathergov' => 240,
-				'alerts' => 0,
+				'alerts' => 240,
 			);
 
 	private static $moons = array (

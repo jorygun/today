@@ -16,6 +16,7 @@ use DigitalMx as u;
 
 
 <h4>Enter closures/announcements</h4>
+One announcement per line.(<cr>)  They will be listed as bullets
 <textarea name='announcements' ><?=$announcements ?></textarea>
 </p>
 
@@ -28,6 +29,7 @@ use DigitalMx as u;
 
 
 <h4>Enter weather warning</h4>
+<p>Alerts are published by several outside sources.  Click here to <a href='/view_alerts.php' target='alerts'>view active alerts</a> from other sources. Copy and edit as appropriate.</p>
 <textarea name='weather_warn'><?=$weather_warn?></textarea>
 </p>
 

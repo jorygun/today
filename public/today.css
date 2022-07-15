@@ -129,8 +129,8 @@ table.col-border td, table.col-border th {
 .warn
 {
 	border: 4px solid black;
-	text-align: center;
-	font-weight:bold;
+	text-align: left;
+
 	padding: 1em;
 	margin-bottom: 1em;
 	margin-left:2em;
@@ -138,6 +138,9 @@ table.col-border td, table.col-border th {
 	width: 85%;
 	color: red;
 	max-width: 85%;
+}
+.warn li {
+	margin-bottom:1em;
 }
 
 .in2 { margin-left: 2em;
@@ -150,9 +153,7 @@ table.col-border td, table.col-border th {
 	font-size: 1.5em;
 }
 
-.uvstyle { background-color: <?=$uv['uvcolor']?>; }
-.firestyle { background-color: <?=$fire['firecolor']?>; }
-.aqstyle { background-color: <?=$air['aqi_color']?>; }
+
 
 .warnblock
 {

@@ -1,7 +1,6 @@
 <?php
 use DigitalMx\jotr\Definitions as Defs;
 use DigitalMx as u;
-// same as orginal today, but gets weather from weather gov cache
 ?>
 
 <p class='today'>Today in Joshua Tree National Park (new)</p>
@@ -13,8 +12,12 @@ use DigitalMx as u;
 
 <?php if(!empty($today['announcements'])) : ?>
 	<h4>Announcements</h4>
-	<div class='warn'>
-	<?=$today['announcements']?>
+	<div class='warn'><ul>
+	<?php $anlist = explode("\n",$today['announcements']);
+		foreach ($anlist as $item) :?>
+			<li><?=$item?></li>
+		<?php endforeach ?>
+		</ul>
 	</div>
 <?php endif; ?>
 
@@ -40,7 +43,7 @@ use DigitalMx as u;
 </tr>
 
 <tr class='border-bottom'><td class='left'><b>UV Exposure:</b> </td>
-	<td><span class = 'uvstyle'><?= $uv['uv'] ?>  <?=$uv['uvscale']?></span></td><td class='left'><?=$uv['uvwarn']?></td></tr>
+	<td><span style = 'background-color:<?=$uv['uvcolor']?>;'> <?= $uv['uv'] ?>  <?=$uv['uvscale']?></span></td><td class='left'><?=$uv['uvwarn']?></td></tr>
 
 </table>
 <?php endif; ?>
@@ -52,12 +55,18 @@ use DigitalMx as u;
 	<div class='warn'> <?=$today['fire_warn']?>
 	</div>
 <?php endif; ?>
-<?php $fire = $today['fire_level']; ?>
+<?php
+// u\echor($fire, 'y-fire');
+	$firelevel = $fire['firelevel'];
+	$firecolor = $fire['firecolor'];
+	?>
 <?php if(empty($fire)): echo "<p>No Data</p>"; else:?>
 	<table class='in2 '>
-	 <tr class='no-border'><td style='vertical-align:top;'><span class = 'warnblock firestyle'><?=$fire ?> </span>
+	 <tr class='no-border'><td style='vertical-align:top;'>
+	 	<span class = 'warnblock' style="background-color:<?=$firecolor?>">
+	 	<?=$firelevel?> </span>
 	 </td><td class='left'>
-<?=Defs::$firewarn[$fire]?></td></tr>
+<?=Defs::$firewarn[$firelevel]?></td></tr>
 	</table>
 <?php endif; ?>
 
@@ -65,13 +74,6 @@ use DigitalMx as u;
 <?php if (!empty($today['weather_warn'])) : ?>
 	<div class='warn'><?=$today['weather_warn']?></div>
 <?php endif; ?>
-<?php if (!empty($alerts)) :
-	foreach ($alerts as $alert) : ?>
-	<div class='warn'><?= $alert['cat']?>: <?=$alert['event']?> <br />
-	<?=$alert['desc'] ?>
-	</div>
-<?php endforeach; endif; ?>
-
 
 
 
@@ -242,4 +244,4 @@ echo "Retrieved at  " . date ('M j h:i a',$air['jr']['dt']);
 
 
 <hr>
-<p id='bottom' class='right'>Updated <?= $today['updated'] ?> </p>
+<p id='bottom' class='right'> <?=$version ?> </p>

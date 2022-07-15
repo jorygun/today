@@ -37,6 +37,9 @@ echo <<< EOT
 
 <p>Scrolling Page: <a href='/scroll.php' target='scroll'>/scroll.php</a></p>
 
+<p>Snapping Page: <a href='/snap.php' target='snap'>/snap.php</a></p>
+
+
 <p>Admin Page: <a href='/admin.php' target='admin'> /admin.php</a></p>
 
 
