@@ -51,7 +51,7 @@ two lines down       </p>
 
 <tr class='border-bottom'><td class='left'><b>UV Exposure:</b> </td>
 	<td class='left'><span style = 'background-color:orange;'> 7  High</span></td></tr>
-	<tr><td class='left' colspan='2'>Protection needed. Seek shade during late morning through mid-afternoon. When outside, generously apply broad-spectrum SPF-15 or higher sunscreen on exposed skin, and wear protective clothing, a wide-brimmed hat, and sunglasses.</td></tr>
+	<tr><td class='left' colspan='3'>Protection needed. Seek shade during late morning through mid-afternoon. When outside, generously apply broad-spectrum SPF-15 or higher sunscreen on exposed skin, and wear protective clothing, a wide-brimmed hat, and sunglasses.</td></tr>
 
 </table>
 
@@ -61,18 +61,18 @@ two lines down       </p>
 
 <h4>Fire Danger: </h4>
 
+
+
+	<div class='in2 '>
+	 	<p class = 'warnblock'  style="background-color:red">
+	 	Extreme </p>
+	<div class='left'>
+	When the fire danger is "extreme", fires of all types start quickly and burn intensely.  All fires are potentially serious and can spread very quickly with intense burning.  Small fires become big fires much faster than at the "very high" level.  Spot fires are probable, with long-distance spotting likely.  These fires are very difficult to fight and may become very dangerous and often last for several days.</div></div>
+
 	<div class='warn'> So hot the roads are burning!!	</div>
-	<table class='in2 '>
-	 <tr class='no-border'><td style='vertical-align:top;'>
-	 	<span class = 'warnblock' style="background-color:red">
-	 	Extreme </span>
-	 </td></tr>
-	 <tr><td class='left' colspan='2'>
-When the fire danger is "extreme", fires of all types start quickly and burn intensely.  All fires are potentially serious and can spread very quickly with intense burning.  Small fires become big fires much faster than at the "very high" level.  Spot fires are probable, with long-distance spotting likely.  These fires are very difficult to fight and may become very dangerous and often last for several days.</td></tr>
-	</table>
 
 <h4>Air Quality</h4>
-Retrieved at  Jul 15 06:35 pm</p>
+
 <table class='in2'>
 <tr><th>Location</th><th>Air Quality</th><th>Particulates (PM10)</th><th>Ozone</td></tr>
 <tr>
@@ -108,26 +108,51 @@ Retrieved at  Jul 15 06:35 pm</p>
 </div><div id='page3'>
 
 <h4>Weather</h4>
+	<h4 class='in2'>Active Warning!</h4>
 	<div class='warn'>Thunderstorm Watch: Minor Chance of thunderstorms later in the week. Impacts: Gusty Winds, Patchy Blowing Dust, Lightning, Brief Heavy Downpours.  Report smoke or strikes immediately to Dispatch. If you cannot contact Dispatch, find another form of communication as quickly as possible to transmit your intel. Follow any directions you receive once reported and be sure you are in a safe location. </div>
 
-<p><b>Forecasts</b></p>
 
-<table class = 'in2 col-border'>
 
-<!-- get period names -->
-<tr><th>Friday, Jul 15</th><th>Saturday, Jul 16</th><th>Sunday, Jul 17</th></tr>		<tr class='borders lt-grn left'><td colspan=5 ><b>Jumbo Rocks</b></td></tr>
-		<tr class='col-border'>
+	<table class = 'in2 col-border'>
 
-<td>Patchy rain possible</td><td>Patchy rain possible</td><td>Sunny</td></tr><tr><td>Low: 79 High: 104  &deg;F</td><td>Low: 81 High: 104  &deg;F</td><td>Low: 82 High: 107  &deg;F</td></tr><tr><td>Wind to 13 mph </td><td>Wind to 13 mph </td><td>Wind to 15 mph </td></tr><tr><td>Humidity: 25 %</td><td>Humidity: 24 %</td><td>Humidity: 23 %</td></tr><tr><td>Rain 84 %</td><td>Rain 84 %</td><td>Rain 0 %</td></tr>		<tr class='borders lt-grn left'><td colspan=5 ><b>Twentynine Palms</b></td></tr>
-		<tr class='col-border'>
+	<!-- get period names -->
+	<tr><th>Friday, Jul 15</th><th>Saturday, Jul 16</th><th>Sunday, Jul 17</th></tr>			<tr class='borders lt-grn left'><td colspan=5 ><b>Jumbo Rocks</b></td></tr>
 
-<td>Patchy rain possible</td><td>Patchy rain possible</td><td>Sunny</td></tr><tr><td>Low: 82 High: 107  &deg;F</td><td>Low: 84 High: 108  &deg;F</td><td>Low: 86 High: 110  &deg;F</td></tr><tr><td>Wind to 13 mph </td><td>Wind to 13 mph </td><td>Wind to 17 mph </td></tr><tr><td>Humidity: 23 %</td><td>Humidity: 21 %</td><td>Humidity: 20 %</td></tr><tr><td>Rain 89 %</td><td>Rain 79 %</td><td>Rain 0 %</td></tr>		<tr class='borders lt-grn left'><td colspan=5 ><b>Cottonwood</b></td></tr>
-		<tr class='col-border'>
 
-<td>Patchy rain possible</td><td>Sunny</td><td>Sunny</td></tr><tr><td>Low: 76 High: 111  &deg;F</td><td>Low: 80 High: 113  &deg;F</td><td>Low: 84 High: 113  &deg;F</td></tr><tr><td>Wind to 9 mph </td><td>Wind to 10 mph </td><td>Wind to 12 mph </td></tr><tr><td>Humidity: 23 %</td><td>Humidity: 24 %</td><td>Humidity: 26 %</td></tr><tr><td>Rain 85 %</td><td>Rain 0 %</td><td>Rain 0 %</td></tr>		<tr class='borders lt-grn left'><td colspan=5 ><b>Black Rock</b></td></tr>
-		<tr class='col-border'>
+			<tr class='col-border'>
 
-<td>Patchy rain possible</td><td>Sunny</td><td>Sunny</td></tr><tr><td>Low: 77 High: 103  &deg;F</td><td>Low: 79 High: 104  &deg;F</td><td>Low: 80 High: 106  &deg;F</td></tr><tr><td>Wind to 14 mph </td><td>Wind to 12 mph </td><td>Wind to 14 mph </td></tr><tr><td>Humidity: 26 %</td><td>Humidity: 24 %</td><td>Humidity: 24 %</td></tr><tr><td>Rain 78 %</td><td>Rain 0 %</td><td>Rain 0 %</td></tr></table>
+	<td><p>Patchy rain possible<br />Low: 79 High: 104  &deg;F<br />Wind to 13 mph <br />Humidity: 25 %<br />Rain 84 %<br /></p></td>
+<td><p>Patchy rain possible<br />Low: 81 High: 104  &deg;F<br />Wind to 13 mph <br />Humidity: 24 %<br />Rain 84 %<br /></p></td>
+<td><p>Sunny<br />Low: 82 High: 107  &deg;F<br />Wind to 15 mph <br />Humidity: 23 %<br />Rain 0 %<br /></p></td>
+		</tr>
+				<tr class='borders lt-grn left'><td colspan=5 ><b>Twentynine Palms</b></td></tr>
+
+
+			<tr class='col-border'>
+
+	<td><p>Patchy rain possible<br />Low: 82 High: 107  &deg;F<br />Wind to 13 mph <br />Humidity: 23 %<br />Rain 89 %<br /></p></td>
+<td><p>Patchy rain possible<br />Low: 84 High: 108  &deg;F<br />Wind to 13 mph <br />Humidity: 21 %<br />Rain 79 %<br /></p></td>
+<td><p>Sunny<br />Low: 86 High: 110  &deg;F<br />Wind to 17 mph <br />Humidity: 20 %<br />Rain 0 %<br /></p></td>
+		</tr>
+				<tr class='borders lt-grn left'><td colspan=5 ><b>Cottonwood</b></td></tr>
+
+
+			<tr class='col-border'>
+
+	<td><p>Patchy rain possible<br />Low: 76 High: 111  &deg;F<br />Wind to 9 mph <br />Humidity: 23 %<br />Rain 85 %<br /></p></td>
+<td><p>Sunny<br />Low: 80 High: 113  &deg;F<br />Wind to 10 mph <br />Humidity: 24 %<br />Rain 0 %<br /></p></td>
+<td><p>Sunny<br />Low: 84 High: 113  &deg;F<br />Wind to 12 mph <br />Humidity: 26 %<br />Rain 0 %<br /></p></td>
+		</tr>
+				<tr class='borders lt-grn left'><td colspan=5 ><b>Black Rock</b></td></tr>
+
+
+			<tr class='col-border'>
+
+	<td><p>Patchy rain possible<br />Low: 77 High: 103  &deg;F<br />Wind to 14 mph <br />Humidity: 26 %<br />Rain 78 %<br /></p></td>
+<td><p>Sunny<br />Low: 79 High: 104  &deg;F<br />Wind to 12 mph <br />Humidity: 24 %<br />Rain 0 %<br /></p></td>
+<td><p>Sunny<br />Low: 80 High: 106  &deg;F<br />Wind to 14 mph <br />Humidity: 24 %<br />Rain 0 %<br /></p></td>
+		</tr>
+		</table>
 
 
 <!-- ############################## -->
@@ -264,13 +289,13 @@ Retrieved at  Jul 15 06:35 pm</p>
 	<td style='vertical-align:top;'>Wednesday Jul 27 9:00 pm <br />&nbsp;&nbsp;(90 minutes) </td>
 <!--
 	<td><br />
-<b>Warning</b>:  Undefined array key "event_location" in <b>/Users/john/Sites/jotr/plates/today.tpl</b> on line <b>250</b><br />
+<b>Warning</b>:  Undefined array key "event_location" in <b>/Users/john/Sites/jotr/plates/today.tpl</b> on line <b>239</b><br />
  </td>
 	<td><br />
-<b>Warning</b>:  Undefined array key "event_type" in <b>/Users/john/Sites/jotr/plates/today.tpl</b> on line <b>251</b><br />
+<b>Warning</b>:  Undefined array key "event_type" in <b>/Users/john/Sites/jotr/plates/today.tpl</b> on line <b>240</b><br />
  </td>
 	<td><br />
-<b>Warning</b>:  Undefined array key "event_title" in <b>/Users/john/Sites/jotr/plates/today.tpl</b> on line <b>252</b><br />
+<b>Warning</b>:  Undefined array key "event_title" in <b>/Users/john/Sites/jotr/plates/today.tpl</b> on line <b>241</b><br />
  </td>
 
  -->
@@ -286,13 +311,13 @@ Retrieved at  Jul 15 06:35 pm</p>
 	<td style='vertical-align:top;'>Monday Aug 1 12:00 am <br />&nbsp;&nbsp;(5 minutes) </td>
 <!--
 	<td><br />
-<b>Warning</b>:  Undefined array key "event_location" in <b>/Users/john/Sites/jotr/plates/today.tpl</b> on line <b>250</b><br />
+<b>Warning</b>:  Undefined array key "event_location" in <b>/Users/john/Sites/jotr/plates/today.tpl</b> on line <b>239</b><br />
  </td>
 	<td><br />
-<b>Warning</b>:  Undefined array key "event_type" in <b>/Users/john/Sites/jotr/plates/today.tpl</b> on line <b>251</b><br />
+<b>Warning</b>:  Undefined array key "event_type" in <b>/Users/john/Sites/jotr/plates/today.tpl</b> on line <b>240</b><br />
  </td>
 	<td><br />
-<b>Warning</b>:  Undefined array key "event_title" in <b>/Users/john/Sites/jotr/plates/today.tpl</b> on line <b>252</b><br />
+<b>Warning</b>:  Undefined array key "event_title" in <b>/Users/john/Sites/jotr/plates/today.tpl</b> on line <b>241</b><br />
  </td>
 
  -->
@@ -313,7 +338,7 @@ Retrieved at  Jul 15 06:35 pm</p>
 
 
 <hr>
-<p id='bottom' class='right'> Vers:  v0.25 2022-07-15 07:46 -0700
+<p id='bottom' class='right'> Vers:  v0.25 2022-07-15 19:05 -0700
  </p>
 <script>
 

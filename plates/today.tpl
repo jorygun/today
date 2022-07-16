@@ -47,7 +47,7 @@ use DigitalMx as u;
 
 <tr class='border-bottom'><td class='left'><b>UV Exposure:</b> </td>
 	<td class='left'><span style = 'background-color:<?=$uv['uvcolor']?>;'> <?= $uv['uv'] ?>  <?=$uv['uvscale']?></span></td></tr>
-	<tr><td class='left' colspan='2'><?=$uv['uvwarn']?></td></tr>
+	<tr><td class='left' colspan='3'><?=$uv['uvwarn']?></td></tr>
 
 </table>
 <?php endif; ?>
@@ -58,31 +58,32 @@ use DigitalMx as u;
 
 <h4>Fire Danger: </h4>
 
-<?php if (!empty($today['fire_warn'])) : ?>
-	<div class='warn'> <?=$today['fire_warn']?>
-	</div>
-<?php endif; ?>
+
 <?php
 // u\echor($fire, 'y-fire');
 	$firelevel = $fire['firelevel'];
 	$firecolor = $fire['firecolor'];
 	?>
 <?php if(empty($fire)): echo "<p>No Data</p>"; else:?>
-	<table class='in2 '>
-	 <tr class='no-border'><td style='vertical-align:top;'>
-	 	<span class = 'warnblock' style="background-color:<?=$firecolor?>">
-	 	<?=$firelevel?> </span>
-	 </td></tr>
-	 <tr><td class='left' colspan='2'>
-<?=Defs::$firewarn[$firelevel]?></td></tr>
-	</table>
+
+	<div class='in2 '>
+	 	<p class = 'warnblock'  style="background-color:<?=$firecolor?>">
+	 	<?=$firelevel?> </p>
+	<div class='left'>
+	<?=Defs::$firewarn[$firelevel]?>
+</div></div>
+<?php endif; ?>
+
+<?php if (!empty($today['fire_warn'])) : ?>
+	<div class='warn'> <?=$today['fire_warn']?>
+	</div>
 <?php endif; ?>
 
 <h4>Air Quality</h4>
 <?php if(empty($air)): echo "<p>No Data</p>"; else:
-echo "Retrieved at  " . date ('M j h:i a',$air['jr']['dt']);
+// echo "Retrieved at  " . date ('M j h:i a',$air['jr']['dt']);
 ?>
-</p>
+
 <table class='in2'>
 <tr><th>Location</th><th>Air Quality</th><th>Particulates (PM10)</th><th>Ozone</td></tr>
 <?php foreach ($air as $loc => $dat) :
@@ -107,77 +108,65 @@ echo "Retrieved at  " . date ('M j h:i a',$air['jr']['dt']);
 
 <h4>Weather</h4>
 <?php if (!empty($today['weather_warn'])) : ?>
+	<h4 class='in2'>Active Warning!</h4>
 	<div class='warn'><?=$today['weather_warn']?></div>
 <?php endif; ?>
 
-<p><b>Forecasts</b></p>
+
 <?php if(empty($weather)): echo "<p>No Data</p>"; else: ?>
 
-<table class = 'in2 col-border'>
+	<table class = 'in2 col-border'>
 
-<!-- get period names -->
-<?php
-	$periods = array_keys($weather['hq']);
-// u\echor ($periods);
-	echo "<tr>";
-	foreach ($periods as $p) :
-		echo "<th>{$weather['hq'][$p]['date']}</th>";
- 	endforeach;
- 	echo "</tr>"; #</table>"; exit;
+	<!-- get period names -->
+	<?php
+		$periods = array_keys($weather['hq']);
+	// u\echor ($periods);
+
+		echo "<tr>";
+		foreach ($periods as $p) :
+			echo "<th>{$weather['hq'][$p]['date']}</th>";
+		endforeach;
+		echo "</tr>";
 
 	foreach ($weather as $loc => $x ) : //x period array
-		if ($loc == 'alerts'){ continue;}
-		// shows up in weather file like a location.
-		// is captured separately for the alerts cache
+			if ($loc == 'alerts') : continue; endif;
+			// shows up in weather file like a location.
+			// is captured separately for the alerts cache
 
-		if (!$locname = Defs::$sitenames[$loc] ){continue;}
-//	u\echor ($x,"Loc $loc", STOP);
-?>
-		<tr class='borders lt-grn left'><td colspan=5 ><b><?=$locname?></b></td></tr>
-		<tr class='col-border'>
-
-<?php
-			foreach ($periods as $p) :
-				$v = $x[$p]['skies'] ;
-			 	echo "<td>$v</td>";
-			endforeach;
-			echo 	"</tr>" ;
-
-			echo "<tr>";
-			foreach ($periods as $p) :
-				$v = $x[$p]['Low'] ;
-				$w = $x[$p]['High'] ;
-			 	echo "<td>Low: $v High: $w  &deg;F</td>";
-			endforeach;
-			echo 	"</tr>" ;
-
-			echo "<tr>";
-			foreach ($periods as $p) :
-				$v = $x[$p]['maxwind'] ;
-
-			 	echo "<td>Wind to $v mph </td>";
-			endforeach;
-			echo 	"</tr>" ;
-
-			echo "<tr>";
-			foreach ($periods as $p) :
-				$v = $x[$p]['avghumidity'] ;
-			 	echo "<td>Humidity: $v %</td>";
-			endforeach;
-			echo 	"</tr>" ;
-
-			echo "<tr>";
-			foreach ($periods as $p) :
-				$v = $x[$p]['rain'] ;
-			 	echo "<td>Rain $v %</td>";
-			endforeach;
-			echo 	"</tr>" ;
+			if (! $locname = Defs::$sitenames[$loc] ) : continue; endif;
+	//	u\echor ($x,"Loc $loc", STOP);
+	?>
+			<tr class='borders lt-grn left'><td colspan=5 ><b><?=$locname?></b></td></tr>
 
 
+			<tr class='col-border'>
 
-	endforeach;
-?>
-</table>
+	<?php
+				foreach ($periods as $p) :
+					echo  "<td><p>";
+
+						$v = $x[$p]['skies'] ;
+						echo "$v<br />";
+
+						$v = $x[$p]['Low'] ;
+						$w = $x[$p]['High'] ;
+						echo "Low: $v High: $w  &deg;F<br />";
+
+						$v = $x[$p]['maxwind'] ;
+						echo "Wind to $v mph <br />";
+
+						$v = $x[$p]['avghumidity'] ;
+						echo "Humidity: $v %<br />";
+
+						$v = $x[$p]['rain'] ;
+						echo "Rain $v %<br />";
+
+					echo 	"</p></td>\n" ;
+				endforeach;
+	?>
+		</tr>
+	<?php endforeach ?>
+	</table>
 
 <?php endif; ?>
 
