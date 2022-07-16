@@ -10,6 +10,9 @@ use DigitalMx as u;
 <p class='pithy'><?=$today['pithy'] ?></p>
 <?php endif; ?>
 
+<!-- ############################## -->
+<div id='page1'>
+
 <?php if(!empty($today['announcements'])) : ?>
 	<h4>Announcements</h4>
 	<div class='warn'><ul>
@@ -49,6 +52,9 @@ use DigitalMx as u;
 </table>
 <?php endif; ?>
 
+<!-- ############################## -->
+
+</div><div id='page2'>
 
 <h4>Fire Danger: </h4>
 
@@ -72,14 +78,7 @@ use DigitalMx as u;
 	</table>
 <?php endif; ?>
 
-<h4>Weather</h4>
-<?php if (!empty($today['weather_warn'])) : ?>
-	<div class='warn'><?=$today['weather_warn']?></div>
-<?php endif; ?>
-
-
-
-<p><b>Air Quality</b>
+<h4>Air Quality</h4>
 <?php if(empty($air)): echo "<p>No Data</p>"; else:
 echo "Retrieved at  " . date ('M j h:i a',$air['jr']['dt']);
 ?>
@@ -101,6 +100,14 @@ echo "Retrieved at  " . date ('M j h:i a',$air['jr']['dt']);
 </tr>
 <?php endforeach; ?>
 </table>
+<?php endif; ?>
+<!-- ############################## -->
+
+</div><div id='page3'>
+
+<h4>Weather</h4>
+<?php if (!empty($today['weather_warn'])) : ?>
+	<div class='warn'><?=$today['weather_warn']?></div>
 <?php endif; ?>
 
 <p><b>Forecasts</b></p>
@@ -174,9 +181,10 @@ echo "Retrieved at  " . date ('M j h:i a',$air['jr']['dt']);
 
 <?php endif; ?>
 
+<!-- ############################## -->
 
+</div><div id='page4'>
 
-<div id='target'></div>
 <h4>Campgrounds</h4>
 
 
@@ -220,6 +228,9 @@ echo "Retrieved at  " . date ('M j h:i a',$air['jr']['dt']);
 </div>
 <div style='clear:left'></div>
 
+<!-- ############################## -->
+
+</div><div id = 'page5'>
 <h4>Events</h4>
 <?php if(empty($calendar)) : echo "No Data"; else:
 ?>
@@ -258,6 +269,7 @@ echo "Retrieved at  " . date ('M j h:i a',$air['jr']['dt']);
 
 <?php endif; ?>
 
+</div>
 
 
 <hr>

@@ -227,7 +227,7 @@ public function rebuild($force = false) {
 		. $page_body . self::$scroll_script;
 	file_put_contents( SITE_PATH . '/scroll.php', $scroll_page);
 
-	$snap_page = $this->start_page('Today in the Park (snap)')
+	$snap_page = $this->start_page('Today in the Park (snap)','p')
 		. $page_body  . self::$snap_script;
 	file_put_contents( SITE_PATH . '/snap.php', $snap_page);
 
@@ -1102,10 +1102,9 @@ public function start_page ($title = 'Today in the Park',$pcode='') {
 	if ($pcode=='s') {$scbody='onLoad="pageScroll()"';
 		$scstyle = "<style>html {scroll-behavior: smooth;}</style>";
 	}
-	if ($pcode=='p'){ $scstyle = "<style>html {scroll-behavior: auto;}</style>";
+	if ($pcode=='p'){
+		$scbody = "onLoad='startRotation(10)'";
 	}
-
-
 
 	$text = <<<EOF
 <!DOCTYPE html>
@@ -1115,6 +1114,7 @@ public function start_page ($title = 'Today in the Park',$pcode='') {
    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
    <link rel='stylesheet' href = '/today.css' >
 	<title>$title</title>
+	<script src='/js/snap.js'></script>
 	$scstyle
 
 </head>

@@ -2,4 +2,5 @@
 
 vendor/
 
+*.bbprojectd/
 

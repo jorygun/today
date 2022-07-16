@@ -5,6 +5,7 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
    <link rel='stylesheet' href = '/today.css' >
 	<title>Today in the Park (scrolling)</title>
+	<script src='/js/snap.js'></script>
 	<style>html {scroll-behavior: smooth;}</style>
 
 </head>
@@ -12,11 +13,14 @@
 
 
 <p class='today'>Today in Joshua Tree National Park</p>
-<p class='today'>Thursday, 14 Jul 2022 </p>
+<p class='today'>Friday, 15 Jul 2022 </p>
 <hr>
 <p class='pithy'>Something Pithy, more or less  , more &amp; less, even &quot;More&quot; and &#039;Less&#039; Add an emoji? 😜   . Hoping to preserve line feeds (here&#039;s two):<br />
 <br />
 two lines down       </p>
+
+<!-- ############################## -->
+<div id='page1'>
 
 	<h4>Announcements</h4>
 	<div class='warn'><ul>
@@ -34,14 +38,14 @@ two lines down       </p>
 </colgroup>
 
 <tr class='border-bottom'><td class='left'><b>Sun</b></td>
-<td>Rise 5:45 AM <br />Set 7:58 PM </td>
+<td>Rise 5:45 AM <br />Set 7:57 PM </td>
 <td></td>
 </tr>
 
 <tr class='border-bottom'><td class='left'><b>Moon</b></td>
-<td >Rise 9:24 PM <br />Set 6:32 AM</td>
-<td ><div class='bg-black'><span class='white'>Full Moon</span>
-	<img src= "/images/moon/4.gif" /></div></td>
+<td >Rise 10:05 PM <br />Set 7:47 AM</td>
+<td ><div class='bg-black'><span class='white'>Waxing Gibbous</span>
+	<img src= "/images/moon/3.gif" /></div></td>
 
 </tr>
 
@@ -51,6 +55,9 @@ two lines down       </p>
 
 </table>
 
+<!-- ############################## -->
+
+</div><div id='page2'>
 
 <h4>Fire Danger: </h4>
 
@@ -64,13 +71,8 @@ two lines down       </p>
 When the fire danger is "extreme", fires of all types start quickly and burn intensely.  All fires are potentially serious and can spread very quickly with intense burning.  Small fires become big fires much faster than at the "very high" level.  Spot fires are probable, with long-distance spotting likely.  These fires are very difficult to fight and may become very dangerous and often last for several days.</td></tr>
 	</table>
 
-<h4>Weather</h4>
-	<div class='warn'>Thunderstorm Watch: Minor Chance of thunderstorms later in the week. Impacts: Gusty Winds, Patchy Blowing Dust, Lightning, Brief Heavy Downpours.  Report smoke or strikes immediately to Dispatch. If you cannot contact Dispatch, find another form of communication as quickly as possible to transmit your intel. Follow any directions you receive once reported and be sure you are in a safe location. </div>
-
-
-
-<p><b>Air Quality</b>
-Retrieved at  Jul 14 09:00 pm</p>
+<h4>Air Quality</h4>
+Retrieved at  Jul 15 06:35 pm</p>
 <table class='in2'>
 <tr><th>Location</th><th>Air Quality</th><th>Particulates (PM10)</th><th>Ozone</td></tr>
 <tr>
@@ -78,8 +80,8 @@ Retrieved at  Jul 14 09:00 pm</p>
 	<td>1		<span style="background-color: #CCFFCC">
 		Good</span>
 		</td>
-	<td>10.47</td>
-	<td>77.96</td>
+	<td>9.95</td>
+	<td>70.1</td>
 
 </tr>
 <tr>
@@ -87,8 +89,8 @@ Retrieved at  Jul 14 09:00 pm</p>
 	<td>2		<span style="background-color: #CCFFCC">
 		Good</span>
 		</td>
-	<td>9.16</td>
-	<td>101.57</td>
+	<td>9.52</td>
+	<td>80.11</td>
 
 </tr>
 <tr>
@@ -96,35 +98,42 @@ Retrieved at  Jul 14 09:00 pm</p>
 	<td>1		<span style="background-color: #CCFFCC">
 		Good</span>
 		</td>
-	<td>8.5</td>
-	<td>70.81</td>
+	<td>10.57</td>
+	<td>77.96</td>
 
 </tr>
 </table>
+<!-- ############################## -->
+
+</div><div id='page3'>
+
+<h4>Weather</h4>
+	<div class='warn'>Thunderstorm Watch: Minor Chance of thunderstorms later in the week. Impacts: Gusty Winds, Patchy Blowing Dust, Lightning, Brief Heavy Downpours.  Report smoke or strikes immediately to Dispatch. If you cannot contact Dispatch, find another form of communication as quickly as possible to transmit your intel. Follow any directions you receive once reported and be sure you are in a safe location. </div>
 
 <p><b>Forecasts</b></p>
 
 <table class = 'in2 col-border'>
 
 <!-- get period names -->
-<tr><th>Thursday, Jul 14</th><th>Friday, Jul 15</th><th>Saturday, Jul 16</th></tr>		<tr class='borders lt-grn left'><td colspan=5 ><b>Jumbo Rocks</b></td></tr>
+<tr><th>Friday, Jul 15</th><th>Saturday, Jul 16</th><th>Sunday, Jul 17</th></tr>		<tr class='borders lt-grn left'><td colspan=5 ><b>Jumbo Rocks</b></td></tr>
 		<tr class='col-border'>
 
-<td>Patchy rain possible</td><td>Sunny</td><td>Sunny</td></tr><tr><td>Low: 78 High: 96  &deg;F</td><td>Low: 77 High: 103  &deg;F</td><td>Low: 81 High: 105  &deg;F</td></tr><tr><td>Wind to 12 mph </td><td>Wind to 13 mph </td><td>Wind to 15 mph </td></tr><tr><td>Humidity: 32 %</td><td>Humidity: 25 %</td><td>Humidity: 24 %</td></tr><tr><td>Rain 81 %</td><td>Rain 0 %</td><td>Rain 0 %</td></tr>		<tr class='borders lt-grn left'><td colspan=5 ><b>Twentynine Palms</b></td></tr>
+<td>Patchy rain possible</td><td>Patchy rain possible</td><td>Sunny</td></tr><tr><td>Low: 79 High: 104  &deg;F</td><td>Low: 81 High: 104  &deg;F</td><td>Low: 82 High: 107  &deg;F</td></tr><tr><td>Wind to 13 mph </td><td>Wind to 13 mph </td><td>Wind to 15 mph </td></tr><tr><td>Humidity: 25 %</td><td>Humidity: 24 %</td><td>Humidity: 23 %</td></tr><tr><td>Rain 84 %</td><td>Rain 84 %</td><td>Rain 0 %</td></tr>		<tr class='borders lt-grn left'><td colspan=5 ><b>Twentynine Palms</b></td></tr>
 		<tr class='col-border'>
 
-<td>Patchy rain possible</td><td>Sunny</td><td>Sunny</td></tr><tr><td>Low: 81 High: 99  &deg;F</td><td>Low: 80 High: 106  &deg;F</td><td>Low: 83 High: 109  &deg;F</td></tr><tr><td>Wind to 12 mph </td><td>Wind to 15 mph </td><td>Wind to 15 mph </td></tr><tr><td>Humidity: 27 %</td><td>Humidity: 24 %</td><td>Humidity: 22 %</td></tr><tr><td>Rain 86 %</td><td>Rain 0 %</td><td>Rain 0 %</td></tr>		<tr class='borders lt-grn left'><td colspan=5 ><b>Cottonwood</b></td></tr>
+<td>Patchy rain possible</td><td>Patchy rain possible</td><td>Sunny</td></tr><tr><td>Low: 82 High: 107  &deg;F</td><td>Low: 84 High: 108  &deg;F</td><td>Low: 86 High: 110  &deg;F</td></tr><tr><td>Wind to 13 mph </td><td>Wind to 13 mph </td><td>Wind to 17 mph </td></tr><tr><td>Humidity: 23 %</td><td>Humidity: 21 %</td><td>Humidity: 20 %</td></tr><tr><td>Rain 89 %</td><td>Rain 79 %</td><td>Rain 0 %</td></tr>		<tr class='borders lt-grn left'><td colspan=5 ><b>Cottonwood</b></td></tr>
 		<tr class='col-border'>
 
-<td>Patchy rain possible</td><td>Sunny</td><td>Sunny</td></tr><tr><td>Low: 81 High: 104  &deg;F</td><td>Low: 74 High: 109  &deg;F</td><td>Low: 81 High: 113  &deg;F</td></tr><tr><td>Wind to 7 mph </td><td>Wind to 9 mph </td><td>Wind to 10 mph </td></tr><tr><td>Humidity: 31 %</td><td>Humidity: 23 %</td><td>Humidity: 23 %</td></tr><tr><td>Rain 82 %</td><td>Rain 0 %</td><td>Rain 0 %</td></tr>		<tr class='borders lt-grn left'><td colspan=5 ><b>Black Rock</b></td></tr>
+<td>Patchy rain possible</td><td>Sunny</td><td>Sunny</td></tr><tr><td>Low: 76 High: 111  &deg;F</td><td>Low: 80 High: 113  &deg;F</td><td>Low: 84 High: 113  &deg;F</td></tr><tr><td>Wind to 9 mph </td><td>Wind to 10 mph </td><td>Wind to 12 mph </td></tr><tr><td>Humidity: 23 %</td><td>Humidity: 24 %</td><td>Humidity: 26 %</td></tr><tr><td>Rain 85 %</td><td>Rain 0 %</td><td>Rain 0 %</td></tr>		<tr class='borders lt-grn left'><td colspan=5 ><b>Black Rock</b></td></tr>
 		<tr class='col-border'>
 
-<td>Patchy rain possible</td><td>Sunny</td><td>Sunny</td></tr><tr><td>Low: 77 High: 93  &deg;F</td><td>Low: 77 High: 101  &deg;F</td><td>Low: 80 High: 105  &deg;F</td></tr><tr><td>Wind to 10 mph </td><td>Wind to 13 mph </td><td>Wind to 13 mph </td></tr><tr><td>Humidity: 33 %</td><td>Humidity: 27 %</td><td>Humidity: 24 %</td></tr><tr><td>Rain 89 %</td><td>Rain 0 %</td><td>Rain 0 %</td></tr></table>
+<td>Patchy rain possible</td><td>Sunny</td><td>Sunny</td></tr><tr><td>Low: 77 High: 103  &deg;F</td><td>Low: 79 High: 104  &deg;F</td><td>Low: 80 High: 106  &deg;F</td></tr><tr><td>Wind to 14 mph </td><td>Wind to 12 mph </td><td>Wind to 14 mph </td></tr><tr><td>Humidity: 26 %</td><td>Humidity: 24 %</td><td>Humidity: 24 %</td></tr><tr><td>Rain 78 %</td><td>Rain 0 %</td><td>Rain 0 %</td></tr></table>
 
 
+<!-- ############################## -->
 
+</div><div id='page4'>
 
-<div id='target'></div>
 <h4>Campgrounds</h4>
 
 
@@ -241,6 +250,9 @@ Retrieved at  Jul 14 09:00 pm</p>
 </div>
 <div style='clear:left'></div>
 
+<!-- ############################## -->
+
+</div><div id = 'page5'>
 <h4>Events</h4>
 
 
@@ -252,13 +264,13 @@ Retrieved at  Jul 14 09:00 pm</p>
 	<td style='vertical-align:top;'>Wednesday Jul 27 9:00 pm <br />&nbsp;&nbsp;(90 minutes) </td>
 <!--
 	<td><br />
-<b>Warning</b>:  Undefined array key "event_location" in <b>/Users/john/Sites/jotr/plates/today.tpl</b> on line <b>239</b><br />
+<b>Warning</b>:  Undefined array key "event_location" in <b>/Users/john/Sites/jotr/plates/today.tpl</b> on line <b>250</b><br />
  </td>
 	<td><br />
-<b>Warning</b>:  Undefined array key "event_type" in <b>/Users/john/Sites/jotr/plates/today.tpl</b> on line <b>240</b><br />
+<b>Warning</b>:  Undefined array key "event_type" in <b>/Users/john/Sites/jotr/plates/today.tpl</b> on line <b>251</b><br />
  </td>
 	<td><br />
-<b>Warning</b>:  Undefined array key "event_title" in <b>/Users/john/Sites/jotr/plates/today.tpl</b> on line <b>241</b><br />
+<b>Warning</b>:  Undefined array key "event_title" in <b>/Users/john/Sites/jotr/plates/today.tpl</b> on line <b>252</b><br />
  </td>
 
  -->
@@ -274,13 +286,13 @@ Retrieved at  Jul 14 09:00 pm</p>
 	<td style='vertical-align:top;'>Monday Aug 1 12:00 am <br />&nbsp;&nbsp;(5 minutes) </td>
 <!--
 	<td><br />
-<b>Warning</b>:  Undefined array key "event_location" in <b>/Users/john/Sites/jotr/plates/today.tpl</b> on line <b>239</b><br />
+<b>Warning</b>:  Undefined array key "event_location" in <b>/Users/john/Sites/jotr/plates/today.tpl</b> on line <b>250</b><br />
  </td>
 	<td><br />
-<b>Warning</b>:  Undefined array key "event_type" in <b>/Users/john/Sites/jotr/plates/today.tpl</b> on line <b>240</b><br />
+<b>Warning</b>:  Undefined array key "event_type" in <b>/Users/john/Sites/jotr/plates/today.tpl</b> on line <b>251</b><br />
  </td>
 	<td><br />
-<b>Warning</b>:  Undefined array key "event_title" in <b>/Users/john/Sites/jotr/plates/today.tpl</b> on line <b>241</b><br />
+<b>Warning</b>:  Undefined array key "event_title" in <b>/Users/john/Sites/jotr/plates/today.tpl</b> on line <b>252</b><br />
  </td>
 
  -->
@@ -297,10 +309,11 @@ Retrieved at  Jul 14 09:00 pm</p>
 </table>
 
 
+</div>
 
 
 <hr>
-<p id='bottom' class='right'> Vers:  v0.25 2022-07-14 11:12 -0700
+<p id='bottom' class='right'> Vers:  v0.25 2022-07-15 07:46 -0700
  </p>
 <script>
 

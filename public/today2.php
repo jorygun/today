@@ -4,7 +4,8 @@
    <meta charset="utf-8" />
    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
    <link rel='stylesheet' href = '/today.css' >
-	<title>Today in the Park 2 (static)</title>
+	<title>Today in the Park (weather.gov)</title>
+	<script src='/js/snap.js'></script>
 	
 
 </head>
@@ -12,7 +13,7 @@
 
 
 <p class='today'>Today in Joshua Tree National Park (new)</p>
-<p class='today'>Thursday, 14 Jul 2022 </p>
+<p class='today'>Friday, 15 Jul 2022 </p>
 <hr>
 <p class='pithy'>Something Pithy, more or less  , more &amp; less, even &quot;More&quot; and &#039;Less&#039; Add an emoji? 😜   . Hoping to preserve line feeds (here&#039;s two):<br />
 <br />
@@ -34,14 +35,14 @@ two lines down       </p>
 </colgroup>
 
 <tr class='border-bottom'><td class='left'><b>Sun</b></td>
-<td>Rise 5:45 AM <br />Set 7:58 PM </td>
+<td>Rise 5:45 AM <br />Set 7:57 PM </td>
 <td></td>
 </tr>
 
 <tr class='border-bottom'><td class='left'><b>Moon</b></td>
-<td >Rise 9:24 PM <br />Set 6:32 AM</td>
-<td ><div class='bg-black'><span class='white'>Full Moon</span>
-	<img src= "/images/moon/4.gif" /></div></td>
+<td >Rise 10:05 PM <br />Set 7:47 AM</td>
+<td ><div class='bg-black'><span class='white'>Waxing Gibbous</span>
+	<img src= "/images/moon/3.gif" /></div></td>
 
 </tr>
 
@@ -68,7 +69,7 @@ When the fire danger is "extreme", fires of all types start quickly and burn int
 
 
 <p><b>Air Quality</b>
-Retrieved at  Jul 14 09:00 pm</p>
+Retrieved at  Jul 15 06:35 pm</p>
 <table class='in2'>
 <tr><th>Location</th><th>Air Quality</th><th>Particulates (PM10)</th><th>Ozone</td></tr>
 <tr>
@@ -76,8 +77,8 @@ Retrieved at  Jul 14 09:00 pm</p>
 	<td>1		<span style="background-color: #CCFFCC">
 		Good</span>
 		</td>
-	<td>10.47</td>
-	<td>77.96</td>
+	<td>9.95</td>
+	<td>70.1</td>
 
 </tr>
 <tr>
@@ -85,8 +86,8 @@ Retrieved at  Jul 14 09:00 pm</p>
 	<td>2		<span style="background-color: #CCFFCC">
 		Good</span>
 		</td>
-	<td>9.16</td>
-	<td>101.57</td>
+	<td>9.52</td>
+	<td>80.11</td>
 
 </tr>
 <tr>
@@ -94,8 +95,8 @@ Retrieved at  Jul 14 09:00 pm</p>
 	<td>1		<span style="background-color: #CCFFCC">
 		Good</span>
 		</td>
-	<td>8.5</td>
-	<td>70.81</td>
+	<td>10.57</td>
+	<td>77.96</td>
 
 </tr>
 </table>
@@ -105,7 +106,7 @@ Retrieved at  Jul 14 09:00 pm</p>
 
 		<table class = 'in2 col-border'>
 			<tr><th></th>
-				<th>Thursday Jul 14</th><th>Friday Jul 15</th><th>Saturday Jul 16</th>			</tr>
+				<th>Friday Jul 15</th><th>Saturday Jul 16</th><th>Sunday Jul 17</th>			</tr>
 			<tr>
 				<td>Day</td>
 									<td>
@@ -113,23 +114,18 @@ Retrieved at  Jul 14 09:00 pm</p>
 											</td>
 									<td>
 												Sunny <br />
-								Highs around 95 &deg; F<br />
-								wind 5 to 15 mph S						<!-- 	<image src="https://api.weather.gov/icons/land/day/few?size=medium" /> -->
+								Highs around 96 &deg; F<br />
+								wind 5 to 15 mph SSE						<!-- 	<image src="https://api.weather.gov/icons/land/day/few?size=medium" /> -->
 											</td>
 									<td>
 												Sunny <br />
 								Highs around 96 &deg; F<br />
-								wind 5 to 10 mph SSE						<!-- 	<image src="https://api.weather.gov/icons/land/day/few?size=medium" /> -->
+								wind 5 to 10 mph SW						<!-- 	<image src="https://api.weather.gov/icons/land/day/few?size=medium" /> -->
 											</td>
 							</tr>
 
 			<tr class='night'>
 			<td >Night</td>
-							<td class='night'>
-											Partly Cloudy <br />
-								Lows around 71 &deg; F<br />
-								wind 5 to 10 mph S						<!-- 	<image src="https://api.weather.gov/icons/land/night/sct?size=medium" /> -->
-										</td>
 							<td class='night'>
 											Mostly Clear <br />
 								Lows around 73 &deg; F<br />
@@ -137,7 +133,12 @@ Retrieved at  Jul 14 09:00 pm</p>
 										</td>
 							<td class='night'>
 											Mostly Clear <br />
-								Lows around 74 &deg; F<br />
+								Lows around 73 &deg; F<br />
+								wind 5 to 15 mph WSW						<!-- 	<image src="https://api.weather.gov/icons/land/night/few?size=medium" /> -->
+										</td>
+							<td class='night'>
+											Mostly Clear <br />
+								Lows around 73 &deg; F<br />
 								wind 5 to 10 mph WSW						<!-- 	<image src="https://api.weather.gov/icons/land/night/few?size=medium" /> -->
 										</td>
 						</tr>
@@ -147,7 +148,7 @@ Retrieved at  Jul 14 09:00 pm</p>
 
 		<table class = 'in2 col-border'>
 			<tr><th></th>
-				<th>Thursday Jul 14</th><th>Friday Jul 15</th><th>Saturday Jul 16</th>			</tr>
+				<th>Friday Jul 15</th><th>Saturday Jul 16</th><th>Sunday Jul 17</th>			</tr>
 			<tr>
 				<td>Day</td>
 									<td>
@@ -155,32 +156,32 @@ Retrieved at  Jul 14 09:00 pm</p>
 											</td>
 									<td>
 												Sunny then Slight Chance Showers And Thunderstorms <br />
-								Highs around 107 &deg; F<br />
-								wind 5 to 13 mph SSE						<!-- 	<image src="https://api.weather.gov/icons/land/day/hot/tsra_hi?size=medium" /> -->
+								Highs around 108 &deg; F<br />
+								wind 3 to 10 mph S						<!-- 	<image src="https://api.weather.gov/icons/land/day/hot/tsra_hi?size=medium" /> -->
 											</td>
 									<td>
 												Sunny <br />
 								Highs around 109 &deg; F<br />
-								wind 5 to 12 mph S						<!-- 	<image src="https://api.weather.gov/icons/land/day/hot?size=medium" /> -->
+								wind 5 to 14 mph S						<!-- 	<image src="https://api.weather.gov/icons/land/day/hot?size=medium" /> -->
 											</td>
 							</tr>
 
 			<tr class='night'>
 			<td >Night</td>
 							<td class='night'>
-											Partly Cloudy <br />
-								Lows around 83 &deg; F<br />
-								wind 5 to 10 mph SW						<!-- 	<image src="https://api.weather.gov/icons/land/night/sct?size=medium" /> -->
+											Mostly Clear <br />
+								Lows around 85 &deg; F<br />
+								wind 3 to 12 mph WSW						<!-- 	<image src="https://api.weather.gov/icons/land/night/few?size=medium" /> -->
+										</td>
+							<td class='night'>
+											Mostly Clear <br />
+								Lows around 86 &deg; F<br />
+								wind 5 to 13 mph WSW						<!-- 	<image src="https://api.weather.gov/icons/land/night/few?size=medium" /> -->
 										</td>
 							<td class='night'>
 											Mostly Clear <br />
 								Lows around 85 &deg; F<br />
-								wind 5 to 12 mph SW						<!-- 	<image src="https://api.weather.gov/icons/land/night/few?size=medium" /> -->
-										</td>
-							<td class='night'>
-											Mostly Clear <br />
-								Lows around 85 &deg; F<br />
-								wind 6 to 13 mph WSW						<!-- 	<image src="https://api.weather.gov/icons/land/night/few?size=medium" /> -->
+								wind 6 to 14 mph WSW						<!-- 	<image src="https://api.weather.gov/icons/land/night/few?size=medium" /> -->
 										</td>
 						</tr>
 	</table>
@@ -189,7 +190,7 @@ Retrieved at  Jul 14 09:00 pm</p>
 
 		<table class = 'in2 col-border'>
 			<tr><th></th>
-				<th>Thursday Jul 14</th><th>Friday Jul 15</th><th>Saturday Jul 16</th>			</tr>
+				<th>Friday Jul 15</th><th>Saturday Jul 16</th><th>Sunday Jul 17</th>			</tr>
 			<tr>
 				<td>Day</td>
 									<td>
@@ -197,32 +198,32 @@ Retrieved at  Jul 14 09:00 pm</p>
 											</td>
 									<td>
 												Sunny <br />
-								Highs around 98 &deg; F<br />
-								wind 0 to 15 mph S						<!-- 	<image src="https://api.weather.gov/icons/land/day/few?size=medium" /> -->
+								Highs around 100 &deg; F<br />
+								wind 5 to 15 mph SE						<!-- 	<image src="https://api.weather.gov/icons/land/day/skc?size=medium" /> -->
 											</td>
 									<td>
 												Sunny <br />
-								Highs around 101 &deg; F<br />
-								wind 5 to 15 mph SE						<!-- 	<image src="https://api.weather.gov/icons/land/day/few?size=medium" /> -->
+								Highs around 100 &deg; F<br />
+								wind 5 to 15 mph SW						<!-- 	<image src="https://api.weather.gov/icons/land/day/few?size=medium" /> -->
 											</td>
 							</tr>
 
 			<tr class='night'>
 			<td >Night</td>
 							<td class='night'>
+											Mostly Clear <br />
+								Lows around 79 &deg; F<br />
+								wind 5 to 15 mph WSW						<!-- 	<image src="https://api.weather.gov/icons/land/night/few?size=medium" /> -->
+										</td>
+							<td class='night'>
+											Mostly Clear <br />
+								Lows around 79 &deg; F<br />
+								wind 5 to 15 mph W						<!-- 	<image src="https://api.weather.gov/icons/land/night/few?size=medium" /> -->
+										</td>
+							<td class='night'>
 											Partly Cloudy <br />
-								Lows around 77 &deg; F<br />
-								wind 0 to 10 mph S						<!-- 	<image src="https://api.weather.gov/icons/land/night/sct?size=medium" /> -->
-										</td>
-							<td class='night'>
-											Mostly Clear <br />
-								Lows around 79 &deg; F<br />
-								wind 5 to 10 mph W						<!-- 	<image src="https://api.weather.gov/icons/land/night/few?size=medium" /> -->
-										</td>
-							<td class='night'>
-											Mostly Clear <br />
-								Lows around 79 &deg; F<br />
-								wind 5 to 10 mph W						<!-- 	<image src="https://api.weather.gov/icons/land/night/few?size=medium" /> -->
+								Lows around 78 &deg; F<br />
+								wind 5 to 10 mph WSW						<!-- 	<image src="https://api.weather.gov/icons/land/night/sct?size=medium" /> -->
 										</td>
 						</tr>
 	</table>
@@ -231,7 +232,7 @@ Retrieved at  Jul 14 09:00 pm</p>
 
 		<table class = 'in2 col-border'>
 			<tr><th></th>
-				<th>Thursday Jul 14</th><th>Friday Jul 15</th><th>Saturday Jul 16</th>			</tr>
+				<th>Friday Jul 15</th><th>Saturday Jul 16</th><th>Sunday Jul 17</th>			</tr>
 			<tr>
 				<td>Day</td>
 									<td>
@@ -239,31 +240,31 @@ Retrieved at  Jul 14 09:00 pm</p>
 											</td>
 									<td>
 												Sunny <br />
-								Highs around 95 &deg; F<br />
+								Highs around 97 &deg; F<br />
 								wind 5 to 15 mph S						<!-- 	<image src="https://api.weather.gov/icons/land/day/few?size=medium" /> -->
 											</td>
 									<td>
 												Sunny <br />
-								Highs around 98 &deg; F<br />
-								wind 5 to 15 mph SSE						<!-- 	<image src="https://api.weather.gov/icons/land/day/skc?size=medium" /> -->
+								Highs around 97 &deg; F<br />
+								wind 5 to 15 mph SSW						<!-- 	<image src="https://api.weather.gov/icons/land/day/few?size=medium" /> -->
 											</td>
 							</tr>
 
 			<tr class='night'>
 			<td >Night</td>
 							<td class='night'>
-											Partly Cloudy <br />
-								Lows around 77 &deg; F<br />
-								wind 5 to 10 mph SSW						<!-- 	<image src="https://api.weather.gov/icons/land/night/sct?size=medium" /> -->
-										</td>
-							<td class='night'>
 											Mostly Clear <br />
 								Lows around 79 &deg; F<br />
-								wind 5 to 15 mph W						<!-- 	<image src="https://api.weather.gov/icons/land/night/few?size=medium" /> -->
+								wind 5 to 15 mph S						<!-- 	<image src="https://api.weather.gov/icons/land/night/few?size=medium" /> -->
 										</td>
 							<td class='night'>
 											Mostly Clear <br />
 								Lows around 80 &deg; F<br />
+								wind 5 to 15 mph W						<!-- 	<image src="https://api.weather.gov/icons/land/night/few?size=medium" /> -->
+										</td>
+							<td class='night'>
+											Mostly Clear <br />
+								Lows around 79 &deg; F<br />
 								wind 5 to 15 mph WSW						<!-- 	<image src="https://api.weather.gov/icons/land/night/few?size=medium" /> -->
 										</td>
 						</tr>
@@ -448,5 +449,5 @@ Retrieved at  Jul 14 09:00 pm</p>
 
 
 <hr>
-<p id='bottom' class='right'> Vers:  v0.25 2022-07-14 11:12 -0700
+<p id='bottom' class='right'> Vers:  v0.25 2022-07-15 07:46 -0700
  </p>
