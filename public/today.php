@@ -32,26 +32,28 @@ two lines down       </p>
 <h4>Light and Dark</h4>
 <table class = 'in2'>
 <colgroup>
-	<col>
-	<col style='width:12em;'>
-	<col>
+	<col style='width:50%;'>
+	<col style='width:50%;'>
+
 </colgroup>
 
-<tr class='border-bottom'><td class='left'><b>Sun</b></td>
-<td>Rise 5:45 AM <br />Set 7:57 PM </td>
-<td></td>
-</tr>
-
-<tr class='border-bottom'><td class='left'><b>Moon</b></td>
+<tr class='border-bottom'><td ><b>Sun</b></td></td><td><b>Mooon</td></tr>
+<tr>
+	<td>Rise 5:45 AM <br />Set 7:57 PM </td>
 <td >Rise 10:05 PM <br />Set 7:47 AM</td>
-<td ><div class='bg-black'><span class='white'>Waxing Gibbous</span>
-	<img src= "/images/moon/3.gif" /></div></td>
-
 </tr>
 
-<tr class='border-bottom'><td class='left'><b>UV Exposure:</b> </td>
-	<td class='left'><span style = 'background-color:orange;'> 7  High</span></td></tr>
-	<tr><td class='left' colspan='3'>Protection needed. Seek shade during late morning through mid-afternoon. When outside, generously apply broad-spectrum SPF-15 or higher sunscreen on exposed skin, and wear protective clothing, a wide-brimmed hat, and sunglasses.</td></tr>
+<tr>
+	<td ><b>UV Exposure:</b>
+	<span style = 'background-color:orange;'> 7  High</span>
+
+	</td>
+	<td ><div class='bg-black'><span class='white'>Waxing Gibbous</span>
+	<img src= "/images/moon/3.gif" /></div></td>
+</tr>
+<tr><td class='left' colspan='2'><b>For UV = High</b><br>Protection needed. Seek shade during late morning through mid-afternoon. When outside, generously apply broad-spectrum SPF-15 or higher sunscreen on exposed skin, and wear protective clothing, a wide-brimmed hat, and sunglasses.</td></tr>
+
+
 
 </table>
 
@@ -108,45 +110,44 @@ two lines down       </p>
 </div><div id='page3'>
 
 <h4>Weather</h4>
-	<h4 class='in2'>Active Warning!</h4>
-	<div class='warn'>Thunderstorm Watch: Minor Chance of thunderstorms later in the week. Impacts: Gusty Winds, Patchy Blowing Dust, Lightning, Brief Heavy Downpours.  Report smoke or strikes immediately to Dispatch. If you cannot contact Dispatch, find another form of communication as quickly as possible to transmit your intel. Follow any directions you receive once reported and be sure you are in a safe location. </div>
+	<h4 class='in2 inline'>Local Warning</h4> Updated 15 Jul 21:43	<div class='warn'>Thunderstorm Watch: Minor Chance of thunderstorms later in the week. Impacts: Gusty Winds, Patchy Blowing Dust, Lightning, Brief Heavy Downpours.  Report smoke or strikes immediately to Dispatch. If you cannot contact Dispatch, find another form of communication as quickly as possible to transmit your intel. Follow any directions you receive once reported and be sure you are in a safe location. </div>
 
 
 
-	<table class = 'in2 col-border'>
+	<table class = 'in2 '>
 
 	<!-- get period names -->
-	<tr><th>Friday, Jul 15</th><th>Saturday, Jul 16</th><th>Sunday, Jul 17</th></tr>			<tr class='borders lt-grn left'><td colspan=5 ><b>Jumbo Rocks</b></td></tr>
+	<tr><th></th><th>Friday, Jul 15</th><th>Saturday, Jul 16</th><th>Sunday, Jul 17</th></tr>			<tr class='borders '><td ><b>Jumbo Rocks</b></td>
 
 
-			<tr class='col-border'>
+
 
 	<td><p>Patchy rain possible<br />Low: 79 High: 104  &deg;F<br />Wind to 13 mph <br />Humidity: 25 %<br />Rain 84 %<br /></p></td>
 <td><p>Patchy rain possible<br />Low: 81 High: 104  &deg;F<br />Wind to 13 mph <br />Humidity: 24 %<br />Rain 84 %<br /></p></td>
 <td><p>Sunny<br />Low: 82 High: 107  &deg;F<br />Wind to 15 mph <br />Humidity: 23 %<br />Rain 0 %<br /></p></td>
 		</tr>
-				<tr class='borders lt-grn left'><td colspan=5 ><b>Twentynine Palms</b></td></tr>
+				<tr class='borders '><td ><b>Twentynine Palms</b></td>
 
 
-			<tr class='col-border'>
+
 
 	<td><p>Patchy rain possible<br />Low: 82 High: 107  &deg;F<br />Wind to 13 mph <br />Humidity: 23 %<br />Rain 89 %<br /></p></td>
 <td><p>Patchy rain possible<br />Low: 84 High: 108  &deg;F<br />Wind to 13 mph <br />Humidity: 21 %<br />Rain 79 %<br /></p></td>
 <td><p>Sunny<br />Low: 86 High: 110  &deg;F<br />Wind to 17 mph <br />Humidity: 20 %<br />Rain 0 %<br /></p></td>
 		</tr>
-				<tr class='borders lt-grn left'><td colspan=5 ><b>Cottonwood</b></td></tr>
+				<tr class='borders '><td ><b>Cottonwood</b></td>
 
 
-			<tr class='col-border'>
+
 
 	<td><p>Patchy rain possible<br />Low: 76 High: 111  &deg;F<br />Wind to 9 mph <br />Humidity: 23 %<br />Rain 85 %<br /></p></td>
 <td><p>Sunny<br />Low: 80 High: 113  &deg;F<br />Wind to 10 mph <br />Humidity: 24 %<br />Rain 0 %<br /></p></td>
 <td><p>Sunny<br />Low: 84 High: 113  &deg;F<br />Wind to 12 mph <br />Humidity: 26 %<br />Rain 0 %<br /></p></td>
 		</tr>
-				<tr class='borders lt-grn left'><td colspan=5 ><b>Black Rock</b></td></tr>
+				<tr class='borders '><td ><b>Black Rock</b></td>
 
 
-			<tr class='col-border'>
+
 
 	<td><p>Patchy rain possible<br />Low: 77 High: 103  &deg;F<br />Wind to 14 mph <br />Humidity: 26 %<br />Rain 78 %<br /></p></td>
 <td><p>Sunny<br />Low: 79 High: 104  &deg;F<br />Wind to 12 mph <br />Humidity: 24 %<br />Rain 0 %<br /></p></td>
@@ -289,13 +290,13 @@ two lines down       </p>
 	<td style='vertical-align:top;'>Wednesday Jul 27 9:00 pm <br />&nbsp;&nbsp;(90 minutes) </td>
 <!--
 	<td><br />
-<b>Warning</b>:  Undefined array key "event_location" in <b>/Users/john/Sites/jotr/plates/today.tpl</b> on line <b>239</b><br />
+<b>Warning</b>:  Undefined array key "event_location" in <b>/Users/john/Sites/jotr/plates/today.tpl</b> on line <b>241</b><br />
  </td>
 	<td><br />
-<b>Warning</b>:  Undefined array key "event_type" in <b>/Users/john/Sites/jotr/plates/today.tpl</b> on line <b>240</b><br />
+<b>Warning</b>:  Undefined array key "event_type" in <b>/Users/john/Sites/jotr/plates/today.tpl</b> on line <b>242</b><br />
  </td>
 	<td><br />
-<b>Warning</b>:  Undefined array key "event_title" in <b>/Users/john/Sites/jotr/plates/today.tpl</b> on line <b>241</b><br />
+<b>Warning</b>:  Undefined array key "event_title" in <b>/Users/john/Sites/jotr/plates/today.tpl</b> on line <b>243</b><br />
  </td>
 
  -->
@@ -311,13 +312,13 @@ two lines down       </p>
 	<td style='vertical-align:top;'>Monday Aug 1 12:00 am <br />&nbsp;&nbsp;(5 minutes) </td>
 <!--
 	<td><br />
-<b>Warning</b>:  Undefined array key "event_location" in <b>/Users/john/Sites/jotr/plates/today.tpl</b> on line <b>239</b><br />
+<b>Warning</b>:  Undefined array key "event_location" in <b>/Users/john/Sites/jotr/plates/today.tpl</b> on line <b>241</b><br />
  </td>
 	<td><br />
-<b>Warning</b>:  Undefined array key "event_type" in <b>/Users/john/Sites/jotr/plates/today.tpl</b> on line <b>240</b><br />
+<b>Warning</b>:  Undefined array key "event_type" in <b>/Users/john/Sites/jotr/plates/today.tpl</b> on line <b>242</b><br />
  </td>
 	<td><br />
-<b>Warning</b>:  Undefined array key "event_title" in <b>/Users/john/Sites/jotr/plates/today.tpl</b> on line <b>241</b><br />
+<b>Warning</b>:  Undefined array key "event_title" in <b>/Users/john/Sites/jotr/plates/today.tpl</b> on line <b>243</b><br />
  </td>
 
  -->
@@ -338,5 +339,5 @@ two lines down       </p>
 
 
 <hr>
-<p id='bottom' class='right'> Vers:  v0.25 2022-07-15 19:05 -0700
+<p id='bottom' class='right'> Vers:  v0.32 2022-07-15 20:43 -0700
  </p>

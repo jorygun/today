@@ -28,26 +28,28 @@ use DigitalMx as u;
 <?php if(empty($light)): echo "<p>No Data</p>"; else: ?>
 <table class = 'in2'>
 <colgroup>
-	<col>
-	<col style='width:12em;'>
-	<col>
+	<col style='width:50%;'>
+	<col style='width:50%;'>
+
 </colgroup>
 
-<tr class='border-bottom'><td class='left'><b>Sun</b></td>
-<td>Rise <?=$light['sunrise']?> <br />Set <?=$light['sunset']?> </td>
-<td></td>
-</tr>
-
-<tr class='border-bottom'><td class='left'><b>Moon</b></td>
+<tr class='border-bottom'><td ><b>Sun</b></td></td><td><b>Mooon</td></tr>
+<tr>
+	<td>Rise <?=$light['sunrise']?> <br />Set <?=$light['sunset']?> </td>
 <td >Rise <?=$light['moonrise']?> <br />Set <?=$light['moonset']?></td>
-<td ><div class='bg-black'><span class='white'><?=$light['moonphase']?></span>
-	<img src= "<?=$light['moonimage'] ?>" /></div></td>
-
 </tr>
 
-<tr class='border-bottom'><td class='left'><b>UV Exposure:</b> </td>
-	<td class='left'><span style = 'background-color:<?=$uv['uvcolor']?>;'> <?= $uv['uv'] ?>  <?=$uv['uvscale']?></span></td></tr>
-	<tr><td class='left' colspan='3'><?=$uv['uvwarn']?></td></tr>
+<tr>
+	<td ><b>UV Exposure:</b>
+	<span style = 'background-color:<?=$uv['uvcolor']?>;'> <?= $uv['uv'] ?>  <?=$uv['uvscale']?></span>
+
+	</td>
+	<td ><div class='bg-black'><span class='white'><?=$light['moonphase']?></span>
+	<img src= "<?=$light['moonimage'] ?>" /></div></td>
+</tr>
+<tr><td class='left' colspan='2'><b>For UV = <?=$uv['uvscale']?></b><br><?=$uv['uvwarn']?></td></tr>
+
+
 
 </table>
 <?php endif; ?>
@@ -108,21 +110,21 @@ use DigitalMx as u;
 
 <h4>Weather</h4>
 <?php if (!empty($today['weather_warn'])) : ?>
-	<h4 class='in2'>Active Warning!</h4>
+	<h4 class='in2 inline'>Local Warning</h4> Updated <?=$today['updated']?>
 	<div class='warn'><?=$today['weather_warn']?></div>
 <?php endif; ?>
 
 
 <?php if(empty($weather)): echo "<p>No Data</p>"; else: ?>
 
-	<table class = 'in2 col-border'>
+	<table class = 'in2 '>
 
 	<!-- get period names -->
 	<?php
 		$periods = array_keys($weather['hq']);
 	// u\echor ($periods);
 
-		echo "<tr>";
+		echo "<tr><th></th>";
 		foreach ($periods as $p) :
 			echo "<th>{$weather['hq'][$p]['date']}</th>";
 		endforeach;
@@ -136,10 +138,10 @@ use DigitalMx as u;
 			if (! $locname = Defs::$sitenames[$loc] ) : continue; endif;
 	//	u\echor ($x,"Loc $loc", STOP);
 	?>
-			<tr class='borders lt-grn left'><td colspan=5 ><b><?=$locname?></b></td></tr>
+			<tr class='borders '><td ><b><?=$locname?></b></td>
 
 
-			<tr class='col-border'>
+
 
 	<?php
 				foreach ($periods as $p) :

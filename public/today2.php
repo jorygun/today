@@ -449,5 +449,5 @@ Retrieved at  Jul 15 06:35 pm</p>
 
 
 <hr>
-<p id='bottom' class='right'> Vers:  v0.25 2022-07-15 19:05 -0700
+<p id='bottom' class='right'> Vers:  v0.32 2022-07-15 20:43 -0700
  </p>

@@ -40,8 +40,14 @@ button {
 .right { text-align: right; }
 .left { text-align: left; }
 .center {text-align: center; }
+
 .red {color:red;}
 .white {color:white;}
+.black {color:black;}
+
+.lt-grn { background-color: #D4FB79; }
+.bg-lgrn { background-color: #D4FB79; }
+
 
 .bg-black{
 	background-color:black;
@@ -59,6 +65,8 @@ button {
 	background-color:black;
 	color:white;
 }
+
+
 table {
 	border-collapse: collapse;
 	border: 2px solid black;
@@ -146,6 +154,10 @@ table.col-border td, table.col-border th {
 .in2 { margin-left: 2em;
 	margin-right: 2em;}
 
+.inline {
+	display:inline;
+}
+
 .today
 {
 	font-weight: bold;
@@ -164,4 +176,4 @@ table.col-border td, table.col-border th {
 	padding-right: 3em;
 }
 
-.lt-grn { background-color: #D4FB79; }
+
