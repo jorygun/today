@@ -22,9 +22,6 @@ echo $Today->start_page('Index Today in JOTR');
 	$force_refresh = isset ($_GET['refresh']);
 	$Today->rebuild($force_refresh);
 
-
-
-
 echo "<p>
 Caches are rebuilt if aged out every time this page is loaded. <br>
 To force rebuild, run with '?refresh' at end of url:<br>
