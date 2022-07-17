@@ -3,12 +3,15 @@ use DigitalMx\jotr\Definitions as Defs;
 use DigitalMx as u;
 ?>
 
-<p class='today'>Today in Joshua Tree National Park (new)</p>
+<p class='today'>Today in Joshua Tree National Park (v2)</p>
 <p class='today'><?=$today['target'] ?> </p>
 <hr>
 <?php if(!empty($today['pithy'])): ?>
 <p class='pithy'><?=$today['pithy'] ?></p>
 <?php endif; ?>
+
+<!-- ############################## -->
+<div id='page1'>
 
 <?php if(!empty($today['announcements'])) : ?>
 	<h4>Announcements</h4>
@@ -25,63 +28,66 @@ use DigitalMx as u;
 <?php if(empty($light)): echo "<p>No Data</p>"; else: ?>
 <table class = 'in2'>
 <colgroup>
-	<col>
-	<col style='width:12em;'>
-	<col>
+	<col style='width:50%;'>
+	<col style='width:50%;'>
+
 </colgroup>
 
-<tr class='border-bottom'><td class='left'><b>Sun</b></td>
-<td>Rise <?=$light['sunrise']?> <br />Set <?=$light['sunset']?> </td>
-<td></td>
-</tr>
-
-<tr class='border-bottom'><td class='left'><b>Moon</b></td>
+<tr class='border-bottom'><td ><b>Sun</b></td></td><td><b>Mooon</td></tr>
+<tr>
+	<td>Rise <?=$light['sunrise']?> <br />Set <?=$light['sunset']?> </td>
 <td >Rise <?=$light['moonrise']?> <br />Set <?=$light['moonset']?></td>
-<td ><div class='bg-black'><span class='white'><?=$light['moonphase']?></span>
-	<img src= "<?=$light['moonimage'] ?>" /></div></td>
-
 </tr>
 
-<tr class='border-bottom'><td class='left'><b>UV Exposure:</b> </td>
-	<td><span style = 'background-color:<?=$uv['uvcolor']?>;'> <?= $uv['uv'] ?>  <?=$uv['uvscale']?></span></td><td class='left'><?=$uv['uvwarn']?></td></tr>
+<tr>
+	<td ><b>UV Exposure:</b>
+	<span style = 'background-color:<?=$uv['uvcolor']?>;'> <?= $uv['uv'] ?>  <?=$uv['uvscale']?></span>
+
+	</td>
+	<td ><div class='bg-black'><span class='white'><?=$light['moonphase']?></span>
+	<img src= "<?=$light['moonimage'] ?>" /></div></td>
+</tr>
+<tr><td class='left' colspan='2'><b>For UV = <?=$uv['uvscale']?></b><br><?=$uv['uvwarn']?></td></tr>
+
+
 
 </table>
 <?php endif; ?>
 
+<!-- ############################## -->
+
+</div><div id='page2'>
 
 <h4>Fire Danger: </h4>
 
-<?php if (!empty($today['fire_warn'])) : ?>
-	<div class='warn'> <?=$today['fire_warn']?>
-	</div>
-<?php endif; ?>
+
 <?php
 // u\echor($fire, 'y-fire');
 	$firelevel = $fire['firelevel'];
 	$firecolor = $fire['firecolor'];
 	?>
 <?php if(empty($fire)): echo "<p>No Data</p>"; else:?>
-	<table class='in2 '>
-	 <tr class='no-border'><td style='vertical-align:top;'>
-	 	<span class = 'warnblock' style="background-color:<?=$firecolor?>">
-	 	<?=$firelevel?> </span>
-	 </td><td class='left'>
-<?=Defs::$firewarn[$firelevel]?></td></tr>
-	</table>
+
+<div class='in2 '>
+	 	<p class = 'warnblock'  style="background-color:<?=$firecolor?>">
+	 	<?=$firelevel?> </p>
+	<div class='left'>
+	<?=Defs::$firewarn[$firelevel]?>
+</div></div>
 <?php endif; ?>
 
-<h4>Weather</h4>
-<?php if (!empty($today['weather_warn'])) : ?>
-	<div class='warn'><?=$today['weather_warn']?></div>
+<?php if (!empty($today['fire_warn'])) : ?>
+	<div class='warn'> <?=$today['fire_warn']?>
+	</div>
 <?php endif; ?>
 
 
 
-<p><b>Air Quality</b>
+<h4>Air Quality</h4>
 <?php if(empty($air)): echo "<p>No Data</p>"; else:
-echo "Retrieved at  " . date ('M j h:i a',$air['jr']['dt']);
+// echo "Retrieved at  " . date ('M j h:i a',$air['jr']['dt']);
 ?>
-</p>
+
 <table class='in2'>
 <tr><th>Location</th><th>Air Quality</th><th>Particulates (PM10)</th><th>Ozone</td></tr>
 <?php foreach ($air as $loc => $dat) :
@@ -100,6 +106,15 @@ echo "Retrieved at  " . date ('M j h:i a',$air['jr']['dt']);
 <?php endforeach; ?>
 </table>
 <?php endif; ?>
+<!-- ############################## -->
+
+</div><div id='page3'>
+
+<h4>Weather</h4>
+<?php if (!empty($today['weather_warn'])) : ?>
+	<div class='warn'><?=$today['weather_warn']?></div>
+<?php endif; ?>
+
 
 <p><b>Forecasts</b></p>
 <?php
