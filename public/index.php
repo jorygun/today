@@ -23,12 +23,10 @@ echo $Today->start_page('Index Today in JOTR');
 	$Today->rebuild($force_refresh);
 
 
-// $x = $Today->prepare_today();
-// $page_body = $Plates -> render('today',$x);
 
 
 echo "<p>
-Caches rebuilt on schedule every time this page is loaded. <br>
+Caches are rebuilt if aged out every time this page is loaded. <br>
 To force rebuild, run with '?refresh' at end of url:<br>
 <a href = '/?refresh'>". SITE_URL . "/?refresh</a> </p>";
 
