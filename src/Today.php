@@ -217,6 +217,8 @@ public function rebuild($force = false) {
 	// rebuilds caches and regenerates today pages
 
 	$y = $this->prepare_today ($force);
+	// set forecee to true to force all cahces to rebuild now, instead of on schedule
+
 	$page_body = $this->Plates -> render('today',$y);
 
 	$static_page = $this->start_page('Today in the Park (static)')
@@ -543,16 +545,18 @@ private function load_today() {
 
 
 
-private function external_airqual (){
+public function external_airqual (){
 	$section = 'air';
-	global $Defs;
+	$loc = 'jr';
+	$source = 'air-quality.p.rapidapi.com/current/';
 	$y = [];
+	$y['src'] = $source;
 
 	// external data
 // uses api to get aq at jumbo rocks (pinto wye).
 
 	$curl = curl_init();
-	$curl_options = curl_options();
+	$curl_options = $this->curl_options();
 	curl_setopt_array($curl,$curl_options);
 
 	curl_setopt($curl, CURLOPT_HTTPHEADER, [
@@ -567,7 +571,7 @@ private function external_airqual (){
 	curl_close($curl);
 
 	$aresp = json_decode($response, true);
-	//	u\echor($aresp);
+	u\echor($aresp, "$loc from $source" ,STOP);
 	$msg = $aresp['message'];
 	//echo $msg . BRNL;
 
@@ -588,18 +592,22 @@ private function external_airqual (){
 	 return $y;
 }
 
-private function external_airqual_2 (array $locs=['jr']){
-// uses api to get aq at jumbo rocks (pinto wye).
+public function external_airqual_2 (array $locs=['jr']){
+	$source = 'api.openweathermap.org';
+	$y = [];
+	$y['src'] = $source;
+
+// uses openweathermap.org
 	$locs = ['jr','cw','br'];
 	$curl = curl_init();
 	$curl_options = $this -> curl_options();
 		curl_setopt_array($curl,$curl_options);
 
 
-foreach ($locs as $loc) {
+	foreach ($locs as $loc) {
 
 	[$lat,$lon] = $this -> split_coord($loc);
-	$url = "http://api.openweathermap.org/data/2.5/air_pollution?lat={$lat}&lon={$lon}&appid=" . OPENWEATHERMAP_KEY;
+	$url = "http://api.openweathermap.org/data/2.5/air_pollution?lat={$lat}&lon={$lon}&appid=" . Defs::$api_keys['openweathermap'];
 	// echo $url; //exit;
 
 
@@ -612,7 +620,7 @@ foreach ($locs as $loc) {
 
 
 		$aresp = json_decode($response, true);
-// u\echor($aresp," $loc airq response");
+// u\echor($aresp, "$loc from $source" );
 		$msg = $aresp['message'] ?? '';
 		//echo $msg . BRNL;
 
@@ -636,7 +644,96 @@ foreach ($locs as $loc) {
 		$x[$loc] = $y;
 	}
 //u\echor($x,'retrieved airq data:');
-	echo "External airqual_2 updated" . BRNL;
+	echo "External airqual_2 updated from openweathermap.org" . BRNL;
+
+	curl_close($curl);
+	return $x;
+
+ }
+
+public function external_airqual_3 (array $locs=['jr']){
+	$source = 'www.airnowapi.org/aq/observation';
+	$y = [];
+	$y['src'] = $source;
+/* uses airnow.org - referred from eps.gov
+	current is good, but forecasts return empty.
+	forecast at airnowapi.org/aq/forecast
+	now at aq/observation/latlong/current
+
+
+*/
+	$locs = ['jr','cw','br'];
+	$curl = curl_init();
+	$curl_options = $this -> curl_options();
+		curl_setopt_array($curl,$curl_options);
+
+
+	foreach ($locs as $loc) {
+
+	[$lat,$lon] = $this -> split_coord($loc);
+
+	$url = "https://www.airnowapi.org/aq/observation/latLong/current/?format=application/json&latitude=$lat&longitude=$lon&distance=25&API_KEY=" . Defs::$api_keys['airnow'];
+	// echo $url; //exit;
+
+/*
+Array
+(
+    [0] => Array
+        (
+            [DateObserved] => 2022-07-16
+            [HourObserved] => 8
+            [LocalTimeZone] => PST
+            [ReportingArea] => Joshua Tree National Park
+            [StateCode] => CA
+            [Latitude] => 34.0714
+            [Longitude] => -116.3906
+            [ParameterName] => O3
+            [AQI] => 64
+            [Category] => Array
+                (
+                    [Number] => 2
+                    [Name] => Moderate
+                )
+
+        )
+
+)
+*/
+
+	//echo "Updating air quality" . BRNL;
+
+		curl_setopt($curl,CURLOPT_URL, $url);
+
+		$response = curl_exec($curl);
+		$err = curl_error($curl);
+
+
+		$aresp = json_decode($response, true);
+u\echor($aresp, "$loc from $source" ,STOP);
+		$msg = $aresp['message'] ?? '';
+		//echo $msg . BRNL;
+
+		if ($msg || $err ) { #quota exceeded?
+			$y['aqi'] = 'n/a';
+			$y['pm10'] = 'n/a';
+			$y['o3'] = 'n/a';
+		} else {
+			$aqi = $aresp['list']['0']['main']['aqi'];
+			$aqi_scale = $this -> Defs->aq_scale($aqi);
+			$aqi_color = $this -> Defs->scale_color($aqi_scale);
+
+			$y['aqi'] = $aqi;
+			$y['pm10'] = $aresp['list'][0]['components']['pm10'];
+			$y['o3'] = $aresp['list']['0']['components']['o3'];
+			$y['aqi_scale'] = $aqi_scale;
+			$y['aqi_color'] = $aqi_color;
+			$y['dt'] = $aresp['list']['0']['dt'];
+		}
+
+		$x[$loc] = $y;
+	}
+//u\echor($x,'retrieved airq data:');
+	echo "External airqual_3 updated" . BRNL;
 
 	curl_close($curl);
 	return $x;
@@ -651,7 +748,7 @@ private function external_weather ($locs) {
 	foreach ($locs as $loc) {
 	$ch = curl_init();
 	curl_setopt_array($ch,$this -> curl_options() );
-		$url = 'http://api.weatherapi.com/v1/forecast.json?key=' . WEATHERAPI_KEY . '&q='. Defs::$coordinates[$loc] . '&days=3&aqi=yes&alerts=yes';
+		$url = 'http://api.weatherapi.com/v1/forecast.json?key=' . Defs::$api_keys['weatherapi'] . '&q='. Defs::$coordinates[$loc] . '&days=3&aqi=yes&alerts=yes';
 
 		curl_setopt($ch, CURLOPT_URL,$url);
 		$resp = curl_exec($ch);
@@ -815,7 +912,7 @@ public function external_alerts () {
 
 
 	// get forecast url from properties file
-		$url = 'https://api.weather.gov/alerts/active/zone/CAZ285';
+		$url = 'https://api.weather.gov/alerts/active/zone/CAZ230';
 		if (! $url){
 			trigger_error("no url for location $loc", E_USER_WARNING);
 			die('died in alerts');
@@ -827,7 +924,7 @@ public function external_alerts () {
 
 	// convert ot php arrays
 		$aresp = json_decode($resp, true);
-//  u\echor($aresp , '.gov alert response');
+//  u\echor($aresp , 'weather.gov alert response');
 
 		if (! $data = $aresp['features'] ){
 			echo "No alerts";

@@ -1,3 +1,5 @@
+pinto wye = 33.9917,-116.1402
+
 api.weather.com
 key 098273e9f48149029c4141515220107
 http://api.weatherapi.com/v1/forecast.json?key= 098273e9f48149029c4141515220107&q=33.9917,-116.1402 &days=3&aqi=yes&alerts=yes
@@ -40,4 +42,23 @@ Site
 Blackrock 9002
 29p 0017
 cw 0010
+coord: 34.0714,-116.3906,
 
+air qual
+airnow (from eps.gov)
+api key Your API Key: 7FB4BEFF-A568-4FE4-8E67-F1EE36B5C04B
+format appliction/json
+
+https://www.airnowapi.org/aq/forecast/latLong/?format=application/json&latitude=39.0509&longitude=-121.4453&date=2022-07-16&distance=25&API_KEY=7FB4BEFF-A568-4FE4-8E67-F1EE36B5C04B
+(no results for foreccast
+
+current:
+https://www.airnowapi.org/aq/observation/latLong/current/?format=application/json&latitude=33.99&longitude=-116.14&distance=25&API_KEY=7FB4BEFF-A568-4FE4-8E67-F1EE36B5C04B
+(gives black rock)
+
+bounding box:
+https://www.airnowapi.org/aq/data/?startDate=2022-07-16T15&endDate=2022-07-16T16&parameters=OZONE,PM10,SO2&BBOX=-116.489706,33.689776,-115.478964,34.131979&dataType=A&format=text/csv&verbose=1&monitorType=0&includerawconcentrations=0&API_KEY=7FB4BEFF-A568-4FE4-8E67-F1EE36B5C04B
+(only reports one station at 29p casino in indio)
+
+
+iqair: free servicew only provides aqi by city.

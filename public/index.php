@@ -4,7 +4,7 @@ namespace DigitalMx\jotr;
 #ini_set('display_errors', 1);
 
 //BEGIN START
-	require $_SERVER['DOCUMENT_ROOT'] . '/init.php';
+	require  'init.php';
 	use DigitalMx as u;
 	use DigitalMx\jotr\Definitions as Defs;
 	use DigitalMx\jotr\Today;
@@ -19,17 +19,20 @@ namespace DigitalMx\jotr;
 
 echo $Today->start_page('Index Today in JOTR');
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-	$force =  ($_POST['refresh'] == 'force') ?? '';
-	$Today->rebuild($force);
-}
+	$force_refresh = isset ($_GET['refresh']);
+	$Today->rebuild($force_refresh);
 
 
 // $x = $Today->prepare_today();
 // $page_body = $Plates -> render('today',$x);
 
 
-echo <<< EOT
+echo "<p>
+Caches rebuilt on schedule every time this page is loaded. <br>
+To force rebuild, run with '?refresh' at end of url:<br>
+<a href = '/?refresh'>". SITE_URL . "/?refresh</a> </p>";
+
+echo <<<EOT
 <p>Static Page using weatherapi.com : <a href='/today.php' target='static'>/today.php</a></p>
 
 <p>Static Page using weather.gov : <a href='/today2.php' target='new'>/today2.php</a></p>
@@ -43,10 +46,6 @@ echo <<< EOT
 <p>Admin Page: <a href='/admin.php' target='admin'> /admin.php</a></p>
 
 
-<form method='POST'>
-<button type='submit' name='refresh' value='rebuild'>Rebuild pages</button>
-<button type='submit' name='refresh' value='force'>Rebuild caches and pages</button>
-
-</form>
+<p>To rebuild all ca
 
 EOT;

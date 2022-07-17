@@ -91,8 +91,7 @@ class Initialize
         define ('PLATFORM',$this->platform);
         define ('DB_INI',$paths['db_ini']);
 
-        define ('WEATHERAPI_KEY', '098273e9f48149029c4141515220107');
-        define ('OPENWEATHERMAP_KEY', '8f15b8d7833c050a41538d5b0ee4204a');
+
 
 			define ('CACHE',Defs::$caches);
 			define ('STOP' , true);

@@ -9,15 +9,29 @@ namespace DigitalMx\jotr;
 	use DigitalMx\jotr\Definitions as Defs;
 	use DigitalMx\jotr\Today;
 
+	$Plates = $container['Plates'];
+	$Defs = $container['Defs'];
+	$Today = $container['Today'];
+
+
 //END START
 
+$wlocs = ['jr','cw','kv','hq','br'];
 
-//throw new DataException('test except', 1);
+// if ($Today->set_properties ($wlocs) ){
+// 	echo "Succeeded";
+// } else {
+// 	echo "Failed";
+//}
 
-$td = $container['Today'];
 
-foreach (['info','camps','calendar','fire','air','uv','weather'] as $section) {
-$z = $td->prepare_today() ;
+// if ($z = $Today->refresh_cache('weather') ){
+// 	echo "Succeeded";
+// 	u\echor($z,'result');
+// } else {
+// 	echo "Failed";
+// }
+
+
+$z = $Today->external_airqual_3();
 u\echor ($z);
-}
-

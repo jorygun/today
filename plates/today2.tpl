@@ -113,6 +113,13 @@ echo "Retrieved at  " . date ('M j h:i a',$air['jr']['dt']);
 		<p class='sectionhead'><?=$locname?></p>
 
 		<table class = 'in2 col-border'>
+		<colgroup>
+		<col style='width:7%;'>
+		<col style='width:31%;'>
+		<col style='width:31%;'>
+		<col style='width:31%;'>
+		</colgroup>
+
 			<tr><th></th>
 				<?php foreach ($days as $day) :
 					$period = date('l M j',$day);

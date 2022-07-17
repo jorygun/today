@@ -96,6 +96,14 @@ public static $coordinates = [
 	'cw' => '33.7485,-115.8211',
 ];
 
+	public static $api_keys = array (
+		'airnow' => '7FB4BEFF-A568-4FE4-8E67-F1EE36B5C04B',
+		 'weatherapi' => '098273e9f48149029c4141515220107',
+        'openweathermap' => '8f15b8d7833c050a41538d5b0ee4204a',
+        'iqair' => '8e4fb9bb-1502-4711-b3d7-f98447082dcf',
+
+      );
+
 
 	public static $alert_sources = array (
 		'weather' => 'Weatherapi.com, commercial source',
