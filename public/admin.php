@@ -96,10 +96,7 @@ function post_data($post,$Today){
 	$Today->post_admin($post);
 
 	echo "<p><b>Success</b></p>
-		<p>Go to <a href='/today.php' target='static'> to view v1 content.</a>. </p>
-		<p>Go to <a href='/today2.php' target='static'> to view v2 content.</a>. </p>
-
-		";
+		<p>Go to <a href='/'>Index page</a></p>";
 	echo "
 		<p>Go to <a href='/admin.php' >/admin.php</> to reload this page. </p>
 		";

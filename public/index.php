@@ -28,14 +28,14 @@ To force rebuild, run with '?refresh' at end of url:<br>
 <a href = '/?refresh'>". SITE_URL . "/?refresh</a> </p>";
 
 echo <<<EOT
-<p>Static Page using weatherapi.com : <a href='/today.php' target='static'>/today.php</a></p>
+<p>Static Page using weatherapi.com : <a href='/pages/today.php' target='static'>/pages/today.php</a></p>
 
-<p>Static Page using weather.gov : <a href='/today2.php' target='new'>/today2.php</a></p>
+<p>Static Page using weather.gov : <a href='/pages/today2.php' target='new'>/pages/today2.php</a></p>
 
 
-<p>Scrolling Page: <a href='/scroll.php' target='scroll'>/scroll.php</a></p>
+<p>Scrolling Page: <a href='/pages/scroll.php' target='scroll'>/pages/scroll.php</a></p>
 
-<p>Snapping Page: <a href='/snap.php' target='snap'>/snap.php</a></p>
+<p>Snapping Page: <a href='/pages/snap.php' target='snap'>//pagessnap.php</a></p>
 
 
 <p>Admin Page: <a href='/admin.php' target='admin'> /admin.php</a></p>

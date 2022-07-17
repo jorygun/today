@@ -223,23 +223,23 @@ public function rebuild($force = false) {
 
 	$static_page = $this->start_page('Today in the Park (static)')
 		. $page_body;
-	file_put_contents (SITE_PATH . '/today.php',$static_page);
+	file_put_contents (SITE_PATH . '/pages/today.php',$static_page);
 
 	$scroll_page = $this->start_page('Today in the Park (scrolling)','s')
 		. $page_body . self::$scroll_script;
-	file_put_contents( SITE_PATH . '/scroll.php', $scroll_page);
+	file_put_contents( SITE_PATH . '/pages/scroll.php', $scroll_page);
 
 	$snap_page = $this->start_page('Today in the Park (snap)','p')
 		. $page_body  . self::$snap_script;
-	file_put_contents( SITE_PATH . '/snap.php', $snap_page);
+	file_put_contents( SITE_PATH . '/pages/snap.php', $snap_page);
 
 	$page_body_new = $this->Plates -> render ('today2',$y);
 
 	$new_page = $this->start_page('Today in the Park (weather.gov)')
 		. $page_body_new;
-	file_put_contents (SITE_PATH . '/today2.php',$new_page);
+	file_put_contents (SITE_PATH . '/pages/today2.php',$new_page);
 
-
+	echo "Pages updated" . BRNL;
 }
 
 public function prepare_today($force=false) {
