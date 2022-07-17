@@ -46,6 +46,6 @@ echo <<<EOT
 <p>Admin Page: <a href='/admin.php' target='admin'> /admin.php</a></p>
 
 
-<p>To rebuild all ca
+
 
 EOT;

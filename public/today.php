@@ -110,7 +110,7 @@ two lines down       </p>
 </div><div id='page3'>
 
 <h4>Weather</h4>
-	<h4 class='in2 inline'>Local Warning</h4> Updated 16 Jul 21:55	<div class='warn'>Thunderstorm Watch: Minor Chance of thunderstorms later in the week. Impacts: Gusty Winds, Patchy Blowing Dust, Lightning, Brief Heavy Downpours.  Report smoke or strikes immediately to Dispatch. If you cannot contact Dispatch, find another form of communication as quickly as possible to transmit your intel. Follow any directions you receive once reported and be sure you are in a safe location. </div>
+	<h4 class='in2 inline'>Local Warning</h4> Updated 16 Jul 22:12	<div class='warn'>Thunderstorm Watch: Minor Chance of thunderstorms later in the week. Impacts: Gusty Winds, Patchy Blowing Dust, Lightning, Brief Heavy Downpours.  Report smoke or strikes immediately to Dispatch. If you cannot contact Dispatch, find another form of communication as quickly as possible to transmit your intel. Follow any directions you receive once reported and be sure you are in a safe location. </div>
 
 
 
@@ -339,5 +339,5 @@ two lines down       </p>
 
 
 <hr>
-<p id='bottom' class='right'> Vers:  v0.33 2022-07-15 21:56 -0700
+<p id='bottom' class='right'> Vers:  v0.35 2022-07-16 22:01 -0700
  </p>
