@@ -443,7 +443,7 @@ public function refresh_cache (string $section ) {
 					$alerts = $this-> external_alerts();
 					$this->update_alerts(['weathergov' => $alerts]);
 					break;
-
+				case 'today':
 				default: return true;
 		}
 
@@ -470,15 +470,15 @@ private function filter_calendar() {
 	}
 // 	u\echor($y,'cal loaded');
 	// ignore invalid dt or dt older than now
+	// set first term in if to 1 to prevent filtering
 	foreach ($y as $cal){
-		if ( 0 || (is_numeric($cal['dt']) && (time() < $cal['dt']) )){
+		if ( 1 || (is_numeric($cal['dt']) && (time() < $cal['dt']) )){
 			$z[] = $cal;
 		}
 	}
 // 		u\echor($z,'cal filtered', STOP);
 	if (!empty($z)){
 		$z = $this->element_sort($z, 'dt');
-
 	}
 	return $z;
 
@@ -1250,12 +1250,16 @@ private function str_to_ts($edt) {
 		}
 
 private function write_cache(string $section,array $z) {
-	if (empty($z)){trigger_error("Writing empty array to $section", E_USER_WARNING) ;}
+	if (empty($z)){
+	trigger_error("Writing empty array to $section", E_USER_WARNING) ;
+
+	}
 	file_put_contents(CACHE[$section],json_encode($z));
 }
 
-public function clean_text(string $text) {
+public function clean_text( $text = '') {
 	// removes spec chars and changes nl to br
+	if (empty($text)) return '';
 	$t = htmlspecialchars($text,ENT_QUOTES);
 	$t = nl2br($t);
 	return $t;

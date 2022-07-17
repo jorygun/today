@@ -251,5 +251,5 @@ echo "Retrieved at  " . date ('M j h:i a',$air['jr']['dt']);
 
 
 <hr>
-<p id='bottom' class='right'>Today <?=$version ?>
+<p id='bottom' class='right'><?=$version ?>
 <br>build <?php echo date('dHi'); ?></p>

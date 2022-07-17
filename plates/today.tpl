@@ -264,5 +264,5 @@ use DigitalMx as u;
 
 
 <hr>
-<p id='bottom' class='right'>Today <?=$version ?>
+<p id='bottom' class='right'><?=$version ?>
 <br>build <?php echo date('dHi'); ?></p>

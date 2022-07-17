@@ -104,7 +104,6 @@ function post_data($post,$Today){
 }
 
 function show_login () {
-
 echo <<<EOF
 
 <p>Please Log In </p>
@@ -114,6 +113,8 @@ echo <<<EOF
 <input type='submit'>
 </form>
 
+<script>document.getElementById('pw').focus();</script>
 EOF;
+
 exit;
 }
