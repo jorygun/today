@@ -33,7 +33,7 @@ use DigitalMx as u;
 
 </colgroup>
 
-<tr class='border-bottom'><td ><b>Sun</b></td></td><td><b>Mooon</td></tr>
+<tr class='border-bottom'><td ><b>Sun</b></td><td><b>Mooon</b></td></tr>
 <tr>
 	<td>Rise <?=$light['sunrise']?> <br />Set <?=$light['sunset']?> </td>
 <td >Rise <?=$light['moonrise']?> <br />Set <?=$light['moonset']?></td>
@@ -68,7 +68,7 @@ use DigitalMx as u;
 	?>
 <?php if(empty($fire)): echo "<p>No Data</p>"; else:?>
 
-<div class='in2 '>
+	<div class='in2 '>
 	 	<p class = 'warnblock'  style="background-color:<?=$firecolor?>">
 	 	<?=$firelevel?> </p>
 	<div class='left'>
@@ -81,15 +81,13 @@ use DigitalMx as u;
 	</div>
 <?php endif; ?>
 
-
-
 <h4>Air Quality</h4>
 <?php if(empty($air)): echo "<p>No Data</p>"; else:
 // echo "Retrieved at  " . date ('M j h:i a',$air['jr']['dt']);
 ?>
 
 <table class='in2'>
-<tr><th>Location</th><th>Air Quality</th><th>Particulates (PM10)</th><th>Ozone</td></tr>
+<tr><th>Location</th><th>Air Quality</th><th>Particulates (PM10)</th><th>Ozone</th></tr>
 <?php foreach ($air as $loc => $dat) :
 	$rdt = date ('M j H:ia',$dat['dt']);
 ?>
@@ -112,13 +110,13 @@ use DigitalMx as u;
 
 <h4>Weather</h4>
 <?php if (!empty($today['weather_warn'])) : ?>
+	<h4 class='in2 inline'>Local Warning</h4> Updated <?=$today['updated']?>
 	<div class='warn'><?=$today['weather_warn']?></div>
 <?php endif; ?>
 
 
 <p><b>Forecasts</b></p>
-<?php
-	if(empty($weather)): echo "<p>No Data</p>"; else:
+<?php if(empty($weather)): echo "<p>No Data</p>"; else:
 
 	$locs = array_keys($weathergov);
 	foreach ($locs as $loc) :
@@ -179,9 +177,10 @@ use DigitalMx as u;
 <?php endforeach; // loc?
 	endif; ?>
 
+<!-- ############################## -->
 
+</div><div id='page4'>
 
-<div id='target'></div>
 <h4>Campgrounds</h4>
 
 
@@ -225,6 +224,9 @@ use DigitalMx as u;
 </div>
 <div style='clear:left'></div>
 
+<!-- ############################## -->
+
+</div><div id='page5'>
 <h4>Events</h4>
 <?php if(empty($calendar)) : echo "No Data"; else:
 ?>
@@ -263,6 +265,7 @@ use DigitalMx as u;
 
 <?php endif; ?>
 
+</div>
 
 
 <hr>

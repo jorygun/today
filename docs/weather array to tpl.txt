@@ -1,4 +1,4 @@
-weather array (Today.php (637))
+weather array (Today.php (637)) (openweathermap)
 Array
 (
     [jr] => Array
