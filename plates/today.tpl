@@ -60,24 +60,22 @@ use DigitalMx as u;
 
 <h4>Fire Danger: </h4>
 
-<?php
-// u\echor($fire, 'y-fire');
+<?php if (!empty($admin['fire_warn'])) : ?>
+	<div class='warn'> <?=$admin['fire_warn']?>
+	</div><br />
+<?php endif; ?>
 
-	?>
+
 <?php if(empty($fire)): echo "<p>No Data</p>"; else:?>
 
 	<div class='in2 '>
-	 	<p class = 'warnblock'  style="background-color:<?=$fire['color']?>">
-	 	<?=$fire['level']?> </p>
+	 	<p > Current Level: <span style="background-color:<?=$fire['color']?>">
+	 	<?=$fire['level']?> </span></p>
 	<div class='left'>
 	<?=Defs::$firewarn[$fire['level']]?>
 </div></div>
 <?php endif; ?>
 
-<?php if (!empty($admin['fire_warn'])) : ?>
-	<div class='warn'> <?=$admin['fire_warn']?>
-	</div>
-<?php endif; ?>
 
 <h4>Air Quality</h4>
 <?php if(0 || empty($air)): echo "<p>No Data</p>"; else:
@@ -111,9 +109,9 @@ use DigitalMx as u;
 
 <h4>Weather</h4>
 <?php if (!empty($admin['weather_warn'])) : ?>
-	<div class='in2'>
-	<p class='red'>Local Warning!</p>
+	<div class='in2 warn'>
 	<?=$admin['weather_warn']?></div>
+	<br />
 <?php endif; ?>
 
 

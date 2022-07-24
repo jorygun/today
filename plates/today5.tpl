@@ -77,10 +77,11 @@ use DigitalMx as u;
 
 <h4>Fire Danger: </h4>
 
-<?php
-// u\echor($fire, 'y-fire');
+<?php if (!empty($admin['fire_warn'])) : ?>
+	<div style='margin-left:2em;border:2px solid black; color:red;text-align:left;'> <?=$admin['fire_warn']?>
+	</div><br />
+<?php endif; ?>
 
-	?>
 <?php if(empty($fire)): echo "<p>No Data</p>"; else:?>
 
 	<div style='margin-left:2em;border:2px solid black; color:black;text-align:left;padding:6px;'>
@@ -91,10 +92,7 @@ use DigitalMx as u;
 </div></div>
 <?php endif; ?>
 
-<?php if (!empty($admin['fire_warn'])) : ?>
-	<div style='margin-left:2em;border:2px solid black; color:red;text-align:left;'> <?=$admin['fire_warn']?>
-	</div>
-<?php endif; ?>
+
 
 <h4>Air Quality</h4>
 <?php if(0 || empty($air)): echo "<p>No Data</p>"; else:
