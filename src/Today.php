@@ -219,10 +219,6 @@ public function rebuild($force = false) {
 	// set forecee to true to force all cahces to rebuild now, instead of on schedule
 
 	$page_body = $this->Plates -> render('today',$y);
-	$page_body_new = $this->Plates -> render ('today2',$y);
-	$page_body_con = $this->Plates -> render ('today3',$y);
-	$page_body_txt = $this->Plates -> render ('today4',$y);
-	$page_body_em = $this->Plates -> render ('today5',$y);
 
 	$static_page = $this->start_page('Today in the Park (static)')
 		. $page_body;
@@ -237,20 +233,22 @@ public function rebuild($force = false) {
 	file_put_contents( SITE_PATH . '/pages/snap.php', $snap_page);
 
 
-
+	$page_body_new = $this->Plates -> render ('today2',$y);
 	$new_page = $this->start_page('Today in the Park (weather.gov)')
 		. $page_body_new;
 	file_put_contents (SITE_PATH . '/pages/today2.php',$new_page);
 
+	$page_body_con = $this->Plates -> render ('today3',$y);
 	$new_page = $this->start_page('Today in the Park (condensed)')
 		. $page_body_con;
 	file_put_contents (SITE_PATH . '/pages/today3.php',$new_page);
 
+	$page_body_txt = $this->Plates -> render ('today4',$y);
 	$new_page = $this->start_page('Today in the Park (text only)')
 		. $page_body_txt ;
 	file_put_contents (SITE_PATH . '/pages/today4.php',$new_page);
 
-
+	$page_body_em = $this->Plates -> render ('today5',$y);
 	$new_page = $this->start_page('Today in the Park (for email)')
 		. $page_body_em ;
 	file_put_contents (SITE_PATH . '/pages/today5.php',$new_page);
@@ -274,7 +272,7 @@ public function prepare_today($force=false) {
   */
 
 
-	foreach (['wgov','wapi','airowm','airnow','calendar','admin','airq','wgova'] as $section) {
+	foreach (['wgov','wapi','airowm','airnow','calendar','admin','wgova'] as $section) {
 		$y[$section] = $this -> load_cache ($section, $force);
 	}
 // 	u\echor ($y, 'y array into today');

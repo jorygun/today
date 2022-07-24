@@ -50,7 +50,7 @@ One announcement per line.(<cr>)  They will be listed as bullets
 		<?php endforeach; ?>
 
 <?php endforeach; ?>
-
+	<br />
 	</div>
 
 </div>

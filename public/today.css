@@ -65,7 +65,8 @@ button {
 
 .bg-black{
 	background-color:black;
-	padding:2em;
+	padding:6px;
+	height:100%;
 }
 
 .sectionhead {

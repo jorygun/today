@@ -127,7 +127,6 @@ use DigitalMx as u;
 <h4>Weather</h4>
 <?php if (!empty($admin['weather_warn'])) : ?>
 	<div style='margin-left:2em;margin-right:0;border:2px solid black; color:red;text-align:left;padding:6px;'>
-	<p>Local Warning!</p>
 	<?=$admin['weather_warn']?>
 	</div>
 	<br />

@@ -33,21 +33,22 @@ use DigitalMx as u;
 
 </colgroup>
 
-<tr class='border-bottom'><td ><b>Sun</b></td><td><b>Mooon</b></td></tr>
+<tr class='border-bottom'><td ><b>Today</b></td><td><b>Tonight</b></td></tr>
 <tr>
-	<td>Rise <?=$light['sunrise']?> <br />Set <?=$light['sunset']?> </td>
-<td >Rise <?=$light['moonrise']?> <br />Set <?=$light['moonset']?></td>
+	<td>Sunrise <?=$light['sunrise']?> <br />Set <?=$light['sunset']?> </td>
+<td >Moonrise <?=$light['moonrise']?> <br />Set <?=$light['moonset']?></td>
 </tr>
 
 <tr>
-	<td ><b>UV Exposure:</b>
-	<span style = 'background-color:<?=$uv['uvcolor']?>;'> <?= $uv['uv'] ?>  <?=$uv['uvscale']?></span>
+	<td ><p style='width:100%'><b>UV Exposure:</b> <?= $uv['uv'] ?>
+	<span style = 'background-color:<?=$uv['uvcolor']?>;'>   <?=$uv['uvscale']?></span></p>
+	<p><?=$uv['uvwarn']?></p>
 
 	</td>
-	<td ><div class='bg-black'><span class='white'><?=$light['moonphase']?></span>
+	<td ><div class='bg-black'><p class='white'><?=$light['moonphase']?></p>
 	<img src= "/images/moon/<?=$light['moonpic'] ?>" /></div></td>
 </tr>
-<tr><td class='left' colspan='2'><b>For UV = <?=$uv['uvscale']?></b><br><?=$uv['uvwarn']?></td></tr>
+
 
 
 
@@ -69,7 +70,7 @@ use DigitalMx as u;
 <?php if(empty($fire)): echo "<p>No Data</p>"; else:?>
 
 	<div class='in2 '>
-	 	<p > Current Level: <span style="background-color:<?=$fire['color']?>">
+	 	<p style = 'width:100%;'> Current Level: <span style="background-color:<?=$fire['color']?>">
 	 	<?=$fire['level']?> </span></p>
 	<div class='left'>
 	<?=Defs::$firewarn[$fire['level']]?>
@@ -241,8 +242,12 @@ if(empty($weather)): echo "<p>No Data</p>"; else: ?>
 	$datetime = date('l M j g:i a', $cal['dt']);
 	$rowclass = (empty($cal['note'])) ? 'border-bottom' : 'no-bottom';
 	?>
-	<tr class="<?=$rowclass ?> left">
-	<td style='vertical-align:top;'><?=$datetime ?> <br />&nbsp;&nbsp;(<?=$cal['duration']?>) </td>
+	<tr class="border-bottom">
+	<td style='vertical-align:top;'><?=$datetime ?> <br />
+	<?php if ($dur = $cal['duration']): ?>
+		&nbsp;&nbsp;(<?=$dur?>)
+		<?php endif; ?>
+		</td>
 <!--
 	<td><?=$cal['event_location']?> </td>
 	<td><?=$cal['event_type'] ?> </td>
