@@ -22,7 +22,7 @@ $twolocs = ['jr','hq'];
 
 
 //
-//$z = $Today->load_today();
+$z = $Today->prepare_today();
 
 //
 //$z = $Today->ext_weathergov ();
@@ -32,10 +32,10 @@ $twolocs = ['jr','hq'];
 
 // u\echor ($z, 'result of test');
 
-$z = $Today -> prepare_today();
- u\echor ($z,'Today input to plates');
+//$z = $Today -> prepare_today();
+u\echor ($z,'Output of prepare_today');
 
-echo $Plates->render('today4',$z);
+echo $Plates->render('today',$z);
 
 
 

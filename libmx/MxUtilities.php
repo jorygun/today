@@ -231,7 +231,30 @@ function is_youtube($url) {
     $header['content'] = $data;
     return $header;
 }
+function inMultiArray($element, array $array, bool $strict = true) : bool {
+		 static $currentMultiArrayExec = 0;
 
+        $currentMultiArrayExec++;
+
+       // if($currentMultiArrayExec >= ini_get("xdebug.max_nesting_level")) return false;
+
+        foreach($array as $key => $value){
+            $bool = $strict ? $element === $key : $element == $key;
+
+            if($bool) return true;
+
+            if(is_array($value)){
+                $bool = inMultiArray($element, $value, $strict);
+            } else {
+                $bool = $strict ? $element === $value : $element == $value;
+            }
+
+            if($bool) return true;
+        }
+
+        $currentMultiArrayExec = 0;
+        return isset($bool) ? $bool : false;
+    }
 
 function humanSecs($esecs){
     // express time in secs in human readable

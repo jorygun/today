@@ -126,3 +126,46 @@ Array
         )
 
 )
+
+now forecast
+https://www.airnowapi.org/aq/forecast/latLong/?format=application/json&latitude=34.99&longitude=-116.14&date=2022-07-18&distance=50&API_KEY=7FB4BEFF-A568-4FE4-8E67-F1EE36B5C04B  (gives 29p as nearest forecast loc)
+[
+{"DateIssue":"2022-07-17 ","DateForecast":"2022-07-18 ","ReportingArea":"Twentynine Palms","StateCode":"CA","Latitude":34.3167,"Longitude":-116.0944,"ParameterName":"O3","AQI":74,"Category":{"Number":2,"Name":"Moderate"},"ActionDay":false},
+{"DateIssue":"2022-07-17 ","DateForecast":"2022-07-18 ","ReportingArea":"Twentynine Palms","StateCode":"CA","Latitude":34.3167,"Longitude":-116.0944,"ParameterName":"PM2.5","AQI":33,"Category":{"Number":1,"Name":"Good"},"ActionDay":false},
+{"DateIssue":"2022-07-17 ","DateForecast":"2022-07-18 ","ReportingArea":"Twentynine Palms","StateCode":"CA","Latitude":34.3167,"Longitude":-116.0944,"ParameterName":"PM10","AQI":32,"Category":{"Number":1,"Name":"Good"},"ActionDay":false},{"DateIssue":"2022-07-17 ","DateForecast":"2022-07-18 ","ReportingArea":"Twentynine Palms","StateCode":"CA","Latitude":34.3167,"Longitude":-116.0944,"ParameterName":"NO2","AQI":17,"Category":{"Number":1,"Name":"Good"},"ActionDay":false},{"DateIssue":"2022-07-17 ","DateForecast":"2022-07-18 ","ReportingArea":"Twentynine Palms","StateCode":"CA","Latitude":34.3167,"Longitude":-116.0944,"ParameterName":"CO","AQI":3,"Category":{"Number":1,"Name":"Good"},"ActionDay":false}]
+
+cw gives "East Riverside cty"
+"DateIssue","DateForecast","ReportingArea","StateCode","Latitude","Longitude","ParameterName","AQI","CategoryNumber","CategoryName","ActionDay","Discussion"
+"2022-07-17 ","2022-07-18 ","East Riverside CO","CA","33.8077","-115.457","O3","44","1","Good","false",
+"2022-07-17 ","2022-07-18 ","East Riverside CO","CA","33.8077","-115.457","PM2.5","29","1","Good","false",
+"2022-07-17 ","2022-07-18 ","East Riverside CO","CA","33.8077","-115.457","PM10","28","1","Good","false",
+"2022-07-17 ","2022-07-18 ","East Riverside CO","CA","33.8077","-115.457","NO2","12","1","Good","false",
+"2022-07-17 ","2022-07-18 ","East Riverside CO","CA","33.8077","-115.457","CO","3","1","Good","false",
+
+
+now current
+https://www.airnowapi.org/aq/observation/zipCode/current/?format=application/json&zipCode=92277&distance=25&API_KEY=7FB4BEFF-A568-4FE4-8E67-F1EE36B5C04B
+[
+{"DateObserved":"2022-07-18 ","HourObserved":8,"LocalTimeZone":"PST","ReportingArea":"Twentynine Palms","StateCode":"CA","Latitude":34.3167,"Longitude":-116.0944,"ParameterName":"O3","AQI":35,"Category":{"Number":1,"Name":"Good"}},
+{"DateObserved":"2022-07-18 ","HourObserved":8,"LocalTimeZone":"PST","ReportingArea":"Twentynine Palms","StateCode":"CA","Latitude":34.3167,"Longitude":-116.0944,"ParameterName":"PM10","AQI":31,"Category":{"Number":1,"Name":"Good"}}]
+
+
+airowm gives different results (and dt) for jr, br, hq
+[main] => Array
+                                (
+                                    [aqi] => 3
+                                )
+
+                            [components] => Array
+                                (
+                                    [co] => 205.28
+                                    [no] => 0
+                                    [no2] => 2.21
+                                    [o3] => 167.37
+                                    [so2] => 1.76
+                                    [pm2_5] => 15.04
+                                    [pm10] => 18.45
+                                    [nh3] => 0.6
+                                )
+
+                            [dt] => 1658458400

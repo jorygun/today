@@ -19,7 +19,7 @@ namespace DigitalMx\jotr;
 echo $Today->start_page("Alerts Found");
 
 $y['alerts'] = $Today->load_cache('alerts');
-
+// u\echor ($y, ' from load cachde to template');
 echo $Plates->render('alerts',$y);
 
 

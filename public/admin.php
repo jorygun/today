@@ -26,7 +26,7 @@ namespace DigitalMx\jotr;
 
 
 //END START
-echo $Today->start_page('Admin JOTR Today');
+echo $Today->start_page('Admin JOTR Today','h'); #add hidden js
 
 // check for login status
 

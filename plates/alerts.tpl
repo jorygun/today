@@ -5,16 +5,23 @@ use DigitalMx as u;
 ?>
 <h1>Alerts Compiled from Other Sources</h1>
 
-<?php foreach ($alerts as $source=>$alertset) : ?>
+<?php
+	//u\echor($alerts,'',STOP);
+	foreach ($alerts as $source=>$alertset) :
+		//u\echor($alertset,$source);
+
+	$sourcename =Defs::$sources[$source]; ?>
 	<hr style="height:4px;background-color:green;">
-	<h2><?= Defs::$alert_sources[$source] ?></h2>
+<h2><?= $sourcename ?></h2>
 		<?php foreach ($alertset as $alert) : ?>
 			<div class='in2' border-top=1px solid black;'>
-			<h3><?=$alert['cat']?> <?=$alert['event']?></h3>
-			<p>Description: <?=$alert['desc']?></p>
+			<h3><?=$alert['category'] ?? '' ?> <?=$alert['event']?></h3>
+			<p>Description: <?=$alert['description']?></p>
 			<p>Instructions: <br>
 				<?=$alert['instructions'] ?? '' ?></p>
-			<p>Expires <?= date('M d H:i',$alert['expires'])?></p>
+			<p>Expires <?= $alert['expires']?></p>
 			</div>
 		<?php endforeach; ?>
+
+
 <?php endforeach; ?>

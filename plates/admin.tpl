@@ -11,43 +11,70 @@ use DigitalMx as u;
 <form method='post'>
 <input type='hidden' name='type' value='update'>
 <h4>Say something pithy</h4>
-	<textarea name='pithy' rows='4' cols='80'><?=$this->e($pithy) ?> </textarea>
+	<textarea name='pithy' rows='4' cols='80'><?=$this->e($admin['pithy']) ?> </textarea>
 </p>
 
 
 <h4>Enter closures/announcements</h4>
 One announcement per line.(<cr>)  They will be listed as bullets
-<textarea name='announcements' ><?=$announcements ?></textarea>
+<textarea name='announcements' ><?=$admin['announcements'] ?></textarea>
 </p>
 
 <h4>Enter fire status</h4>
-<p>General Fire Level: <select name='fire_level'><?=$fire_level_options?></select>
+<p>General Fire Level: <select name='fire_level'><?=$admin['fire_level_options']?></select>
 </p>
 <p>Special fire warning<br />
-<textarea name='fire_warn'><?=$fire_warn ?? '' ?></textarea>
+<textarea name='fire_warn'><?=$admin['fire_warn'] ?? '' ?></textarea>
 </p>
 
 
 <h4>Enter weather warning</h4>
-<p>Alerts are published by several outside sources.  Click here to <a href='/view_alerts.php' target='alerts'>view active alerts</a> from other sources. Copy and edit as appropriate.</p>
-<textarea name='weather_warn'><?=$weather_warn?></textarea>
+<p>Alerts are published by several outside sources.  Click to view active alertsfrom other sources. Copy and edit as appropriate.</p>
+<p><button type='button' onClick = "showDiv('alerts');">Alerts</button></p>
+
+<div id='alerts' class='hidden'>
+	<?php
+	foreach ($alerts as $source=>$alertset) :
+		//u\echor($alertset,$source);
+	$sourcename =Defs::$sources[$source]; ?>
+	<hr style="height:4px;background-color:green;">
+<b><?= $sourcename ?></b><br>
+		<?php foreach ($alertset as $alert) : ?>
+			<div class='in2' border-top=1px solid black;'>
+			<p><?=$alert['category'] ?? '' ?> <?=$alert['event']?></p>
+			<p>Description: <?=$alert['description']?></p>
+			<p>Instructions: <br>
+				<?=$alert['instructions'] ?? '' ?></p>
+			<p>Expires <?= $alert['expires']?></p>
+			</div>
+		<?php endforeach; ?>
+
+<?php endforeach; ?>
+
+	</div>
+
+</div>
+
+<textarea name='weather_warn'><?=$admin['weather_warn']?></textarea>
 </p>
 
+<!--
 <p><b>Local Air Quality</b><br />
 Cottonwood: <input type='number' name='aq_cw' value="<?=$aq_cw?>" ><br />
 Black Rock: <input type='number' name='aq_br' value="<?=$aq_br?>" ><br />
 
 </p>
+ -->
 
 
 <h4>Campground status</h4>
 <table>
 <tr><th>Campground</th><th>Availability</th><th>Notes</th></tr>
-<?php foreach (array_keys($camps['cgavail']) as $scode): ?>
+<?php foreach (array_keys($admin['cgavail']) as $scode): ?>
 	<tr><td><?= Defs::$sitenames[$scode]?></td>
 
-		<td><select name="cg[cgavail][<?=$scode?>]"><?=$camps['cg_options'][$scode]?></select></td>
-		<td><input type='text' name="cg[cgstatus][<?=$scode?>]>" value='<?=$camps['cgstatus'][$scode]?>' size=40></td>
+		<td><select name="cgavail[<?=$scode?>]"><?=$admin['cg_options'][$scode]?></select></td>
+		<td><input type='text' name="cgstatus[<?=$scode?>]>" value='<?=$admin['cgstatus'][$scode]?>' size=40></td>
 	</tr>
 <?php endforeach; ?>
 

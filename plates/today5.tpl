@@ -1,21 +1,37 @@
 <?php
+// this plate uses inline css for emails
 use DigitalMx\jotr\Definitions as Defs;
 use DigitalMx as u;
 ?>
+<?php
+	$site_path = SITE_PATH;
+	$site_url = SITE_URL;
+?>
+<html>
+<style>
+	table tr td {border:0;}
+	h4 {text-align:left;}
+	.in2 {margin-left:2em;}
 
-<p class='today'>Today in Joshua Tree National Park</p>
-<p class='today'><?=$target ?> </p>
-<hr>
+</style>
+<table style='max-width:600px;border:0'>
+<tr><td style='border:0'>
+<h1>Today in Joshua Tree National Park</h1>
+<h2><?=$target ?> </h2>
+
+
+
 <?php if(!empty($admin['pithy'])): ?>
 <p class='pithy'><?=$admin['pithy'] ?></p>
 <?php endif; ?>
+<hr>
+</td></tr>
 
-<!-- ############################## -->
-<div id='page1'>
+<tr><td>
 
 <?php if(!empty($admin['announcements'])) : ?>
 	<h4>Announcements</h4>
-	<div class='warn'><ul>
+	<div style='margin-left:2em;border:1px solid black; color:red;text-align:left;'><ul>
 	<?php $anlist = explode("\n",$admin['announcements']);
 		foreach ($anlist as $item) :?>
 			<li><?=$item?></li>
@@ -23,17 +39,18 @@ use DigitalMx as u;
 		</ul>
 	</div>
 <?php endif; ?>
-
+</td></tr>
+<tr><td>
 <h4>Light and Dark</h4>
 <?php if(empty($light)): echo "<p>No Data</p>"; else: ?>
-<table class = 'in2'>
+<table style='margin-left:2em;'>
 <colgroup>
 	<col style='width:50%;'>
 	<col style='width:50%;'>
 
 </colgroup>
 
-<tr class='border-bottom'><td ><b>Sun</b></td><td><b>Mooon</b></td></tr>
+<tr style='border-bottom:1px solid black;'><td ><b>Sun</b></td><td><b>Mooon</b></td></tr>
 <tr>
 	<td>Rise <?=$light['sunrise']?> <br />Set <?=$light['sunset']?> </td>
 <td >Rise <?=$light['moonrise']?> <br />Set <?=$light['moonset']?></td>
@@ -44,19 +61,19 @@ use DigitalMx as u;
 	<span style = 'background-color:<?=$uv['uvcolor']?>;'> <?= $uv['uv'] ?>  <?=$uv['uvscale']?></span>
 
 	</td>
-	<td ><div class='bg-black'><span class='white'><?=$light['moonphase']?></span>
-	<img src= "/images/moon/<?=$light['moonpic'] ?>" /></div></td>
+	<td ><div style='background-color:black;'><span style='color:white'><?=$light['moonphase']?></span><br />
+	<img src= "<?= $site_url?>/images/moon/<?=$light['moonpic'] ?>" /></div></td>
 </tr>
-<tr><td class='left' colspan='2'><b>For UV = <?=$uv['uvscale']?></b><br><?=$uv['uvwarn']?></td></tr>
+<tr style='border-top:1px solid gray;'><td colspan='2' style='text-align:left'><b>For UV = <?=$uv['uvscale']?></b><br><?=$uv['uvwarn']?></td></tr>
 
 
 
 </table>
+
 <?php endif; ?>
+</td></tr>
 
-<!-- ############################## -->
-
-</div><div id='page2'>
+<tr><td>
 
 <h4>Fire Danger: </h4>
 
@@ -66,16 +83,16 @@ use DigitalMx as u;
 	?>
 <?php if(empty($fire)): echo "<p>No Data</p>"; else:?>
 
-	<div class='in2 '>
-	 	<p class = 'warnblock'  style="background-color:<?=$fire['color']?>">
-	 	<?=$fire['level']?> </p>
+	<div style='margin-left:2em;border:2px solid black; color:black;text-align:left;padding:6px;'>
+	 	<p  Current Level: <span style="background-color:<?=$fire['color']?>">
+	 	<?=$fire['level']?> </span></p>
 	<div class='left'>
 	<?=Defs::$firewarn[$fire['level']]?>
 </div></div>
 <?php endif; ?>
 
 <?php if (!empty($admin['fire_warn'])) : ?>
-	<div class='warn'> <?=$admin['fire_warn']?>
+	<div style='margin-left:2em;border:2px solid black; color:red;text-align:left;'> <?=$admin['fire_warn']?>
 	</div>
 <?php endif; ?>
 
@@ -84,7 +101,7 @@ use DigitalMx as u;
 // echo "Retrieved at  " . date ('M j h:i a',$air['jr']['dt']);
 ?>
 
-<table class='in2'>
+<table style='margin-left:2em;'>
 <tr><th>Location</th><th>Air Quality</th><th>Particulates (PM10)</th><th>Ozone</th></tr>
 <?php foreach ($air as $loc => $dat) :
 	if (! in_array($loc,array_keys(Defs::$sitenames))) continue;
@@ -92,8 +109,8 @@ use DigitalMx as u;
 
 	$rdt = date ('M j H:ia',$dat['dt']);
 ?>
-<tr>
-	<td class='left border-bottom'><?= Defs::$sitenames[$loc] ?></td>
+<tr style="border-bottom:1px solid gray;">
+	<td style='text-align:left;'><?= Defs::$sitenames[$loc] ?></td>
 	<td><?=$dat['aqi']?>
 		<span style="background-color: <?=$dat['aqi_color']?>">
 		<?=$dat['aqi_scale'] ?></span>
@@ -105,22 +122,24 @@ use DigitalMx as u;
 <?php endforeach; ?>
 </table>
 <?php endif; ?>
-<!-- ############################## -->
+</td></tr>
 
-</div><div id='page3'>
+<tr><td>
 
 <h4>Weather</h4>
 <?php if (!empty($admin['weather_warn'])) : ?>
-	<div class='in2'>
-	<p class='red'>Local Warning!</p>
-	<?=$admin['weather_warn']?></div>
+	<div style='margin-left:2em;margin-right:0;border:2px solid black; color:red;text-align:left;padding:6px;'>
+	<p>Local Warning!</p>
+	<?=$admin['weather_warn']?>
+	</div>
+	<br />
 <?php endif; ?>
 
 
 <?php $weather = $wapi['fc'];
 if(empty($weather)): echo "<p>No Data</p>"; else: ?>
 
-	<table class = 'in2 '>
+	<table style='margin-left:2em;'>
 
 	<!-- get period names -->
 	<?php
@@ -142,7 +161,7 @@ if(empty($weather)): echo "<p>No Data</p>"; else: ?>
 			if (! $locname = Defs::$sitenames[$loc] ) : continue; endif;
 	//	u\echor ($x,"Loc $loc", STOP);
 	?>
-			<tr class='borders '><td ><b><?=$locname?></b></td>
+			<tr style='border-bottom:1px solid gray;'><td ><b><?=$locname?></b></td>
 
 
 
@@ -176,9 +195,10 @@ if(empty($weather)): echo "<p>No Data</p>"; else: ?>
 
 <?php endif; ?>
 
-<!-- ############################## -->
+</td></tr>
 
-</div><div id='page4'>
+<tr><td>
+
 
 <h4>Campgrounds</h4>
 
@@ -188,14 +208,14 @@ if(empty($weather)): echo "<p>No Data</p>"; else: ?>
 <?php endif; ?>
 
 <?php if(empty($camps)): echo "No Data"; else: ?>
-<table  class='in2 alt-gray border-bottom'>
+<table style='margin-left:2em;border:2px solid black;'>
 
 
 <tr><th></th><th>Availability</th><th>Sites</th><th>Features</th><th>Status</th></tr>
 <?php foreach (['ic','jr','sp','hv','be','wt','ry','br','cw'] as $cg) : ?>
 
 	<tr class='border-bottom'>
-		<td class='left'>  <?=Defs::$sitenames [$cg] ?>  </td>
+		<td style='text-align:left;'>  <?=Defs::$sitenames [$cg] ?>  </td>
 	 <td> <?= $camps['cgavail'][$cg] ?> </td>
 	<td> <?= Defs::$campsites[$cg] ?> </td>
 		<td> <?= Defs::$campfeatures [$cg] ?> </td>
@@ -205,34 +225,34 @@ if(empty($weather)): echo "<p>No Data</p>"; else: ?>
 
 	<?php endforeach;?>
 
-</table>
-<?php endif; ?>
-<div  style='float:left;margin-left:2em;'>&nbsp;</div>
-<div  style='float:left;width:40%;'>
-<p>Camp features:<br>
+	<tr style='border-top:2px solid black;'>
+	<td colspan='2' style='border-right:1px solid gray'>
+	<p>Camp features:<br>
 	W: Water at Campground<br>
 	D: Dump Site for RVs<br>
 	G: Group sites available for large groups.<br>
 	H: Horse sites
 </p>
-</div>
-<div style='float:left;width:40%'>
-<p>Reservations are made ONLY on the recreation.gov, using the 'rec.gov' web site or call at 1-877-444-6777. They cannot be made by park rangers.  There is no cell service in the park.</p>
+	</td><td colspan='3'>
+	<p>Reservations are made ONLY on the recreation.gov, using the 'rec.gov' web site or call at 1-877-444-6777. They cannot be made by park rangers.  There is no cell service in the park.</p>
 <p>"Open" means First Come; First Served.  Find an open campsite and claim it.  Pay a ranger at the campground or at the entrance station.</p>
 
-</div>
-<div style='clear:left'></div>
+	</td></tr>
 
-<!-- ############################## -->
+</table>
+<?php endif; ?>
 
-</div><div id = 'page5'>
+</td></tr>
+
+<tr><td>
+
 <h4>Events</h4>
 <?php if(empty($calendar)) : echo "No Data"; else:
 ?>
 
 
 
-<table class='caltable'>
+<table style='margin-left:2em;width:100%;'>
 <!-- <tr><th>Date and Time</th><th>Location</th><th>Type</th><th>Title</th></tr> -->
 <tbody>
 <?php $calempty = 1;
@@ -241,17 +261,17 @@ if(empty($weather)): echo "<p>No Data</p>"; else: ?>
 	if ($cal['dt'] > time() + 3600*24*3 ) break;
 	$calempty = 0;
 	$datetime = date('l M j g:i a', $cal['dt']);
-	$rowclass = (empty($cal['note'])) ? 'border-bottom' : 'no-bottom';
+	$rowclass = (empty($cal['note'])) ? 'border-bottom:1px solid gray;' : 'border-bottom:0;';
 	?>
-	<tr class="<?=$rowclass ?> left">
-	<td style='vertical-align:top;'><?=$datetime ?> <br />&nbsp;&nbsp;(<?=$cal['duration']?>) </td>
+	<tr style='<?=$rowclass ?>' >
+	<td style='vertical-align:top;width:25%;'><?=$datetime ?> <br />&nbsp;&nbsp;(<?=$cal['duration']?>) </td>
 <!--
 	<td><?=$cal['event_location']?> </td>
 	<td><?=$cal['event_type'] ?> </td>
 	<td><?=$cal['event_title'] ?> </td>
 
  -->
- 	<td class='left'>
+ 	<td style='text-align:left'>
  	<b><?=$cal['title']?></b><br />
  	<?=$cal['type'] ?>  at <?=$cal['location']?>  <br />
 
@@ -269,8 +289,8 @@ if(empty($weather)): echo "<p>No Data</p>"; else: ?>
 
 <?php endif; ?>
 
-</div>
-
+</td></tr>
+</table>
 
 <hr>
 <p id='bottom' class='right'><?=$version ?>

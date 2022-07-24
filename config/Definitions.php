@@ -105,11 +105,7 @@ public static $coordinates = [
       );
 
 
-	public static $alert_sources = array (
-		'weather' => 'Weatherapi.com, commercial source',
-		'weathergov' => 'weather.gov alert system',
 
-	);
 
 	public static function uv_scale ($uv) {
 		// sets uv name based on index
@@ -206,38 +202,47 @@ public static $coordinates = [
 		'Closed',
 	];
 
+	public static $sources = [
+	'airq' => 'air-quality.p.rapidapi.com/current',
+	'airowm' => 'api.openweathermap.org',
+	'airnow' => 'airnowapi.org/observation',
+	'wapi' => 'api.weatherapi.com forecast',
+	'wgov' => 'weather.gov',
+	'wgova' => 'weather.gov alerts',
+
+	];
 
 		public static $caches  = array (
-				'light' => REPO_PATH . "/data/light.json",
-				'weather' => REPO_PATH . "/data/weather.json",
-				'fire' => REPO_PATH . "/data/fire.json",
-				'air' => REPO_PATH . "/data/air.json",
-				'info' => REPO_PATH . "/data/info.json",
-				'camps' => REPO_PATH . "/data/camps.json",
-				'calendar' => REPO_PATH . "/data/calendar.json",
-				'uv' => REPO_PATH . "/data/uv.json",
-				'today' => REPO_PATH . "/data/today.json",
-				'properties' => REPO_PATH . "/data/properties.json",
-				'weathergov' => REPO_PATH . "/data/weathergov.json",
+				'admin' => REPO_PATH . "/data/admin.json",
+				'airnow' => REPO_PATH . "/data/airnow.json",
+				'airowm' => REPO_PATH . "/data/airowm.json",
+				'airq' => REPO_PATH . "/data/airq.json",
 				'alerts' => REPO_PATH . "/data/alerts.json",
+				'calendar' => REPO_PATH . "/data/calendar.json",
+				'properties' => REPO_PATH . "/data/properties.json",
+				'wapi' => REPO_PATH . "/data/wapi.json",
+				'wgov' => REPO_PATH . "/data/wgov.json",
+				'wgova' => REPO_PATH . "/data/wgova.json",
 			);
 
 // time before refresh in minutes.  0 means
 // cache is static except for update by
 // the admin screen.  No outside retrieval.
 	public static $cache_times  = array (
-				'light' => 0,
-				'weather' => 240,
 
-				'air' => 240,
-				'fire' => 0,
-				'camps' => 0,
-				'uv' => 0 ,
-				'calendar' => 0,
-				'today' => 0,
+				'calendar' => 60*12,
+				'admin' => 0,
 				'properties' => 60*24*7,
-				'weathergov' => 240,
-				'alerts' => 240,
+				'wgov' => 240,
+				'wapi' => 240,
+				'airq' => 240,
+				'airnow' => 240,
+				'airowm' => 240,
+				'alerts' => 60,
+				'wgova' => 60,
+
+
+
 			);
 
 	private static $moons = array (
@@ -249,6 +254,7 @@ public static $coordinates = [
 			'Waning Gibbous' => '5.gif',
 			'Third Quarter' => '6.gif',
 			'Waning Crescent' => '7.gif',
+			'Last Quarter' => '6.gif'
 		);
 
 	public static function uv_warn($uvd) {
@@ -273,11 +279,33 @@ public static $coordinates = [
 		return self::$ecodes[$ecode];
 	}
 
+	public function getGridpoints($loc){
+		return self::$gridpoints[$loc] ?? '';
+	}
+	public static function getCoords($loc) {
+		return self::$coordinates[$loc] ?? '';
+	}
+
+	public static function getKey($site){
+		return self::$api_keys[$site] ?? '';
+	}
+
+
 	public static function getMaxtime($section) {
 		return (60 * self::$cache_times[$section] );
 	}
 
 	public static function getMoonPic($phase) {
 		return self::$moons[$phase] ?? 'error.png';
+	}
+	public static function getSourceName($source) {
+
+		$result = self::$sources[$source] ?? "$source name not found";
+		return $result;
+	}
+	public static function getLocName($loc) {
+
+		$result = self::$sitenames[$loc] ?? "$loc name not found";
+		return $result;
 	}
 }

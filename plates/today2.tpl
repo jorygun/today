@@ -3,20 +3,20 @@ use DigitalMx\jotr\Definitions as Defs;
 use DigitalMx as u;
 ?>
 
-<p class='today'>Today in Joshua Tree National Park (v2)</p>
-<p class='today'><?=$today['target'] ?> </p>
+<p class='today'>Today in Joshua Tree National Park</p>
+<p class='today'><?=$target ?> </p>
 <hr>
-<?php if(!empty($today['pithy'])): ?>
-<p class='pithy'><?=$today['pithy'] ?></p>
+<?php if(!empty($admin['pithy'])): ?>
+<p class='pithy'><?=$admin['pithy'] ?></p>
 <?php endif; ?>
 
 <!-- ############################## -->
 <div id='page1'>
 
-<?php if(!empty($today['announcements'])) : ?>
+<?php if(!empty($admin['announcements'])) : ?>
 	<h4>Announcements</h4>
 	<div class='warn'><ul>
-	<?php $anlist = explode("\n",$today['announcements']);
+	<?php $anlist = explode("\n",$admin['announcements']);
 		foreach ($anlist as $item) :?>
 			<li><?=$item?></li>
 		<?php endforeach ?>
@@ -41,11 +41,11 @@ use DigitalMx as u;
 
 <tr>
 	<td ><b>UV Exposure:</b>
-	<span style = 'background-color:<?=$uv['uvcolor']?>;'> <?= $uv['uv'] ?>  <?=$uv['uvscale']?></span>
+	 <?= $uv['uv'] ?> <span style = 'background-color:<?=$uv['uvcolor']?>;'> <?=$uv['uvscale']?></span>
 
 	</td>
 	<td ><div class='bg-black'><span class='white'><?=$light['moonphase']?></span>
-	<img src= "<?=$light['moonimage'] ?>" /></div></td>
+	<img src= "/images/moon/<?=$light['moonpic'] ?>" alt="<?=$light['moonphase']?>" /></div></td>
 </tr>
 <tr><td class='left' colspan='2'><b>For UV = <?=$uv['uvscale']?></b><br><?=$uv['uvwarn']?></td></tr>
 
@@ -60,35 +60,36 @@ use DigitalMx as u;
 
 <h4>Fire Danger: </h4>
 
-
 <?php
 // u\echor($fire, 'y-fire');
-	$firelevel = $fire['firelevel'];
-	$firecolor = $fire['firecolor'];
+
 	?>
 <?php if(empty($fire)): echo "<p>No Data</p>"; else:?>
 
 	<div class='in2 '>
-	 	<p class = 'warnblock'  style="background-color:<?=$firecolor?>">
-	 	<?=$firelevel?> </p>
+	 	<p class = 'warnblock'  style="background-color:<?=$fire['color']?>">
+	 	<?=$fire['level']?> </p>
 	<div class='left'>
-	<?=Defs::$firewarn[$firelevel]?>
+	<?=Defs::$firewarn[$fire['level']]?>
 </div></div>
 <?php endif; ?>
 
-<?php if (!empty($today['fire_warn'])) : ?>
-	<div class='warn'> <?=$today['fire_warn']?>
+<?php if (!empty($admin['fire_warn'])) : ?>
+	<div class='warn'> <?=$admin['fire_warn']?>
 	</div>
 <?php endif; ?>
 
 <h4>Air Quality</h4>
-<?php if(empty($air)): echo "<p>No Data</p>"; else:
+<?php if(1 || empty($air)): echo "<p>No Data</p>"; else:
 // echo "Retrieved at  " . date ('M j h:i a',$air['jr']['dt']);
 ?>
 
 <table class='in2'>
 <tr><th>Location</th><th>Air Quality</th><th>Particulates (PM10)</th><th>Ozone</th></tr>
 <?php foreach ($air as $loc => $dat) :
+	if (! in_array($loc,array_keys(Defs::$sitenames))) continue;
+	// not a valid locaiton
+
 	$rdt = date ('M j H:ia',$dat['dt']);
 ?>
 <tr>
@@ -109,72 +110,63 @@ use DigitalMx as u;
 </div><div id='page3'>
 
 <h4>Weather</h4>
-<?php if (!empty($today['weather_warn'])) : ?>
-	<h4 class='in2 inline'>Local Warning</h4> Updated <?=$today['updated']?>
-	<div class='warn'><?=$today['weather_warn']?></div>
+<?php if (!empty($admin['weather_warn'])) : ?>
+	<p class='in2 inline'><b>Local Warning</b></p> Updated <?=$admin['updated']?>
+	<div class='warn'><?=$admin['weather_warn']?></div>
 <?php endif; ?>
 
 
 <p><b>Forecasts</b></p>
-<?php if(empty($weather)): echo "<p>No Data</p>"; else:
+<?php $weather = $wgov['fc'];
+if(empty($weather)): echo "<p>No Data</p>"; else:
+	foreach ($weather as $loc=>$days) :
+		if ($loc == 'update') continue;
+		$locname = Defs::$sitenames[$loc];
 
-	$locs = array_keys($weathergov);
-	foreach ($locs as $loc) :
-		if (!$locname = Defs::$sitenames[$loc] ){continue;}
-		$days = array_slice(array_keys($weathergov[$loc]),0,3); // timestamps
 		?>
 		<p class='sectionhead'><?=$locname?></p>
 
-		<table class = 'in2 col-border'>
+	<table class = 'in2 col-border'>
 		<colgroup>
-		<col style='width:7%;'>
-		<col style='width:31%;'>
-		<col style='width:31%;'>
-		<col style='width:31%;'>
+
+		<col style='width:33%;'>
+		<col style='width:33%;'>
+		<col style='width:33%;'>
 		</colgroup>
 
-			<tr><th></th>
-				<?php foreach ($days as $day) :
-					$period = date('l M j',$day);
-					echo "<th>$period</th>";
-					endforeach;
-				 ?>
-			</tr>
-			<tr>
-				<td>Day</td>
-				<?php foreach ($days as $day) : ?>
-					<td>
-					<?php $data = $weathergov[$loc][$day]['day'] ?? '';
-						if ($data) : ?>
-							<?=$data['forecast']?> <br />
-								Highs around <?=$data['temp']?> &deg; F<br />
-								wind <?=$data['wind']?>
-						<!-- 	<image src="<?=$data['image']?>" /> -->
-						<?php else: ?>
-							n/a
-						<?php endif; ?>
-					</td>
-				<?php endforeach; // days?>
-			</tr>
+		<!--
+<tr>
+		<?php
+		// 	for ($i=1;$i<4;++$i) : //for 3 days
+// 				$day = $days[$i];
+// 		//	u\echor ($day ,'day',STOP);
+// 				//echo "<th>{$day[0]['daytext']}</th>";
+// 			endfor;
+		?>
+		</tr>
+ -->
 
-			<tr class='night'>
-			<td >Night</td>
-			<?php foreach ($days as $day) : ?>
-				<td class='night'>
-				<?php $data = $weathergov[$loc][$day]['night'] ?? '';
-					if ($data) : ?>
-							<?=$data['forecast']?> <br />
-								Lows around <?=$data['temp']?> &deg; F<br />
-								wind <?=$data['wind']?>
-						<!-- 	<image src="<?=$data['image']?>" /> -->
-						<?php else: ?>
-						<?php endif; ?>
+		<tr >
+			<?php
+			for ($i=1;$i<4;++$i) : //for 3 days
+				echo "<td >";
+				foreach ($days[$i] as $p) :
+			//	u\echor($p,'period',STOP);
+				?>
+					<div class = '$fcclass' style='padding-top:3px;padding-bottom:3px;'>
+						<b><i><?=$p['name']?></i></b><br>
+								<?=$p['detailedForecast']?><br>
+								<!--
+<?= $p['highlow']?><br>
+								Wind <?=$p['windSpeed']?>;
+ -->
+					</div>
+					<?php endforeach; #period ?>
 				</td>
-			<?php endforeach; ?>
-			</tr>
+			<?php endfor; #day ?>
+		</tr>
 	</table>
-
-<?php endforeach; // loc?
+	<?php endforeach; // loc?
 	endif; ?>
 
 <!-- ############################## -->
@@ -188,7 +180,7 @@ use DigitalMx as u;
 	<div class='warn'><?=$campgroundadvise?></div>
 <?php endif; ?>
 
-<?php if(empty($today['camps'])): echo "No Data"; else: ?>
+<?php if(empty($camps)): echo "No Data"; else: ?>
 <table  class='in2 alt-gray border-bottom'>
 
 
@@ -197,10 +189,10 @@ use DigitalMx as u;
 
 	<tr class='border-bottom'>
 		<td class='left'>  <?=Defs::$sitenames [$cg] ?>  </td>
-	 <td> <?= $today['camps']['cgavail'][$cg] ?> </td>
+	 <td> <?= $camps['cgavail'][$cg] ?> </td>
 	<td> <?= Defs::$campsites[$cg] ?> </td>
 		<td> <?= Defs::$campfeatures [$cg] ?> </td>
-	<td> <?= $today['camps']['cgstatus'][$cg] ?>  </td>
+	<td> <?= $camps['cgstatus'][$cg] ?>  </td>
 	</tr>
 
 
@@ -226,17 +218,18 @@ use DigitalMx as u;
 
 <!-- ############################## -->
 
-</div><div id='page5'>
+</div><div id = 'page5'>
 <h4>Events</h4>
-<?php if(empty($calendar)) : echo "No Data"; else:
-?>
 
-
-
-<table class='in2'>
+<table class='caltable'>
 <!-- <tr><th>Date and Time</th><th>Location</th><th>Type</th><th>Title</th></tr> -->
+
 <tbody>
-<?php foreach ($calendar as $cal) :
+<?php $calempty = 1;
+foreach ($calendar as $cal) :
+	// stop looking if more than 3 days out
+	if ($cal['dt'] > time() + 3600*24*3 ) break;
+	$calempty = 0;
 	$datetime = date('l M j g:i a', $cal['dt']);
 	$rowclass = (empty($cal['note'])) ? 'border-bottom' : 'no-bottom';
 	?>
@@ -248,7 +241,7 @@ use DigitalMx as u;
 	<td><?=$cal['event_title'] ?> </td>
 
  -->
- 	<td>
+ 	<td class='left'>
  	<b><?=$cal['title']?></b><br />
  	<?=$cal['type'] ?>  at <?=$cal['location']?>  <br />
 
@@ -263,7 +256,7 @@ use DigitalMx as u;
 
 </table>
 
-<?php endif; ?>
+<?php if($calempty): echo "No Events in next 3 days"; endif; ?>
 
 </div>
 

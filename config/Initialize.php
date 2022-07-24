@@ -87,7 +87,7 @@ class Initialize
         define ('SITE_PATH', REPO_PATH . "/public/");
 
         define ('SITE', $this->site);
-        define ('SITE_URL', 'https://' . $this->site);
+        define ('SITE_URL', 'http://' . $this->site);
         define ('PLATFORM',$this->platform);
         define ('DB_INI',$paths['db_ini']);
 

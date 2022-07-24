@@ -45,25 +45,37 @@ Use this button to rebuild all the pages from the current data:
 <h3>Pages</h3>
 
 <table>
-<tr><td><a href='/pages/today.php' target='static'>
-	<button type='button' >today</button></td>
-	<td>Static Page using weatherapi.com for weather</td></tr>
+<tr><td>
+	<div class='likebutton'><a href='/pages/today.php' target='today'>static</a></div></td>
+	<td class='left'>Static Page using weatherapi.com for weather</td></tr>
 
-<tr><td><a href='/pages/today2.php' target='v2'>
-	<button type='button' >v2</button></td>
-	<td>Static Page using weather.gov for weather</td></tr>
+<tr><td>
+	<div class='likebutton'><a href='/pages/today2.php' target='today'>wgov</a></div></td>
+	<td class='left'>Static Page using weather.gov for weather</td></tr>
 
-<tr><td><a href='/pages/scroll.php' target='scroll'>
-	<button type='button' >scroll</button></td>
-	<td>Like today, but with smooth scrolling from top to bottomr.</td></tr>
+<tr><td>
+	<div class='likebutton'><a href='/pages/scroll.php' target='scroll'>scroll</a></div></td>
+	<td class='left'>Like today, but with smooth scrolling from top to bottomr.</td></tr>
 
-<tr><td><a href='/pages/snap.php' target='snap'>
-	<button type='button' >snap</button></td>
-	<td>Like today, but divided into sections, and snaps every 10 seconds to athe next section.  Intended for TV monitor</td></tr>
+<tr><td>
+	<div class='likebutton'><a href='/pages/snap.php' target='snap'>snap</a></div></td>
+	<td class='left'>Like today, but divided into sections, and snaps every 10 seconds to athe next section.  Intended for TV monitor</td></tr>
+
+<tr><td>
+	<div class='likebutton'><a href='/pages/today3.php' target='condensed'>condensed</a></div></td>
+	<td class='left'>Condensed</td></tr>
+
+<tr><td>
+	<div class='likebutton'><a href='/pages/today4.php' target='text'>Text only</a></div></td>
+	<td class='left'>Text</td></tr>
+
+<tr><td>
+	<div class='likebutton'><a href='/pages/today5.php' target='email'>Limited styles for email</a></div></td>
+	<td class='left'>Email</td></tr>
 
 </table>
 <h3> Admin Page</h3>
 <p>Admin Page: <a href='/admin.php' target='admin'> /admin.php</a></p>
 
 
-
+<a href='/pages/today2.php' target='today'>wgov</a>
