@@ -1201,8 +1201,8 @@ public function start_page ($title = 'Today in the Park',$pcode='') {
 
 </head>
 <body $scbody>
-<table class='header'>
-<tr><td class='right'>
+<table style='width:100%;'>
+<tr style='background-color:black;text-align:right;color:white;'><td style='background-color:black;text-align:right;color:white;'>
 Department of the Interior<br>
 Joshua Tree National Park
 <h1 style="text-align:center;">Today in Joshua Tree National Park</h1>
