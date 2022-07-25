@@ -31,28 +31,24 @@ One announcement per line.(<cr>)  They will be listed as bullets
 <h4>Enter weather warning</h4>
 <p>Alerts are published by several outside sources.  Click to view active alertsfrom other sources. Copy and edit as appropriate.</p>
 <p><button type='button' onClick = "showDiv('alerts');">Alerts</button></p>
-
 <div id='alerts' class='hidden'>
-	<?php
-	foreach ($alerts as $source=>$alertset) :
+	<?php foreach ($alerts as $source=>$alertset) :
 		//u\echor($alertset,$source);
-	$sourcename =Defs::$sources[$source]; ?>
+		$sourcename =Defs::$sources[$source];
+	?>
 	<hr style="height:4px;background-color:green;">
-<b><?= $sourcename ?></b><br>
-		<?php foreach ($alertset as $alert) : ?>
-			<div class='in2' border-top=1px solid black;'>
+	<b><?= $sourcename ?></b><br>
+	<?php foreach ($alertset as $alert) : ?>
+		<div class='in2' border-top=1px solid black;'>
 			<p><?=$alert['category'] ?? '' ?> <?=$alert['event']?></p>
 			<p>Description: <?=$alert['description']?></p>
 			<p>Instructions: <br>
 				<?=$alert['instructions'] ?? '' ?></p>
 			<p>Expires <?= $alert['expires']?></p>
-			</div>
-		<?php endforeach; ?>
-
+		</div>
+	<?php endforeach; ?>
 <?php endforeach; ?>
 	<br />
-	</div>
-
 </div>
 
 <textarea name='weather_warn'><?=$admin['weather_warn']?></textarea>

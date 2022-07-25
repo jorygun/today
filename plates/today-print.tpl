@@ -2,28 +2,22 @@
 use DigitalMx\jotr\Definitions as Defs;
 use DigitalMx as u;
 ?>
+<div >
+<h2><?=$target ?> </h2>
+<p class='pithy'><?=$admin['pithy'] ?? '' ?></p>
+</div>
 
-<p class='today'><?=$target ?> </p>
-<hr>
-
-<!-- ############################## -->
-<div id='page1'>
-<?php if(!empty($admin['pithy'])): ?>
-<p class='pithy'><?=$admin['pithy'] ?></p>
-<?php endif; ?>
 
 <?php if(!empty($admin['announcements'])) : ?>
-	<h4>Announcements</h4>
 	<div class='warn'><ul>
 	<?php $anlist = explode("\n",$admin['announcements']);
 		foreach ($anlist as $item) :?>
 			<li><?=$item?></li>
 		<?php endforeach ?>
 		</ul>
-	</div>
+	</div><br />
 <?php endif; ?>
 
-<h4>Light and Dark</h4>
 <?php if(empty($light)): echo "<p>No Data</p>"; else: ?>
 <table class = 'in2'>
 <colgroup>
@@ -34,7 +28,7 @@ use DigitalMx as u;
 
 <tr class='no-border'><td ><b>Today</b></td><td class='bg-black white'><b>Tonight</b></td></tr>
 <tr class='no-border'>
-	<td>Sunrise <?=$light['sunrise']?>Set <?=$light['sunset']?> </td>
+	<td>Sunrise <?=$light['sunrise']?> Set <?=$light['sunset']?> </td>
 <td class='bg-black white' >Moonrise <?=$light['moonrise']?> Set <?=$light['moonset']?></td>
 </tr>
 
@@ -47,37 +41,28 @@ use DigitalMx as u;
 	<td class='bg-black' ><p class='white'><?=$light['moonphase']?></p>
 	<img src= "/images/moon/<?=$light['moonpic'] ?>" /></td>
 </tr>
-
-
-
-
 </table>
+<br />
 <?php endif; ?>
 
-<!-- ############################## -->
 
-</div><div id='page2'>
 
-<h4>Fire Danger: </h4>
-
+<?php if(empty($fire)): echo "<p>No Data</p>"; else:?>
+	<div class='in2 '>
+	 	<p style = 'width:100%;'> <b>Current Fire Level:</b> <span style="background-color:<?=$fire['color']?>">
+	 	<?=$fire['level']?> </span></p>
+			<div class='left'>
+				<?=Defs::$firewarn[$fire['level']]?>
+			</div>
+		</div>
+		<br />
+	<?php endif; ?>
 <?php if (!empty($admin['fire_warn'])) : ?>
 	<div class='warn'> <?=$admin['fire_warn']?>
 	</div><br />
 <?php endif; ?>
 
 
-<?php if(empty($fire)): echo "<p>No Data</p>"; else:?>
-
-	<div class='in2 '>
-	 	<p style = 'width:100%;'> Current Level: <span style="background-color:<?=$fire['color']?>">
-	 	<?=$fire['level']?> </span></p>
-	<div class='left'>
-	<?=Defs::$firewarn[$fire['level']]?>
-</div></div>
-<?php endif; ?>
-
-
-<h4>Air Quality</h4>
 <?php if(0 || empty($air)): echo "<p>No Data</p>"; else:
 // echo "Retrieved at  " . date ('M j h:i a',$air['jr']['dt']);
 ?>
@@ -102,12 +87,9 @@ use DigitalMx as u;
 </tr>
 <?php endforeach; ?>
 </table>
+<br />
 <?php endif; ?>
-<!-- ############################## -->
 
-</div><div id='page3'>
-
-<h4>Forecast</h4>
 <?php if (!empty($admin['weather_warn'])) : ?>
 	<div class='in2 warn'>
 	<?=$admin['weather_warn']?></div>
@@ -124,7 +106,7 @@ if(empty($weather)): echo "<p>No Data</p>"; else: ?>
 	<?php
 		$periods = [0,1,2];
 
-		echo "<tr><th></th>";
+		echo "<tr><th>Forecast</th>";
 		foreach ($periods as $p) :
 			echo "<th>{$weather['forecast']['jr'][$p]['date']}</th>";
 		endforeach;
@@ -147,38 +129,35 @@ if(empty($weather)): echo "<p>No Data</p>"; else: ?>
 
 	<?php
 				foreach ($periods as $p) :
-					echo  "<td><p>";
+					echo  "<td>";
 
 						$v = $x[$p]['skies'] ;
 						echo "$v<br />";
 
 						$v = $x[$p]['Low'] ;
 						$w = $x[$p]['High'] ;
-						echo "Low: $v High: $w  &deg;F<br />";
+						echo "Temp: $v &ndash; $w  &deg;F. ";
 
 						$v = $x[$p]['maxwind'] ;
 						echo "Wind to $v mph <br />";
 
 						$v = $x[$p]['avghumidity'] ;
-						echo "Humidity: $v %<br />";
+						echo "Humidity: $v % ";
 
 						$v = $x[$p]['rain'] ;
 						echo "Rain $v %<br />";
 
-					echo 	"</p></td>\n" ;
+					echo 	"</td>\n" ;
 				endforeach;
 	?>
 		</tr>
 	<?php endforeach ?>
 	</table>
-
+<br />
 <?php endif; ?>
 
-<!-- ############################## -->
 
-</div><div id='page4'>
 
-<h4>Campgrounds</h4>
 
 
 <?php if (!empty($campgroundadivse)) : ?>
@@ -187,11 +166,8 @@ if(empty($weather)): echo "<p>No Data</p>"; else: ?>
 
 <?php if(empty($camps)): echo "No Data"; else: ?>
 <table  class='in2 alt-gray border-bottom'>
-
-
-<tr><th></th><th>Availability</th><th>Sites</th><th>Features</th><th>Status</th></tr>
+<tr><th>Campgrounds</th><th>Availability</th><th>Sites</th><th>Features</th><th>Status</th></tr>
 <?php foreach (['ic','jr','sp','hv','be','wt','ry','br','cw'] as $cg) : ?>
-
 	<tr class='border-bottom'>
 		<td class='left'>  <?=Defs::$sitenames [$cg] ?>  </td>
 	 <td> <?= $camps['cgavail'][$cg] ?> </td>
@@ -199,8 +175,6 @@ if(empty($weather)): echo "<p>No Data</p>"; else: ?>
 		<td> <?= Defs::$campfeatures [$cg] ?> </td>
 	<td> <?= $camps['cgstatus'][$cg] ?>  </td>
 	</tr>
-
-
 	<?php endforeach;?>
 
 </table>
@@ -215,16 +189,11 @@ if(empty($weather)): echo "<p>No Data</p>"; else: ?>
 </p>
 </div>
 <div style='float:left;width:40%'>
-<p>Reservations are made ONLY on the recreation.gov, using the 'rec.gov' web site or call at 1-877-444-6777. They cannot be made by park rangers.  There is no cell service in the park.</p>
+<p>Reservations are made ONLY on at recreation.gov, using the 'rec.gov' web site or call at 1-877-444-6777. They cannot be made by park rangers.  There is no cell service in the park.</p>
 <p>"Open" means First Come; First Served.  Find an open campsite and claim it.  Pay a ranger at the campground or at the entrance station.</p>
 
 </div>
-<div style='clear:left'></div>
 
-<!-- ############################## -->
-
-</div><div id = 'page5'>
-<h4>Events</h4>
 <?php if(empty($calendar)) : echo "No Data"; else:
 ?>
 
@@ -241,25 +210,20 @@ if (($cal['dt'] < time() ) || ($cal['dt'] > (time() + 3600*24*3 ))) continue;
 	$datetime = date('l M j g:i a', $cal['dt']);
 	$rowclass = (empty($cal['note'])) ? 'border-bottom' : 'no-bottom';
 	?>
+	<tr class='border-bottom'><td colspan='3'><b>Events</b></td></tr>
 	<tr class="border-bottom">
 	<td style='vertical-align:top;'><?=$datetime ?> <br />
 	<?php if ($dur = $cal['duration']): ?>
 		&nbsp;&nbsp;(<?=$dur?>)
 		<?php endif; ?>
 		</td>
-<!--
-	<td><?=$cal['event_location']?> </td>
-	<td><?=$cal['event_type'] ?> </td>
-	<td><?=$cal['event_title'] ?> </td>
 
- -->
  	<td class='left'>
- 	<b><?=$cal['title']?></b><br />
- 	<?=$cal['type'] ?>  at <?=$cal['location']?>  <br />
+ 	<b><?=$cal['title']?></b>
+ 	<?=$cal['type'] ?>  at <?=$cal['location']?>
+	</td><td class='left'>
+		<?=$cal['note'] ?? '' ?>
 
-	<?php if (!empty($cal['note'])) : ?>
-		<p><?=$cal['note'] ?></p>
-	<?php endif; ?>
 	</td>
  </tr>
 
@@ -272,8 +236,5 @@ if (($cal['dt'] < time() ) || ($cal['dt'] > (time() + 3600*24*3 ))) continue;
 <?php endif; ?>
 
 </div>
-
-
 <hr>
-<p id='bottom' class='right'><?=$version ?>
-<br>build <?php echo date('dHi'); ?></p>
+build <?php echo date('dHi'); ?>

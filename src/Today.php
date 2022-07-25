@@ -222,36 +222,41 @@ public function rebuild($force = false) {
 
 	$static_page = $this->start_page('Today in the Park (static)')
 		. $page_body;
-	file_put_contents (SITE_PATH . '/pages/today.php',$static_page);
+	file_put_contents (SITE_PATH . '/pages/today.html',$static_page);
 
 	$scroll_page = $this->start_page('Today in the Park (scrolling)','s')
 		. $page_body . self::$scroll_script;
-	file_put_contents( SITE_PATH . '/pages/scroll.php', $scroll_page);
+	file_put_contents( SITE_PATH . '/pages/scroll.html', $scroll_page);
 
-	$snap_page = $this->start_page('Today in the Park (snap)','p')
+	$snap_page = $this->start_page('Today in the Park (snap)','z')
 		. $page_body  . self::$snap_script;
-	file_put_contents( SITE_PATH . '/pages/snap.php', $snap_page);
+	file_put_contents( SITE_PATH . '/pages/snap.html', $snap_page);
 
 
 	$page_body_new = $this->Plates -> render ('today2',$y);
 	$new_page = $this->start_page('Today in the Park (weather.gov)')
 		. $page_body_new;
-	file_put_contents (SITE_PATH . '/pages/today2.php',$new_page);
+	file_put_contents (SITE_PATH . '/pages/today2.html',$new_page);
 
 	$page_body_con = $this->Plates -> render ('today3',$y);
 	$new_page = $this->start_page('Today in the Park (condensed)')
 		. $page_body_con;
-	file_put_contents (SITE_PATH . '/pages/today3.php',$new_page);
+	file_put_contents (SITE_PATH . '/pages/today3.html',$new_page);
 
 	$page_body_txt = $this->Plates -> render ('today4',$y);
 	$new_page = $this->start_page('Today in the Park (text only)')
 		. $page_body_txt ;
-	file_put_contents (SITE_PATH . '/pages/today4.php',$new_page);
+	file_put_contents (SITE_PATH . '/pages/today4.html',$new_page);
 
 	$page_body_em = $this->Plates -> render ('today5',$y);
 	$new_page = $this->start_page('Today in the Park (for email)')
 		. $page_body_em ;
-	file_put_contents (SITE_PATH . '/pages/today5.php',$new_page);
+	file_put_contents (SITE_PATH . '/pages/today5.html',$new_page);
+
+	$print_page = $this->start_page('Today in the Park (snap)','p')
+		. $page_body  . self::$snap_script;
+	file_put_contents( SITE_PATH . '/pages/print.html', $print_page);
+
 
 	echo "Pages updated" . BRNL;
 }
@@ -408,7 +413,7 @@ public function load_cache ($section,bool $force=false) {
 			$diff = time() - $mtime;
 			if ($maxtime && ( $diff > $maxtime )){
 					$refresh = true;
-					echo "Timeout on $section cache" . BRNL;
+// 					echo "Timeout on $section cache" . BRNL;
 			}
 		}
 
@@ -417,7 +422,7 @@ public function load_cache ($section,bool $force=false) {
 			//echo "load $section cache: refresh " , ($refresh)?'true':'false' , BRNL;
 		if ($refresh) {
 			if (! $this->refresh_cache($section) ) {
-				echo "Unable to refresh cache: $section.  Using old version." . BRNL;
+				u\echoAlert ("Unable to refresh cache: $section.  Using old version.");
 			}
 		}
 
@@ -438,14 +443,14 @@ public function refresh_cache (string $section ) {
 	// creates or updates the section's cache file
 	//$v = array ('updated' => time());
 
-	echo " Refreshing $section" . BRNL;
+	//echo " Refreshing $section" . BRNL;
 
 	// external $w
 			switch ($section) {
 				case 'wapi':
 					if (! $r = $this->get_external ($section,$this->wlocs) ){
 						// failed to get update.  Warn and go on
-						echo "Warning: attempt to reload $section failed.";
+						//echoAlert "Warning: attempt to reload $section failed.";
 						return false;
 					}
 
@@ -458,7 +463,7 @@ public function refresh_cache (string $section ) {
 				case 'airowm':
 					if (! $r = $this->get_external ($section,$this->airlocs) ){
 						// failed to get update.  Warn and go on
-						echo "Warning: attempt to reload $src failed.";
+						//echo "Warning: attempt to reload $src failed.";
 						return false;
 					}
 
@@ -487,7 +492,7 @@ public function refresh_cache (string $section ) {
 
 				case 'wgova':
 					if (! $r = $this->get_external ($section,['hq']) ){
-					echo "Warning: attempt to reload $section failed.";
+					echo  "Warning: attempt to reload $section failed.";
 						return false;
 					}
 					$this->write_cache ($section,$r);
@@ -497,7 +502,7 @@ public function refresh_cache (string $section ) {
 					if (! $r = $this->get_external ($section,$this->wlocs) ){
 						// failed to get update.  Warn and go on
 	//					u\echor ($r,'in refresh cache');
-						echo "Warning: attempt to reload $section failed.";
+// 						echo "Warning: attempt to reload $section failed.";
 						return false;
 					}
 				//	if (!$w = $this -> format_wgov($r) ){
@@ -519,7 +524,7 @@ public function refresh_cache (string $section ) {
 				case 'airnow':
 					if (! $r = $this->get_external ($section,$this->airlocs) ){
 						// failed to get update.  Warn and go on
-						echo "Warning: attempt to reload $section failed.";
+// 						echo "Warning: attempt to reload $section failed.";
 						return false;
 					}
 					//if (!$w = $this -> format_airnow($r) ){
@@ -533,7 +538,7 @@ public function refresh_cache (string $section ) {
 				case 'airq':
 					if (! $r = $this->get_external ($section,$this->airlocs) ){
 						// failed to get update.  Warn and go on
-						echo "Warning: attempt to reload $section failed.";
+// 						echo "Warning: attempt to reload $section failed.";
 						return false;
 					}
 					//if (!$w = $this -> format_airq($r) ){
@@ -1179,15 +1184,15 @@ private function fire_data($fire_level) {
 }
 public function start_page ($title = 'Today in the Park',$pcode='') {
 	$scbody = '';
-	$scstyle = "<link rel='stylesheet' href = '/today.css' >";
+	$added_headers = "";
 	if ($pcode=='s') {$scbody='onLoad="pageScroll()"';
-		$scstyle .= "<style>html {scroll-behavior: smooth;}</style>";
+		$added_headers = "<style>html {scroll-behavior: smooth;}</style>";
 	}
-	if ($pcode=='p'){
+	if ($pcode=='z'){
 		$scbody = "onLoad='startRotation(10)'";
 	}
 	if ($pcode=='b'){
-		$scstyle = <<<EOT
+		$added_headers = <<<EOT
 <!-- Latest compiled and minified CSS -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -1195,8 +1200,11 @@ public function start_page ($title = 'Today in the Park',$pcode='') {
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 EOT;
 }
-
+	if ($pcode=='p'){ #print
+		$added_headers = "<link rel='stylesheet' media='print' href = '/css/media.css' >";
+	}
 	$site_url = SITE_URL;
+	$platform = '(' . PLATFORM .')';
 	$text = <<<EOF
 <!DOCTYPE html>
 <html lang="en">
@@ -1204,18 +1212,20 @@ EOT;
    <meta charset="utf-8" />
    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-	<title>$title</title>
+	<title>$title $platform</title>
 	<script src='/js/snap.js'></script>
 	<script src='/js/hide.js'></script>
-	$scstyle
+	<link rel='stylesheet' href = '/css/main.css' />
+
+	$added_headers
 
 </head>
 <body $scbody>
-<table style='width:100%;'>
+<table style='width:100%;border-collapse:collapse;'>
 <tr style='background-color:black;text-align:right;color:white;'><td style='background-color:black;text-align:right;color:white;'>
 Department of the Interior<br>
 Joshua Tree National Park
-<h1 style="text-align:center;">Today in Joshua Tree National Park</h1>
+<h1 style='margin:0'>Today in Joshua Tree National Park</h1>
 </td><td style='width:80px;'>
 <img src="$site_url/images/Shield-7599-alpha.png" alt="NPS Shield" />
 </td></tr>
@@ -1288,18 +1298,18 @@ function get_curl ($src, $url,string $expected='',array $header=[]) {
 			static $tries =0;
 
 			if ($tries > 2){
-					echo "Can't get valid data from ext source  $src";
-					u\echor($aresp,"Here's what I got for $src:");
+					//echo "Can't get valid data from ext source  $src";
+					//u\echor($aresp,"Here's what I got for $src:");
 					return false;
 			}
 
 			if (! $response = curl_exec($curl)) {
-				$success = 0; echo "No curl resp on $src"; return false;
+				$success = 0; //echo "No curl resp on $src"; return false;
 			}else { $success = 1;}
 
 
 			if ($success && !$aresp = json_decode($response, true) ){
-				$success = 0; echo " failed decode ";
+				$success = 0; //echo " failed decode ";
 			}else { $success = 1;}
 
 			if ($success &&  $expected && !u\inMultiArray($expected,$aresp)) {
@@ -1307,7 +1317,7 @@ function get_curl ($src, $url,string $expected='',array $header=[]) {
 			}else { $success = 1;}
 
 			if (! $success) {
-				echo "Failed to get expected result from external site for $src. Try $tries. Retrying" . BRNL;
+				//echo "Failed to get expected result from external site for $src. Try $tries. Retrying" . BRNL;
 					++$tries;
 					sleep (1);
 

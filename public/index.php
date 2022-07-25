@@ -38,31 +38,31 @@ Data is collected from a number of places that report information like weather, 
 
 <table>
 <tr><td>
-	<div class='likebutton'><a href='/pages/today.php' target='today'>static</a></div></td>
+	<div class='likebutton'><a href='/pages/today.html' target='today'>static</a></div></td>
 	<td class='left'>Static Page using weatherapi.com for weather</td></tr>
 
 <tr><td>
-	<div class='likebutton'><a href='/pages/today2.php' target='today'>wgov</a></div></td>
+	<div class='likebutton'><a href='/pages/today2.html' target='today'>wgov</a></div></td>
 	<td class='left'>Static Page using weather.gov for weather</td></tr>
 
 <tr><td>
-	<div class='likebutton'><a href='/pages/scroll.php' target='scroll'>scroll</a></div></td>
+	<div class='likebutton'><a href='/pages/scroll.html' target='scroll'>scroll</a></div></td>
 	<td class='left'>Like today, but with smooth scrolling from top to bottomr.</td></tr>
 
 <tr><td>
-	<div class='likebutton'><a href='/pages/snap.php' target='snap'>snap</a></div></td>
-	<td class='left'>Like today, but divided into sections, and snaps every 10 seconds to athe next section.  Intended for TV monitor</td></tr>
+	<div class='likebutton'><a href='/pages/snap.html' target='snap'>snap</a></div></td>
+	<td class='left'>Like today, but divided into sections, and snaps every 10 seconds to athe next section.  Intended for TV monitor.  Allow 10 seconds for animation to start.</td></tr>
 
 <tr><td>
-	<div class='likebutton'><a href='/pages/today3.php' target='condensed'>condensed</a></div></td>
+	<div class='likebutton'><a href='/pages/today3.html' target='condensed'>condensed</a></div></td>
 	<td class='left'>Condensed</td></tr>
 
 <tr><td>
-	<div class='likebutton'><a href='/pages/today4.php' target='text'>Text only</a></div></td>
+	<div class='likebutton'><a href='/pages/today4.html' target='text'>Text only</a></div></td>
 	<td class='left'>Text</td></tr>
 
 <tr><td>
-	<div class='likebutton'><a href='/pages/today5.php' target='email'>Limited styles for email</a></div></td>
+	<div class='likebutton'><a href='/pages/today5.html' target='email'>Limited styles for email</a></div></td>
 	<td class='left'>Email</td></tr>
 
 </table>

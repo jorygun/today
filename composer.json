@@ -38,5 +38,11 @@
          ]
 
 
-      }
+      },
+    "repositories": {
+        "typesetsh": {
+            "type": "composer",
+            "url": "https://packages.typeset.sh"
+        }
+    }
 }

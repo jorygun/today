@@ -21,7 +21,7 @@ foreach ($anlist as $item) :?>
 <b>Today</b>
    Sunrise: <?=$light['sunrise']?>;
    Sunset: <?=$light['sunset']?>;
-   Moon: <?=$light['moonphase']?>
+   Moon: <?=$light['moonphase']?>;
    UV: <?= $uv['uv'] ?>  <?=$uv['uvscale']?>;
    Fire Danger: <?=$fire['level']?>
 
@@ -75,6 +75,7 @@ if (($cal['dt'] < time() ) || ($cal['dt'] > (time() + 3600*24*3 ))) continue;
 
 <?php if (!empty($cal['note'])) : ?>
    <?=$cal['note'] ?>
+
 <?php endif; ?>
 <?php endforeach; ?>
 <?php if($calempty): echo "No Events in next 3 days"; endif; ?>

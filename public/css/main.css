@@ -1,15 +1,31 @@
+h5
+{
+	margin-bottom: 3px;
+	font-size: 1em;
+	text-decoration:underline;
 
-body { max-width: 800px;}
-
+}
 h4
 {
 	margin-bottom: 3px;
-	font-size: 1.3em;
+	font-size: 1.2em;
+
+	font-weight:bold;
 }
 
-h3 { font-size: 1.5em;
-	font-weight:bold;}
+h3 { font-size: 1.3em;
+	font-weight:bold;
+	text-decoration:underline;
+	}
 
+h2 { font-size: 1.5em;
+	font-weight:bold;
+	text-align:center;
+	}
+
+h1 { font-size: 2em;
+	font-weight:bold;
+	text-align:center;}
 
 
 input {
@@ -112,7 +128,7 @@ table.caltable>tbody>tr>:nth-child(1){
 
 tr.left td {text-align:left;}
 tr td.center {text-align:center;}
-tr.center td {text-aligh:center;}
+tr.center td {text-align:center;}
 
 tr.heads {line-height:0.8em;}
 tr.heads td {
@@ -130,17 +146,17 @@ tr.border-bottom td
 
 }
  tr.borders td {
- 	border-left; 1px solid black;
- 	border-right; 1px solid black;
- 	border-top; 1px solid black;
- 	border-bottom; 1px solid black;
+ 	border-left: 1px solid black;
+ 	border-right: 1px solid black;
+ 	border-top: 1px solid black;
+ 	border-bottom: 1px solid black;
  }
 
  tr.no-bottom  td {
  	border-left: 0;
 	border-right: 0;
 	border-top: 0;
-	border-bottom:0;
+	border-bottom: 0;
 }
 
  tr.no-border  td {
@@ -167,18 +183,21 @@ table.col-border td, table.col-border th {
 	border: 2px solid black;
 	text-align: left;
 
-	padding: 6px;
+	padding: 3px;
 	/* margin-bottom: 1em; */
 	margin-left:2em;
 	margin-right:2em;
-	width: 85%;
+	width: 90%;
 	color: red;
-	max-width: 85%;
+
 }
 .warn li {
 	margin-bottom:1em;
 }
-
+.warn ul {
+	margin-top:0;
+	margin-bottom:0;
+}
 .in2 { margin-left: 2em;
 	margin-right: 0;
 	width:90%;
@@ -219,3 +238,10 @@ table.header tr td {
 table.header>img {
 	margin:0;
 }
+
+
+
+@page {
+       size: 8.5in 11in;
+      margin: 0.5in;
+   }

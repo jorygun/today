@@ -31,13 +31,23 @@ $twolocs = ['jr','hq'];
 
 
 // u\echor ($z, 'result of test');
+if (0) {
+	echo $Today->start_page('test page','b');
+	$z = $Today -> prepare_today();
+	// u\echor ($z,'Today input to plates');
 
-$z = $Today -> prepare_today();
- u\echor ($z,'Today input to plates');
+	echo $Plates->render('today-boot',$z);
+}
+if (1) {
+	echo $Today->start_page('test page','p');
+	$z = $Today -> prepare_today();
+	echo $Plates->render('today-print',$z);
 
-echo $Plates->render('today4',$z);
+$html = file_get_contents(REPO_PATH . '/public/pages/print.html');
 
+$pdf = Typesetsh\createPdf($html);
+$pdf->toFile(REPO_PATH . '/public/pages/print.pdf');
 
-
+}
 exit;
 
