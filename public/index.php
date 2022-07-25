@@ -17,7 +17,7 @@ namespace DigitalMx\jotr;
 //END START
 
 
-echo $Today->start_page('Index Today in JOTR');
+echo $Today->start_page('Project Index');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 	if (array_key_exists('rebuild',$_POST)) {
@@ -28,19 +28,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 	}
 }
 ?>
-<h1>Index Today in JOTR</h1>
 
 <p>This project generates the Today in the Park report in a variety of formats.
-Data is collected from a number of places that report information like weather, air quality, astronomical data, and more.  Data is also collected manually through an <a href='admin.php' target ='admin'>admin form</a>.</p>
+Data is collected from a number of places that report information like weather, air quality, astronomical data, and more.  Local data is collected manually through an <a href='admin.php' target ='admin'>admin page</a>.</p>
 <p>Data from remote sites like weather.gov is checked for age each time it is accessed, and updated if over some limit, like 3 hours.</p>
-<p>The various pages are all generated automatically every few hours from the collected data.  If necessary, they can be updated sooner suing the buttons below.</p>
-<form class='in2' method='POST'>
-Use this button to rebuild all the pages from the current data:
-<button type='submit' name='rebuild' value=true>Rebuild pages</button>
-	<br><br>
-	Use this button to refresh all the external data and then rebuild the pages.
-	<button type='submit' name='reload' value=true>Reload and Rebuild</button>
-</form>
+<p>The various pages are all generated automatically every few hours from the collected data.  If necessary, they can be updated sooner using the buttons below.</p>
 
 <h3>Pages</h3>
 
@@ -74,8 +66,13 @@ Use this button to rebuild all the pages from the current data:
 	<td class='left'>Email</td></tr>
 
 </table>
-<h3> Admin Page</h3>
-<p>Admin Page: <a href='/admin.php' target='admin'> /admin.php</a></p>
 
 
-<a href='/pages/today2.php' target='today'>wgov</a>
+<form class='in2' method='POST'>
+Use this button to rebuild all the pages from the current data:
+<button type='submit' name='rebuild' value=true>Rebuild pages</button>
+	<br><br>
+	Use this button to refresh all the external data and then rebuild the pages.
+	<button type='submit' name='reload' value=true>Reload and Rebuild</button>
+</form>
+

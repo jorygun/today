@@ -1,4 +1,5 @@
 <?php
+// this is a text-only version
 use DigitalMx\jotr\Definitions as Defs;
 use DigitalMx as u;
 ?>

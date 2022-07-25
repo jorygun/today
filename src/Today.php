@@ -417,7 +417,7 @@ public function load_cache ($section,bool $force=false) {
 			//echo "load $section cache: refresh " , ($refresh)?'true':'false' , BRNL;
 		if ($refresh) {
 			if (! $this->refresh_cache($section) ) {
-				die ("Attempt to refresh non-existent cache: $section");
+				echo "Unable to refresh cache: $section.  Using old version." . BRNL;
 			}
 		}
 
@@ -445,7 +445,7 @@ public function refresh_cache (string $section ) {
 				case 'wapi':
 					if (! $r = $this->get_external ($section,$this->wlocs) ){
 						// failed to get update.  Warn and go on
-						echo "Warning: attempt to reload $src failed.";
+						echo "Warning: attempt to reload $section failed.";
 						return false;
 					}
 
@@ -496,7 +496,7 @@ public function refresh_cache (string $section ) {
 				case 'wgov':
 					if (! $r = $this->get_external ($section,$this->wlocs) ){
 						// failed to get update.  Warn and go on
-						u\echor ($r,'in refresh cache');
+	//					u\echor ($r,'in refresh cache');
 						echo "Warning: attempt to reload $section failed.";
 						return false;
 					}
@@ -1179,13 +1179,23 @@ private function fire_data($fire_level) {
 }
 public function start_page ($title = 'Today in the Park',$pcode='') {
 	$scbody = '';
-	$scstyle = '';
+	$scstyle = "<link rel='stylesheet' href = '/today.css' >";
 	if ($pcode=='s') {$scbody='onLoad="pageScroll()"';
-		$scstyle = "<style>html {scroll-behavior: smooth;}</style>";
+		$scstyle .= "<style>html {scroll-behavior: smooth;}</style>";
 	}
 	if ($pcode=='p'){
 		$scbody = "onLoad='startRotation(10)'";
 	}
+	if ($pcode=='b'){
+		$scstyle = <<<EOT
+<!-- Latest compiled and minified CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Latest compiled JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+EOT;
+}
+
 	$site_url = SITE_URL;
 	$text = <<<EOF
 <!DOCTYPE html>
@@ -1193,7 +1203,7 @@ public function start_page ($title = 'Today in the Park',$pcode='') {
 <head>
    <meta charset="utf-8" />
    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-   <link rel='stylesheet' href = '/today.css' >
+
 	<title>$title</title>
 	<script src='/js/snap.js'></script>
 	<script src='/js/hide.js'></script>
@@ -1278,13 +1288,13 @@ function get_curl ($src, $url,string $expected='',array $header=[]) {
 			static $tries =0;
 
 			if ($tries > 2){
-					echo "Can't get valid data from ext source for $src";
-					u\echor($aresp,'Got this:');
+					echo "Can't get valid data from ext source  $src";
+					u\echor($aresp,"Here's what I got for $src:");
 					return false;
 			}
 
 			if (! $response = curl_exec($curl)) {
-				$success = 0; echo "failed resp";
+				$success = 0; echo "No curl resp on $src"; return false;
 			}else { $success = 1;}
 
 

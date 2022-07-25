@@ -107,7 +107,7 @@ use DigitalMx as u;
 
 </div><div id='page3'>
 
-<h4>Weather</h4>
+<h4>Weather Forecast</h4>
 <?php if (!empty($admin['weather_warn'])) : ?>
 	<div class='in2 warn'>
 	<?=$admin['weather_warn']?></div>
