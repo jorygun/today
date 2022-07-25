@@ -207,12 +207,13 @@ table.col-border td, table.col-border th {
 }
 table.header {
 	background-color:black;
-	text-align:right;
-	color:white;
+
 	width:100%;
 }
-table.header td {
+table.header tr td {
+	background-color:black;
 	text-align:right;
+	color:white;
 	padding:3px;
 	margin:0;
 	}
