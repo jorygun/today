@@ -1186,7 +1186,7 @@ public function start_page ($title = 'Today in the Park',$pcode='') {
 	if ($pcode=='p'){
 		$scbody = "onLoad='startRotation(10)'";
 	}
-
+	$site_url = SITE_URL;
 	$text = <<<EOF
 <!DOCTYPE html>
 <html lang="en">
@@ -1201,6 +1201,15 @@ public function start_page ($title = 'Today in the Park',$pcode='') {
 
 </head>
 <body $scbody>
+<table class='header'>
+<tr><td class='right'>
+Department of the Interior<br>
+Joshua Tree National Park
+<h1 style="text-align:center;">Today in Joshua Tree National Park</h1>
+</td><td style='width:80px;'>
+<img src="$site_url/images/Shield-7599-alpha.png" alt="NPS Shield" />
+</td></tr>
+</table>
 
 
 EOF;

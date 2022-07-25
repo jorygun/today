@@ -14,6 +14,16 @@ use DigitalMx as u;
 	.in2 {margin-left:2em;}
 
 </style>
+<table class='header'>
+<tr><td class='right'>
+Department of the Interior<br>
+Joshua Tree National Park
+<h1 style="text-align:center;">Today in Joshua Tree National Park</h1>
+</td><td style='width:80px;'>
+<img src="$site_url/images/Shield-7599-alpha.png" alt="NPS Shield" />
+</td></tr>
+</table>
+
 <table style='max-width:600px;border:0'>
 <tr><td style='border:0'>
 <h1>Today in Joshua Tree National Park</h1>

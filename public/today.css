@@ -1,5 +1,5 @@
 
-body { max-width: 800px; }
+body { max-width: 800px;}
 
 h4
 {
@@ -103,7 +103,7 @@ table tr td
 table.caltable {
 	margin-left:2em;
 	text-align:left;
-	width:100%;
+	width:85%;
 }
 table.caltable>tbody>tr>:nth-child(1){
 	width:25%;
@@ -180,8 +180,8 @@ table.col-border td, table.col-border th {
 }
 
 .in2 { margin-left: 2em;
-	margin-right: 2em;
-	width:100%;
+	margin-right: 0;
+	width:85%;
 	}
 
 .inline {
@@ -205,5 +205,17 @@ table.col-border td, table.col-border th {
 	padding-left: 3em;
 	padding-right: 3em;
 }
-
-
+table.header {
+	background-color:black;
+	text-align:right;
+	color:white;
+	width:100%;
+}
+table.header td {
+	text-align:right;
+	padding:3px;
+	margin:0;
+	}
+table.header>img {
+	margin:0;
+}

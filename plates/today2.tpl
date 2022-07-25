@@ -2,8 +2,6 @@
 use DigitalMx\jotr\Definitions as Defs;
 use DigitalMx as u;
 ?>
-
-<p class='today'>Today in Joshua Tree National Park</p>
 <p class='today'><?=$target ?> </p>
 <hr>
 <?php if(!empty($admin['pithy'])): ?>

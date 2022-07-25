@@ -3,15 +3,16 @@ use DigitalMx\jotr\Definitions as Defs;
 use DigitalMx as u;
 ?>
 
-<p class='today'>Today in Joshua Tree National Park (condensed)</p>
+
 <p class='today'><?=$target ?> </p>
 <hr>
+
+<!-- ############################## -->
+<div id='page1'>
 <?php if(!empty($admin['pithy'])): ?>
 <p class='pithy'><?=$admin['pithy'] ?></p>
 <?php endif; ?>
 
-<!-- ############################## -->
-<div id='page1'>
 <?php if(!empty($admin['announcements'])) : ?>
 	<h4>Announcements</h4>
 	<ul class='in2'>
