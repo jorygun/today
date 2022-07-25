@@ -33,20 +33,20 @@ use DigitalMx as u;
 
 </colgroup>
 
-<tr class='border-bottom'><td ><b>Today</b></td><td><b>Tonight</b></td></tr>
-<tr>
+<tr class='no-border'><td ><b>Today</b></td><td class='bg-black white'><b>Tonight</b></td></tr>
+<tr class='no-border'>
 	<td>Sunrise <?=$light['sunrise']?> <br />Set <?=$light['sunset']?> </td>
-<td >Moonrise <?=$light['moonrise']?> <br />Set <?=$light['moonset']?></td>
+<td class='bg-black white' >Moonrise <?=$light['moonrise']?> <br />Set <?=$light['moonset']?></td>
 </tr>
 
-<tr>
+<tr class='no-border'>
 	<td ><p style='width:100%'><b>UV Exposure:</b> <?= $uv['uv'] ?>
 	<span style = 'background-color:<?=$uv['uvcolor']?>;'>   <?=$uv['uvscale']?></span></p>
 	<p><?=$uv['uvwarn']?></p>
 
 	</td>
-	<td ><div class='bg-black'><p class='white'><?=$light['moonphase']?></p>
-	<img src= "/images/moon/<?=$light['moonpic'] ?>" /></div></td>
+	<td class='bg-black' ><p class='white'><?=$light['moonphase']?></p>
+	<img src= "/images/moon/<?=$light['moonpic'] ?>" /></td>
 </tr>
 
 
