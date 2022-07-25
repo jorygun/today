@@ -123,7 +123,7 @@ use DigitalMx as u;
 <?php $calempty = 1;
 	foreach ($calendar as $cal) :
 	// stop looking if more than 3 days out
-	if ($cal['dt'] > time() + 3600*24*3 ) break;
+if (($cal['dt'] < time() ) || ($cal['dt'] > (time() + 3600*24*3 ))) continue;
 	$calempty = 0;
 	$datetime = date('l M j g:i a', $cal['dt']);
 	$rowclass = (empty($cal['note'])) ? 'border-bottom' : 'no-bottom';

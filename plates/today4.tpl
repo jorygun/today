@@ -65,8 +65,8 @@ endforeach; ?>
 	 $calempty = 1; // tag for anything there
 	 foreach ($calendar as $cal): ?>
 <?php // stop looking if more than 3 days out
-		if ($cal['dt'] > time() + 3600*24*3 ) break;
-		$calempty=0;
+if (($cal['dt'] < time() ) || ($cal['dt'] > (time() + 3600*24*3 ))) continue;
+	$calempty=0;
 		$datetime = date('l M j g:i a', $cal['dt']);
 		?>
 <b><?=$datetime ?> </b> (<?= $cal['duration'] ?>):
