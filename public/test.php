@@ -48,8 +48,8 @@ if (1) {
 #$html = 'http://jotr.digitalmx.com/pages/print.html';
 $html = 'pages/print.html';
 
-exec("curl -d @{$html} -H 'project: OSyxsT8B8RC83MDi' -H 'token: 0gaZ43q1NHn9Wj8NdCL7WetJvKj7vIv8bAHQpn8JPqz909nPOzU5eetM8u0v' -X POST https://api.typeset.sh/", $output);
-u\echor($output);
+`curl -d @pages/print.html -H 'project: OSyxsT8B8RC83MDi' -H 'token: 0gaZ43q1NHn9Wj8NdCL7WetJvKj7vIv8bAHQpn8JPqz909nPOzU5eetM8u0v' -X POST https://api.typeset.sh/ > pages/print.pdf`;
+
 
 }
 exit;
