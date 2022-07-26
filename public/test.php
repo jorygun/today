@@ -45,9 +45,12 @@ if (1) {
 	file_put_contents(REPO_PATH . '/public/pages/print.html' , $out;
 
 
-`curl -d @pages/print.html -H 'project: OSyxsT8B8RC83MDi' -H 'token: 0gaZ43q1NHn9Wj8NdCL7WetJvKj7vIv8bAHQpn8JPqz909nPOzU5eetM8u0v' -X POST https://api.typeset.sh/ > pages/print.pdf`;
+$output = `curl -d @pages/print.html -H 'project: OSyxsT8B8RC83MDi' -H 'token: 0gaZ43q1NHn9Wj8NdCL7WetJvKj7vIv8bAHQpn8JPqz909nPOzU5eetM8u0v' -X POST https://api.typeset.sh/ > pages/print.pdf`;
 
 
 }
+echo "Done" . BRNL;
+echo $output.BRNL;
+
 exit;
 
