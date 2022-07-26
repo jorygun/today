@@ -45,7 +45,7 @@ if (1) {
 
 $html = 'http://jotr.digitalmx.com/pages/print.html';
 
-`curl -d @{$html} -H "project: OSyxsT8B8RC83MDi" -H "token: 0gaZ43q1NHn9Wj8NdCL7WetJvKj7vIv8bAHQpn8JPqz909nPOzU5eetM8u0v" -X POST https://api.typeset.sh/ > test.pdf`;
+`curl -d @http://jotr.digitalmx.com/pages/print.html -H "project: OSyxsT8B8RC83MDi" -H "token: 0gaZ43q1NHn9Wj8NdCL7WetJvKj7vIv8bAHQpn8JPqz909nPOzU5eetM8u0v" -X POST https://api.typeset.sh/ > test.pdf`;
 
 // $pdf = Typesetsh\createPdf($html);
 // $pdf->toFile(REPO_PATH . '/public/pages/print.pdf');
