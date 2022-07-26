@@ -42,7 +42,7 @@ if (1) {
 	echo $Today->start_page('test page','p');
 	$z = $Today -> prepare_today();
 	$out =  $Plates->render('today-print',$z);
-	file_put_contents(REPO_PATH . 'public/pages/print.html' , $out;
+	file_put_contents(REPO_PATH . '/public/pages/print.html' , $out;
 
 
 #$html = 'http://jotr.digitalmx.com/pages/print.html';
