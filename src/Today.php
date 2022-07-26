@@ -202,6 +202,7 @@ public static $dummy_calendar = array
 public function __construct($c){
 	$this->Plates = $c['Plates'];
 	$this -> Defs = $c['Defs'];
+	$this-> logger = $c['logger'];
 
 	// locations to use for weather report
 	$this -> wlocs = ['jr','hq','cw','br'] ;
@@ -258,7 +259,7 @@ public function rebuild($force = false) {
 	file_put_contents( SITE_PATH . '/pages/print.html', $print_page);
 
 
-	echo "Pages updated" . BRNL;
+	$this->logger->info( "Pages updated" );
 }
 
 public function prepare_today($force=false) {
@@ -315,7 +316,7 @@ $z=[];
 
 
 
-
+	$this->logger->info('formed today array');
  //  u\echor($z, 'z array for today', STOP);
 	return $z;
 }
@@ -423,6 +424,7 @@ public function load_cache ($section,bool $force=false) {
 		if ($refresh) {
 			if (! $this->refresh_cache($section) ) {
 				u\echoAlert ("Unable to refresh cache: $section.  Using old version.");
+				$this->logger->notice("Unable to refresh cache $section");
 			}
 		}
 
@@ -451,9 +453,10 @@ public function refresh_cache (string $section ) {
 					if (! $r = $this->get_external ($section,$this->wlocs) ){
 						// failed to get update.  Warn and go on
 						//echoAlert "Warning: attempt to reload $section failed.";
+						$this->logger->notice("attempt to refresh $section failed");
 						return false;
 					}
-
+						$this->logger->info("Cache $section refreshed.");
 				//	if (!$w = $this -> format_wapi($r) ){
 				// 		echo "Warning: failed to parse data returned from $section";
 // 						return false;
@@ -464,9 +467,10 @@ public function refresh_cache (string $section ) {
 					if (! $r = $this->get_external ($section,$this->airlocs) ){
 						// failed to get update.  Warn and go on
 						//echo "Warning: attempt to reload $src failed.";
+						$this->logger->notice("attempt to refresh $section failed");
 						return false;
 					}
-
+$this->logger->info("Cache $section refreshed.");
 				//	if (!$w = $this -> format_airowm($r) ){
 // 						echo "Warning: failed to parse data returned from $section";
 // 						return false;
@@ -481,6 +485,7 @@ public function refresh_cache (string $section ) {
 						$w = self::$dummy_calendar;
 					}
 					$w = $this->filter_calendar();;
+					$this->logger->info("Cache $section refreshed.");
 					$this -> write_cache($section,$w);
 					break;
 
@@ -495,6 +500,7 @@ public function refresh_cache (string $section ) {
 					//echo  "Warning: attempt to reload $section failed.";
 						return false;
 					}
+					$this->logger->info("Cache $section refreshed.");
 					$this->write_cache ($section,$r);
 					break;
 
@@ -503,8 +509,10 @@ public function refresh_cache (string $section ) {
 						// failed to get update.  Warn and go on
 	//					u\echor ($r,'in refresh cache');
 // 						echo "Warning: attempt to reload $section failed.";
+		$this->logger->notice("attempt to refresh $section failed");
 						return false;
 					}
+					$this->logger->info("Cache $section refreshed.");
 				//	if (!$w = $this -> format_wgov($r) ){
 // 						echo "Warning: failed to parse data returned from $section";
 // 						return false;
@@ -518,6 +526,7 @@ public function refresh_cache (string $section ) {
 
 				case 'alerts':
 						$w= $this->get_alerts();
+						$this->logger->info("Cache $section refreshed.");
 						$this -> write_cache($section,$w);
 						break;
 
@@ -525,8 +534,10 @@ public function refresh_cache (string $section ) {
 					if (! $r = $this->get_external ($section,$this->airlocs) ){
 						// failed to get update.  Warn and go on
 // 						echo "Warning: attempt to reload $section failed.";
+					$this->logger->notice("attempt to refresh $section failed");
 						return false;
 					}
+					$this->logger->info("Cache $section refreshed.");
 					//if (!$w = $this -> format_airnow($r) ){
 // 						echo "Warning: failed to parse data returned from $section";
 // 						return false;
@@ -539,8 +550,10 @@ public function refresh_cache (string $section ) {
 					if (! $r = $this->get_external ($section,$this->airlocs) ){
 						// failed to get update.  Warn and go on
 // 						echo "Warning: attempt to reload $section failed.";
+$this->logger->notice("attempt to refresh $section failed");
 						return false;
 					}
+					$this->logger->info("Cache $section refreshed.");
 					//if (!$w = $this -> format_airq($r) ){
 // 						echo "Warning: failed to parse data returned from $section";
 // 						return false;
@@ -733,7 +746,11 @@ public function get_external (string $src,array $locs=['hq']) {
 
 
 // attempt to get data.  3 retries.
-	if (!$aresp = $this->get_curl($src,$url, $expected, $curl_header) ) return false;
+	if (!$aresp = $this->get_curl($src,$url, $expected, $curl_header) )
+	{
+		$this->logger->notice("get_curl failed on $src, $url, $expected");
+		return false;
+	}
 	$x[$loc] = $aresp;
 	} # next loc
 
@@ -1296,13 +1313,13 @@ function get_curl ($src, $url,string $expected='',array $header=[]) {
 		$success=0;
 		while (!$success) {
 			static $tries =0;
+			//u\echor($aresp,"Here's what I got for $src:");
 
 			if ($tries > 2){
 					//echo "Can't get valid data from ext source  $src";
-					//u\echor($aresp,"Here's what I got for $src:");
-					return false;
+				$this->logger->notice("No valid curl response on $src.",$aresp);
+				return false;
 			}
-
 			if (! $response = curl_exec($curl)) {
 				$success = 0; //echo "No curl resp on $src"; return false;
 			}else { $success = 1;}

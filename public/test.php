@@ -27,22 +27,23 @@ $twolocs = ['jr','hq'];
 //
 //$z = $Today->ext_weathergov ();
 
-//$z = $Today->load_cache('wapi',true);
+if (1){
+$z = $Today->load_cache('wapi',true);
 
-
-// u\echor ($z, 'result of test');
+u\echor ($z, 'result of test');
+}
 if (0) {
 	echo $Today->start_page('test page','b');
-	$z = $Today -> prepare_today();
-	// u\echor ($z,'Today input to plates');
+
+	 u\echor ($z,'Today input to plates');
 
 	echo $Plates->render('today-boot',$z);
 }
-if (1) {
+if (0) {
 	echo $Today->start_page('test page','p');
 	$z = $Today -> prepare_today();
 	$out =  $Plates->render('today-print',$z);
-	file_put_contents(REPO_PATH . '/public/pages/print.html' , $out;
+	file_put_contents(REPO_PATH . '/public/pages/print.html' , $out);
 
 
 $output = `curl -d @pages/print.html -H 'project: OSyxsT8B8RC83MDi' -H 'token: 0gaZ43q1NHn9Wj8NdCL7WetJvKj7vIv8bAHQpn8JPqz909nPOzU5eetM8u0v' -X POST https://api.typeset.sh/ > pages/print.pdf 2>&1"`;
@@ -52,7 +53,7 @@ echo "out: " . $output . BRNL;
 $tout = `date('M d Y')`;
 
 echo "tout: $tout" . BRNL;
-ß
+
 }
 echo "Done" . BRNL;
 echo $output.BRNL;
