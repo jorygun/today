@@ -8,7 +8,7 @@ use Pimple\Container;
 
 /* set up services in pimple container */
 
-   use Monolog\Level;
+
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
 use Monolog\Handler\FirePHPHandler;
@@ -62,7 +62,7 @@ $container['Login'] = function ($c) {
 # Initialize the shared logger service
 	$container['logger'] = function ($c) {
 	$logdir = dirname(__DIR__) . '/logs';
-	$stream = new StreamHandler($logdir .'/today_app.log', Level::Debug);
+	$stream = new StreamHandler($logdir .'/today_app.log', Logger::DEBUG);
 	$output = "%datetime% > %level_name% > %message% %context% %extra%\n";
 	$dateFormat = "Y-m-d H:i";
 	$formatter = new LineFormatter($output, $dateFormat);
