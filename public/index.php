@@ -69,10 +69,10 @@ Data is collected from a number of places that report information like weather, 
 
 
 <form class='in2' method='POST'>
-Use this button to rebuild all the pages from the current data:
+Use this button to rebuild all the pages.  Caches will be refreshed only if they are due.
 <button type='submit' name='rebuild' value=true>Rebuild pages</button>
 	<br><br>
-	Use this button to refresh all the external data and then rebuild the pages.
+	Use this button to refresh all the external data now, and then rebuild the pages.
 	<button type='submit' name='reload' value=true>Reload and Rebuild</button>
 </form>
 

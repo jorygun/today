@@ -492,7 +492,7 @@ public function refresh_cache (string $section ) {
 
 				case 'wgova':
 					if (! $r = $this->get_external ($section,['hq']) ){
-					echo  "Warning: attempt to reload $section failed.";
+					//echo  "Warning: attempt to reload $section failed.";
 						return false;
 					}
 					$this->write_cache ($section,$r);
@@ -1313,7 +1313,7 @@ function get_curl ($src, $url,string $expected='',array $header=[]) {
 			}else { $success = 1;}
 
 			if ($success &&  $expected && !u\inMultiArray($expected,$aresp)) {
-				$success = 0; echo "failed expected";
+				$success = 0; //echo "failed expected";
 			}else { $success = 1;}
 
 			if (! $success) {
