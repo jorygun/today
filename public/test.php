@@ -41,11 +41,13 @@ if (0) {
 if (1) {
 	echo $Today->start_page('test page','p');
 	$z = $Today -> prepare_today();
-	echo $Plates->render('today-print',$z);
+	$out =  $Plates->render('today-print',$z);
+	file_put_contents(REPO_PATH . 'public/pages/print.html' , $out;
 
-$html = 'http://jotr.digitalmx.com/pages/print.html';
 
-system("curl -d @http://jotr.digitalmx.com/pages/print.html -H 'project: OSyxsT8B8RC83MDi' -H 'token: 0gaZ43q1NHn9Wj8NdCL7WetJvKj7vIv8bAHQpn8JPqz909nPOzU5eetM8u0v' -X POST https://api.typeset.sh/ > today.pdf");
+#$html = 'http://jotr.digitalmx.com/pages/print.html';
+$html = 'pages/print.html';
+system("curl -d @{$html} -H 'project: OSyxsT8B8RC83MDi' -H 'token: 0gaZ43q1NHn9Wj8NdCL7WetJvKj7vIv8bAHQpn8JPqz909nPOzU5eetM8u0v' -X POST https://api.typeset.sh/ > today.pdf");
 
 // $pdf = Typesetsh\createPdf($html);
 // $pdf->toFile(REPO_PATH . '/public/pages/print.pdf');
