@@ -35,8 +35,8 @@ use DigitalMx as u;
 
 <!-- <tr class='no-border'><td ><b>Today</b></td><td class='bg-black white'><b>Tonight</b></td></tr> -->
 <tr class='no-border'>
-	<td>Sunrise <?=$light['sunrise']?> Set <?=$light['sunset']?> </td>
-<td class='bg-black white' >Moonrise <?=$light['moonrise']?> Set <?=$light['moonset']?></td>
+	<td><b>Sunrise</b> <?=$light['sunrise']?> Set <?=$light['sunset']?> </td>
+<td class='bg-black white' ><b>Moonrise</b> <?=$light['moonrise']?> Set <?=$light['moonset']?></td>
 </tr>
 
 <tr class='no-border'>

@@ -15,20 +15,10 @@ use DigitalMx as u;
 </p>
 
 
-<h4>Enter closures/announcements</h4>
-One announcement per line.(<cr>)  They will be listed as bullets<br />
-<textarea name='announcements' ><?=$admin['announcements'] ?></textarea>
-</p>
 
-<h4>Enter fire status</h4>
-<p>General Fire Level: <select name='fire_level'><?=$admin['fire_level_options']?></select>
-</p>
-
-
-
-<h4>Enter weather warning</h4>
-<p>Alerts are published by several outside sources.  Click to view active alertsfrom other sources. Copy and edit as appropriate.</p>
-<p><button type='button' onClick = "showDiv('alerts');">Alerts</button></p>
+<h4>Enter alerts</h4>
+<p>Alerts are published by several outside sources.  Click to view active alerts from other sources. Copy and edit as appropriate. </p>
+<p><button type='button' onClick = "showDiv('alerts');"> Outside Alerts</button></p>
 <div id='alerts' class='hidden'>
 	<?php foreach ($alerts as $source=>$alertset) :
 		//u\echor($alertset,$source);
@@ -48,9 +38,20 @@ One announcement per line.(<cr>)  They will be listed as bullets<br />
 <?php endforeach; ?>
 	<br />
 </div>
-
+<p>Enter alerts here. Each line of text (separated with a cr) will be a separate bulleted item.</p>
 <textarea name='alerts'><?=$admin['alerts']?></textarea>
 </p>
+
+
+<h4>Enter closures/announcements</h4>
+One announcement per line.(<cr>)  They will be listed as bullets<br />
+<textarea name='announcements' ><?=$admin['announcements'] ?></textarea>
+</p>
+
+<h4>Enter fire status</h4>
+<p>General Fire Level: <select name='fire_level'><?=$admin['fire_level_options']?></select>
+</p>
+
 
 <!--
 <p><b>Local Air Quality</b><br />
