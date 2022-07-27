@@ -262,7 +262,7 @@ $page_body_print = $this->Plates -> render ('print',$y);
 	// make a pdf version if none exists.  This limits to 1 per day.
 	$pdf = '/pages/' . "${this_day}.pdf";
 	if (!file_exists(SITE_PATH . $pdf)){
-		$this->print_pdf($print_page,$pdf);
+	//	$this->print_pdf($print_page,$pdf);
 	}
 
 
