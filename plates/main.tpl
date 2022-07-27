@@ -2,22 +2,29 @@
 use DigitalMx\jotr\Definitions as Defs;
 use DigitalMx as u;
 ?>
+
 <div >
 <h2><?=$target ?> </h2>
 <p class='pithy'><?=$admin['pithy'] ?? '' ?></p>
 </div>
 
+<!-- ############################## -->
+<div id='page1'>
 
-<?php if(!empty($admin['announcements'])) : ?>
-	<div class='warn'><ul>
-	<?php $anlist = explode("\n",$admin['announcements']);
-		foreach ($anlist as $item) :?>
-			<li><?=$item?></li>
-		<?php endforeach ?>
+<?php if (!empty($admin['alerts'])) : ?>
+<h4>Active Alerts </h4>
+	<div class='in2 warn'>
+	<ul>
+	<?php $anlist = explode("\n",$admin['alerts']);
+		foreach ($anlist as $item) :
+			if (empty(trim($item))):continue;endif;
+			echo "<li>$item</li>";
+		endforeach ?>
 		</ul>
 	</div><br />
 <?php endif; ?>
 
+<h4>Light and Dark</h4>
 <?php if(empty($light)): echo "<p>No Data</p>"; else: ?>
 <table class = 'in2'>
 <colgroup>
@@ -39,64 +46,28 @@ use DigitalMx as u;
 
 	</td>
 	<td class='bg-black' ><p class='white'><?=$light['moonphase']?></p>
-	<img src= "/images/moon/<?=$light['moonpic'] ?>" /></td>
+	<img src= "/images/moon/<?=$light['moonpic'] ?>"  alt="<?=$light['moonphase']?>" /></td>
 </tr>
 </table>
 <br />
 <?php endif; ?>
+<!-- ####################################### -->
+</div><br /><div id='page2'>
 
-<?php if (!empty($admin['fire_warn'])) : ?>
-	<div class='warn'> <?=$admin['fire_warn']?>
+<h4>Announcements </h4>
+<?php if(!empty($admin['announcements'])) : ?>
+	<div class='in2 border'><ul>
+	<?php $anlist = explode("\n",$admin['announcements']);
+		foreach ($anlist as $item) :?>
+			<li><?=$item?></li>
+		<?php endforeach ?>
+		</ul>
 	</div><br />
 <?php endif; ?>
 
-
-<div class='in2' style='width:45%; float:left;'>
-<?php if(empty($fire)): echo "<p>No Data</p>"; else:?>
-	 	<p style = 'width:100%;'> <b>Current Fire Level:</b> <span style="background-color:<?=$fire['color']?>">
-	 	<?=$fire['level']?> </span></p>
-			<div class='left'>
-				<?=Defs::$firewarn[$fire['level']]?>
-			</div>
-			<?php endif; ?>
-</div>
-
-
-
-
-<?php if(0 || empty($air)): echo "<p>No Data</p>"; else:
-// echo "Retrieved at  " . date ('M j h:i a',$air['jr']['dt']);
-?>
-
-<table class='in2' style='width:40%;float:left;'>
-<tr><th>Location</th><th>Air Quality</th><th>Particulates (PM10)</th><th>Ozone</th></tr>
-<?php foreach ($air as $loc => $dat) :
-	if (! in_array($loc,array_keys(Defs::$sitenames))) continue;
-	// not a valid locaiton
-
-	$rdt = date ('M j H:ia',$dat['dt']);
-?>
-<tr>
-	<td class='left border-bottom'><?= Defs::$sitenames[$loc] ?></td>
-	<td><?=$dat['aqi']?>
-		<span style="background-color: <?=$dat['aqi_color']?>">
-		<?=$dat['aqi_scale'] ?></span>
-		</td>
-	<td><?=$dat['pm10']?></td>
-	<td><?=$dat['o3']?></td>
-
-</tr>
-<?php endforeach; ?>
-</table>
-
-<?php endif; ?>
-
-<div style='clear:left;'></div>
-
-<br />
 <?php if(empty($calendar)) : echo "No Data"; else:
 ?>
-
+<h4>Calendar</h4>
 <table class='caltable'>
 <!-- <tr><th>Date and Time</th><th>Location</th><th>Type</th><th>Title</th></tr> -->
 <tbody>
@@ -133,14 +104,55 @@ if (($cal['dt'] < time() ) || ($cal['dt'] > (time() + 3600*24*3 ))) continue;
 </table>
 
 <?php endif; ?>
-<p style="page-break-after: always;"></p>
-<?php if (!empty($admin['weather_warn'])) : ?>
-	<div class='in2 warn'>
-	<?=$admin['weather_warn']?></div>
-	<br />
+
+<!-- ####################################### -->
+</div><br /><div id='page3'>
+
+<h4>Fire Information </h4>
+<div class='in2' >
+<?php if(empty($fire)): echo "<p>No Data</p>"; else:?>
+
+	 	<p style = 'width:100%;'> <b>Current Fire Level:</b> <span style="background-color:<?=$fire['color']?>">
+	 	<?=$fire['level']?> </span></p>
+			<div class='left'>
+				<?=Defs::$firewarn[$fire['level']]?>
+			</div>
+			<?php endif; ?>
+</div>
+
+
+
+
+<?php if(0 || empty($air)): echo "<p>No Data</p>"; else:
+// echo "Retrieved at  " . date ('M j h:i a',$air['jr']['dt']);
+?>
+<h4>Air Quality </h4>
+<table class='in2' >
+<tr><th>Location</th><th>Air Quality</th><th>Particulates (PM10)</th><th>Ozone</th></tr>
+<?php foreach ($air as $loc => $dat) :
+	if (! in_array($loc,array_keys(Defs::$sitenames))) continue;
+	// not a valid locaiton
+
+	$rdt = date ('M j H:ia',$dat['dt']);
+?>
+<tr>
+	<td class='left border-bottom'><?= Defs::$sitenames[$loc] ?></td>
+	<td><?=$dat['aqi']?>
+		<span style="background-color: <?=$dat['aqi_color']?>">
+		<?=$dat['aqi_scale'] ?></span>
+		</td>
+	<td><?=$dat['pm10']?></td>
+	<td><?=$dat['o3']?></td>
+
+</tr>
+<?php endforeach; ?>
+</table>
+
 <?php endif; ?>
-
-
+<div style='clear:left;'></div>
+<!-- ####################################### -->
+</div><br /><div id='page24'>
+<h4>Weather</h4>
 <?php $weather = $wapi['fc'];
 if(empty($weather)): echo "<p>No Data</p>"; else: ?>
 
@@ -201,8 +213,10 @@ if(empty($weather)): echo "<p>No Data</p>"; else: ?>
 <?php endif; ?>
 
 
+<!-- ####################################### -->
+</div><br /><div id='page25'>
 
-
+<h4>Campgrounds</h4>
 
 <?php if (!empty($campgroundadivse)) : ?>
 	<div class='warn'><?=$campgroundadvise?></div>
@@ -223,8 +237,10 @@ if(empty($weather)): echo "<p>No Data</p>"; else: ?>
 
 </table>
 <?php endif; ?>
-<div  style='float:left;margin-left:2em;'>&nbsp;</div>
-<div  style='float:left;width:40%;'>
+
+<div  style='float:left;width:30%;margin-left:2em;'><br />"Open" means First Come; First Served.  Find an open campsite and claim it.  Pay a ranger at the campground or at the entrance station.</div>
+.
+<div  style='float:left;width:30%;'>
 <p>Camp features:<br>
 	W: Water at Campground<br>
 	D: Dump Site for RVs<br>
@@ -232,14 +248,12 @@ if(empty($weather)): echo "<p>No Data</p>"; else: ?>
 	H: Horse sites
 </p>
 </div>
-<div style='float:left;width:40%'>
-<p>Reservations are made ONLY on at recreation.gov, using the 'rec.gov' web site or call at 1-877-444-6777. They cannot be made by park rangers.  There is no cell service in the park.</p>
-<p>"Open" means First Come; First Served.  Find an open campsite and claim it.  Pay a ranger at the campground or at the entrance station.</p>
+.
+<div style='float:left;width:30%'>
+<p>Reservations are made ONLY using the recreation.gov web site or call at 1-877-444-6777. They cannot be made by park rangers. </p>
 
 </div>
 
 <div style='clear:left;'></div>
+
 </div>
-<br />
-<hr>
-build <?php echo date('dHi'); ?>

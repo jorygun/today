@@ -1,3 +1,9 @@
+body {
+	max-width:1000px;
+	font-family:'Times New Roman',times,serif;
+
+	}
+
 h5
 {
 	margin-bottom: 3px;
@@ -101,8 +107,8 @@ button {
 table {
 	border-collapse: collapse;
 	border: 2px solid black;
-
-
+	font-family: arial,san-serif;
+	font-size:0.9em;
 }
 
 table tr th {border-bottom: 2px solid black;}
@@ -110,7 +116,7 @@ table tr th {border-bottom: 2px solid black;}
 table tr td
 {
 	border: 1px solid black;
-	font-family: arial,san-serif;
+
 	text-align: center;
 	padding: 6px;
 	vertical-align:top;
@@ -125,6 +131,22 @@ table.caltable>tbody>tr>:nth-child(1){
 	width:25%;
 	text-align:left;
 }
+table.header {
+	background-color:black;
+	width:85%;
+}
+table.header tr td {
+	background-color:black;
+	text-align:right;
+	color:white;
+	padding:3px;
+	margin:0;
+	}
+table.header>img {
+	margin:0;
+}
+
+
 
 tr.left td {text-align:left;}
 tr td.center {text-align:center;}
@@ -178,6 +200,10 @@ table.col-border td, table.col-border th {
 .hidden {
 	display:none;
 }
+.border {
+	border: 2px solid black;
+	padding: 3px;
+}
 .warn
 {
 	border: 2px solid black;
@@ -224,24 +250,4 @@ table.col-border td, table.col-border th {
 	padding-left: 3em;
 	padding-right: 3em;
 }
-table.header {
-	background-color:black;
-	width:85%;
-}
-table.header tr td {
-	background-color:black;
-	text-align:right;
-	color:white;
-	padding:3px;
-	margin:0;
-	}
-table.header>img {
-	margin:0;
-}
 
-
-
-@page {
-       size: 8.5in 11in;
-      margin: 0.5in;
-   }

@@ -46,12 +46,12 @@ use DigitalMx as u;
 
 	</td>
 	<td class='bg-black' ><p class='white'><?=$light['moonphase']?></p>
-	<img src= "/images/moon/<?=$light['moonpic'] ?>" /></td>
+	<img src= "/images/moon/<?=$light['moonpic'] ?>"  alt="<?=$light['moonphase']?>" /></td>
 </tr>
 </table>
 <br />
 <?php endif; ?>
-
+#######################################
 </div><br /><div id='page2'>
 
 <?php if(!empty($admin['announcements'])) : ?>
@@ -104,7 +104,9 @@ if (($cal['dt'] < time() ) || ($cal['dt'] > (time() + 3600*24*3 ))) continue;
 
 <?php endif; ?>
 
-<div id='page2' style="page-break-after: always;"><br /></div>
+#######################################
+</div><br /><div id='page3'>
+
 
 <div class='in2' style='width:45%; float:left;'>
 <?php if(empty($fire)): echo "<p>No Data</p>"; else:?>
@@ -147,41 +149,8 @@ if (($cal['dt'] < time() ) || ($cal['dt'] > (time() + 3600*24*3 ))) continue;
 
 <?php endif; ?>
 <div style='clear:left;'></div>
-<div id='page4'><br /></div>
-
-
-<table class = 'in2'>
-<colgroup>
-	<col style='width:50%;'>
-	<col style='width:50%;'>
-
-</colgroup>
-
-<tr class='no-border'><td ><b>Today</b></td><td class='bg-black white'><b>Tonight</b></td></tr>
-<tr class='no-border'>
-	<td>Sunrise <?=$light['sunrise']?>Set <?=$light['sunset']?> </td>
-<td class='bg-black white' >Moonrise <?=$light['moonrise']?> Set <?=$light['moonset']?></td>
-</tr>
-
-<tr class='no-border'>
-	<td ><p style='width:100%'><b>UV Exposure:</b> <?= $uv['uv'] ?>
-	<span style = 'background-color:<?=$uv['uvcolor']?>;'>   <?=$uv['uvscale']?></span></p>
-	<p><?=$uv['uvwarn']?></p>
-
-	</td>
-	<td class='bg-black' ><p class='white'><?=$light['moonphase']?></p>
-	<img src= "/images/moon/<?=$light['moonpic'] ?>" /></td>
-</tr>
-
-
-
-
-</table>
-<?php endif; ?>
-
-<!-- ############################## -->
-
-</div><br /><div id='page2'>
+#######################################
+</div><br /><div id='page24'>
 
 <?php $weather = $wapi['fc'];
 if(empty($weather)): echo "<p>No Data</p>"; else: ?>
@@ -243,6 +212,8 @@ if(empty($weather)): echo "<p>No Data</p>"; else: ?>
 <?php endif; ?>
 
 
+#######################################
+</div><br /><div id='page25'>
 
 
 
@@ -284,9 +255,4 @@ if(empty($weather)): echo "<p>No Data</p>"; else: ?>
 
 <div style='clear:left;'></div>
 
-
-
-
-<hr>
-<p id='bottom' class='right'><?=$version ?>
-<br>build <?php echo date('dHi'); ?></p>
+</div>

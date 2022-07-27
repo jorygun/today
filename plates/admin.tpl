@@ -16,16 +16,14 @@ use DigitalMx as u;
 
 
 <h4>Enter closures/announcements</h4>
-One announcement per line.(<cr>)  They will be listed as bullets
+One announcement per line.(<cr>)  They will be listed as bullets<br />
 <textarea name='announcements' ><?=$admin['announcements'] ?></textarea>
 </p>
 
 <h4>Enter fire status</h4>
 <p>General Fire Level: <select name='fire_level'><?=$admin['fire_level_options']?></select>
 </p>
-<p>Special fire warning<br />
-<textarea name='fire_warn'><?=$admin['fire_warn'] ?? '' ?></textarea>
-</p>
+
 
 
 <h4>Enter weather warning</h4>
@@ -51,7 +49,7 @@ One announcement per line.(<cr>)  They will be listed as bullets
 	<br />
 </div>
 
-<textarea name='weather_warn'><?=$admin['weather_warn']?></textarea>
+<textarea name='alerts'><?=$admin['alerts']?></textarea>
 </p>
 
 <!--

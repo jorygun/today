@@ -11,6 +11,7 @@ public/pages/
 
 #data files
 data/*.json
+logs
 
 *.bbprojectd/
 

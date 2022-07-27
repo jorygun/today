@@ -219,7 +219,7 @@ public function rebuild($force = false) {
 	$y = $this->prepare_today ($force);
 	// set forecee to true to force all cahces to rebuild now, instead of on schedule
 
-	$page_body = $this->Plates -> render('today',$y);
+	$page_body = $this->Plates -> render('main',$y);
 
 	$static_page = $this->start_page('Today in the Park (static)')
 		. $page_body;
@@ -254,9 +254,16 @@ public function rebuild($force = false) {
 		. $page_body_em ;
 	file_put_contents (SITE_PATH . '/pages/today5.html',$new_page);
 
-	$print_page = $this->start_page('Today in the Park (snap)','p')
-		. $page_body  . self::$snap_script;
+$page_body_print = $this->Plates -> render ('print',$y);
+	$print_page = $this->start_page('Today in the Park (print)','p')
+		. $page_body_print ;
 	file_put_contents( SITE_PATH . '/pages/print.html', $print_page);
+	$this_day = date('Y-d-m');
+	// make a pdf version if none exists.  This limits to 1 per day.
+	$pdf = '/pages/' . "${this_day}.pdf";
+	if (!file_exists(SITE_PATH . $pdf)){
+		$this->print_pdf($print_page,$pdf);
+	}
 
 
 	$this->logger->info( "Pages updated" );
@@ -357,10 +364,10 @@ public function post_admin ($post) {
 	$y['updated'] = date('d M H:i');
 	$y['pithy'] = u\despecial($post['pithy']);
 //fire
-	$y['fire_warn'] = $post['fire_warn'];
+
 	$y['fire_level'] = $post['fire_level'];
 //weather
-	$y['weather_warn'] = $post['weather_warn'];
+	$y['alerts'] = $post['alerts'];
 
 	$y['cgavail'] = $post['cgavail']; // array
 	$y['cgstatus'] = $post['cgstatus']; // array
@@ -1348,5 +1355,46 @@ function get_curl ($src, $url,string $expected='',array $header=[]) {
 
 	}
 
+
+public  function print_pdf (string $html, $pdffile){
+// pdffile is path relative to public folder, i.e., pages/file.pdf
+if (empty($html)) die ("no html to print_pdf");
+
+	// echo $Today->start_page('test page','p');
+// 	$z = $Today -> prepare_today();
+// 	$out =  $Plates->render('today-print',$z);
+// 	file_put_contents(REPO_PATH . '/public/pages/print.html' , $out);
+
+	$headers = array();
+	$headers[] = 'project: OSyxsT8B8RC83MDi';
+	$headers[] = 'token: 0gaZ43q1NHn9Wj8NdCL7WetJvKj7vIv8bAHQpn8JPqz909nPOzU5eetM8u0v';
+	$headers[] = "Content-Type: text/html";
+	$headers[] = "Accept: application/pdf";
+
+
+#	$data = "@pages/print.html";
+	if (!$html = file_get_contents(REPO_PATH . '/public/pages/today2.html') ) die ("no data in html ");
+
+	$ch = curl_init();
+	curl_setopt($ch, CURLOPT_URL,"https://api.typeset.sh");
+	curl_setopt($ch, CURLOPT_POST, 1);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	curl_setopt($ch, CURLOPT_HTTPHEADER,$headers);
+	curl_setopt($ch, CURLOPT_POSTFIELDS,$html);
+
+
+	$resp = curl_exec($ch);
+
+	curl_close ($ch);
+echo $resp;
+
+	file_put_contents(SITE_PATH . $pdffile,$resp);
+
+//$output = `curl -d @pages/print.html -H 'project: OSyxsT8B8RC83MDi' -H 'token: 0gaZ43q1NHn9Wj8NdCL7WetJvKj7vIv8bAHQpn8JPqz909nPOzU5eetM8u0v' -X POST https://api.typeset.sh/ > pages/print.pdf 2>&1"`;
+
+
+
+
+}
 
 } #end class
