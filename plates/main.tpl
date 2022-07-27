@@ -257,3 +257,6 @@ if(empty($weather)): echo "<p>No Data</p>"; else: ?>
 <div style='clear:left;'></div>
 
 </div>
+<hr>
+<p id='bottom' class='right'><?=$version ?>
+<br>build <?php echo date('dHi'); ?></p>

@@ -53,17 +53,18 @@ Data is collected from a number of places that report information like weather, 
 	<div class='likebutton'><a href='/pages/snap.html' target='snap'>snap</a></div></td>
 	<td class='left'>Like today, but divided into sections, and snaps every 10 seconds to athe next section.  Intended for TV monitor.  Allow 10 seconds for animation to start.</td></tr>
 
-<tr><td>
-	<div class='likebutton'><a href='/pages/today3.html' target='condensed'>condensed</a></div></td>
-	<td class='left'>Condensed</td></tr>
 
 <tr><td>
 	<div class='likebutton'><a href='/pages/today4.html' target='text'>Text only</a></div></td>
-	<td class='left'>Text</td></tr>
+	<td class='left'><tt>just plain text</tt></td></tr>
 
 <tr><td>
 	<div class='likebutton'><a href='/pages/today5.html' target='email'>Limited styles for email</a></div></td>
-	<td class='left'>Email</td></tr>
+	<td class='left'>For email, all the style information has to be defined "inline", without using style sheets.  This version does that, and sh9uld be good for copy/paste into an email.</td></tr>
+<tr><td>
+	<div class='likebutton'><a href='/pages/print.html' target='print'>print version</a></div></td>
+	<td class='left'>Designed for printing on 8.5x11; smaller type, condensed layout. takes 2 pages. </td></tr>
+
 
 </table>
 
